@@ -1,0 +1,551 @@
+.appWrapper {
+  width: 100%;
+  background: rgb(30, 31, 32);
+  height: 100%;
+}
+
+/* Nav */
+.appWrapper nav {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.navWrapper {
+  width: 100%;
+  height: 40vh;
+  background-color: rgb(30, 31, 32);
+}
+
+.navTitle {
+  color: #fff;
+  font-size: 117px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  line-height: 2.3;
+  padding-left: 60px;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+/* Hero */
+.heroWrapper {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 420px;
+  background: rgb(30, 31, 32);
+}
+
+.heroWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  background: rgb(30, 31, 32);
+}
+
+.heroCtaWrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: absolute;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.heroCta {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 284px;
+  height: 149px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  margin-right: 20px;
+}
+
+.heroCta p {
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  max-width: 90%;
+  font-size: 20px;
+  color: #000;
+  line-height: 1.4em;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+/* Intersection */
+.intersectionBlack {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  background-color: rgb(30, 31, 32);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50%;
+  z-index: -1;
+  color: #fff;
+}
+
+.intersectionWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 40vh;
+}
+
+.intersectionTextWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 100%;
+}
+
+.intersectionTextWrapper div:first-child {
+  width: 40%;
+}
+
+.intersectionTextWrapper div:nth-child(2) {
+  width: 60%;
+}
+
+.intersectionTitle {
+  font-family: Montserrat, sans-serif;
+  font-size: 56px;
+  color: rgb(242, 244, 234);
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.intersectionText {
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  color: rgb(242, 244, 234);
+  line-height: 1.5em;
+  letter-spacing: -0.025em;
+  text-transform: none;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* Filler */
+.fillerBlack {
+  width: 100%;
+  height: 15vh;
+  background-color: rgb(30, 31, 32);
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.fillerWhite {
+  width: 100%;
+  height: 30vh;
+  background-color: #fff;
+}
+
+/* Intersection White */
+.intersectionWhite {
+  width: 100%;
+  height: 40vh;
+}
+
+/* Intersection Image */
+.intersectionImageWrapper {
+  width: 100%;
+  height: calc(100% + 150px);
+  background-color: rgb(30, 31, 32);
+}
+
+.ourStoryWrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 420px;
+}
+
+.ourStoryWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* On The Menu */
+.intersectionOnTheMenu {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  color: #000;
+}
+
+.menuTitleWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  height: 100%;
+}
+
+.menuTitle {
+  font-family: Montserrat, sans-serif;
+  font-size: 56px;
+  color: rgb(0, 0, 0);
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* .onTheMenuWrapper {} */
+
+.menuHeroWrapper {
+  display: flex;
+  animation: fadeIn 0.8s ease-in-out forwards;
+  background: rgb(30, 31, 32);
+}
+
+.menuHeroItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.menuHeroItem:nth-of-type(1) {
+  background-image: url("assets/wallpapers/menu-item-1.png");
+}
+
+.menuHeroItem:nth-of-type(2) {
+  background-image: url("assets/wallpapers/menu-item-2.png");
+}
+
+.menuHeroItem:nth-of-type(3) {
+  background-image: url("assets/wallpapers/menu-item-3.png");
+}
+
+.secondaryMenuHeroItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.secondaryMenuHeroItem:nth-of-type(1) {
+  background-image: url("assets/wallpapers/menu-item-4.png");
+}
+
+.secondaryMenuHeroItem:nth-of-type(2) {
+  background-image: url("assets/wallpapers/menu-item-5.png");
+}
+
+.secondaryMenuHeroItem:nth-of-type(3) {
+  background-image: url("assets/wallpapers/menu-item-6.png");
+}
+
+.menuHeroItemInner {
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 284px;
+  height: 149px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuHeroItemInner p {
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 36.6635px;
+  color: rgb(242, 244, 234);
+  line-height: 1.1em;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+/* Intersection Ice Cream */
+.intersectionIceCream {
+  margin-bottom: 80px;
+}
+
+.iceCreamTitleWrapper {
+  display: flex;
+  margin: 0 auto;
+  text-align: center;
+  width: 45%;
+}
+
+.iceCreamTitle {
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 30.6667px;
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+.iceCreamWrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.iceCreamImageWrapper {
+  display: flex;
+  flex-basis: 70%;
+  width: 900px;
+  height: 650px;
+}
+
+.iceCreamImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.iceCreamDescriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 45%;
+  padding-right: 20px;
+}
+
+.iceCreamDescTitle {
+  font-weight: 500;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 60px;
+  color: rgb(0, 0, 0);
+  line-height: 1.2em;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.iceCreamDescription {
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  line-height: 1.5em;
+  letter-spacing: -0.025em;
+  text-transform: none;
+}
+
+.iceCreamDescription p:first-child {
+  text-align: center;
+}
+
+.iceCreamDescription p:last-child {
+  text-align: left;
+}
+
+.iceCreamQuote {
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  text-align: right;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  text-decoration: none;
+  letter-spacing: -0.025em;
+}
+
+.iceCreamQuote blockquote {
+  font-size: 18.6667px;
+  line-height: 1.5em;
+  text-transform: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.iceCreamQuote small {
+  font-size: 14.6667px;
+  line-height: 1.1em;
+  text-transform: none;
+}
+
+/* Reviews */
+.fillerBlackReviews {
+  height: 30vh;
+  width: 100%;
+  background-color: rgb(30, 31, 32);
+}
+
+.reviewsWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  font-weight: 700;
+  font-style: normal;
+  color: rgb(245, 245, 239);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+
+  color: rgb(245, 245, 239);
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.reviewsTitleWrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+}
+
+.reviewsTitle {
+  color: #fff;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  line-height: 1.4em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.intersectionReviews {
+  height: 49vh;
+}
+
+.reviewItem {
+  padding-left: 80px;
+  width: 33%;
+}
+
+.reviewItem:last-child {
+  padding-right: 80px;
+}
+
+.reviewItemImage {
+  width: 33.5152px;
+  height: 25.4716px;
+  transform: translate(3.55271e-15px, 0px) rotate(180deg);
+}
+
+.reviewItemTitle {
+  font-size: 20px;
+  line-height: 1.4em;
+  text-transform: uppercase;
+}
+
+.reviewItemText {
+  font-weight: 400;
+  line-height: 1.3em;
+  font-size: 16px;
+  text-transform: none;
+}
+
+/* Contact */
+.contactImageWrapper {
+  width: 100%;
+  height: 420px;
+}
+
+.contactImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contactWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+
+  font-weight: 600;
+  font-style: normal;
+  color: rgb(245, 245, 239);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+}
+
+.contactTitle {
+  text-align: left;
+  padding-left: 40px;
+}
+
+.contactTitle p {
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 1.13em;
+  letter-spacing: 0.14em;
+}
+
+.contactDescWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.contactDetails {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.contactDetails:last-of-type {
+  padding-right: 40px;
+  margin-top: 21px;
+}
+
+.contactDetails p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.4em;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 120px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
