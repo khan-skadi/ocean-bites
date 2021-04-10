@@ -197,7 +197,7 @@ const App = (): JSX.Element => (
         <img src={contact} alt="" />
       </div>
 
-      <div className={classes.fillerBlack}>
+      <div className={classnames(classes.fillerBlack, classes.fillerContactWrapper)}>
         <div className={classes.contactWrapper}>
           <div className={classes.contactTitle}>
             <p>Reach out to us!</p>
@@ -225,7 +225,6 @@ const App = (): JSX.Element => (
           </div>
         </div>
       </div>
-      <div className={classes.fillerBlack} />
       <div className={classes.fillerBlack} />
     </section>
   </div>

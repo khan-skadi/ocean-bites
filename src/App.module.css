@@ -488,9 +488,14 @@
   object-fit: cover;
 }
 
+.fillerContactWrapper {
+  height: 30vh;
+}
+
 .contactWrapper {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-top: 30px;
 
   font-weight: 600;
@@ -503,6 +508,7 @@
 .contactTitle {
   text-align: left;
   padding-left: 40px;
+  width: 20%;
 }
 
 .contactTitle p {
@@ -515,6 +521,7 @@
 .contactDescWrapper {
   display: flex;
   align-items: center;
+  width: 70%;
 }
 
 .contactDetails {
@@ -523,10 +530,15 @@
   align-items: center;
   text-align: left;
   flex-wrap: wrap;
+  margin: 0 15px;
+  width: 100%;
+}
+
+.contactDetails p {
+  width: 100%;
 }
 
 .contactDetails:last-of-type {
-  padding-right: 40px;
   margin-top: 21px;
 }
 
