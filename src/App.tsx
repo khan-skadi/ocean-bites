@@ -3,11 +3,11 @@ import classes from "App.module.css";
 import classnames from "classnames";
 
 // Assets
-import hero from "assets/wallpapers/hero.png";
-import ourStory from "assets/wallpapers/our-story.png";
-import iceCream from "assets/wallpapers/ice-cream.png";
-import contact from "assets/wallpapers/contact.png";
-import quote from "assets/quote.svg";
+import hero from "assets/images/wallpapers/hero.png";
+import ourStory from "assets/images/wallpapers/our-story.png";
+import iceCream from "assets/images/wallpapers/ice-cream.png";
+import contact from "assets/images/wallpapers/contact.png";
+import quote from "assets/images/quote.svg";
 
 const App = (): JSX.Element => (
   <div className={classes.appWrapper}>
