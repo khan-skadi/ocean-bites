@@ -9,13 +9,11 @@ import iceCream from "assets/images/wallpapers/ice-cream.png";
 import contact from "assets/images/wallpapers/contact.png";
 import quote from "assets/images/quote.svg";
 
+import Navbar from "components/Navbar";
+
 const App = (): JSX.Element => (
   <div className={classes.appWrapper}>
-    <nav>
-      <div className={classes.navWrapper}>
-        <p className={classes.navTitle}>Ocean Bites</p>
-      </div>
-    </nav>
+    <Navbar />
 
     <div className={classes.heroWrapper}>
       <img src={hero} alt="" />
