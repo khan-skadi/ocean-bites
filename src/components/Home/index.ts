@@ -1,3 +1,4 @@
 import LandingPage from "./LandingPage";
+import TestLandingPage from './TestLandingPage';
 
-export default LandingPage;
+export default TestLandingPage;
