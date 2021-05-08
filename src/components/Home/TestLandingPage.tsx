@@ -18,11 +18,15 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "150px",
       position: "absolute",
 
+      [theme.breakpoints.up("sm")]: {
+        height: "600px",
+      },
+
       "& img": {
         width: "100%",
         height: "100%",
         objectFit: "cover",
-        objectPosition: "center bottom",
+        objectPosition: "center right",
       },
     },
     heroCtaWrapper: {
@@ -35,6 +39,11 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "#000",
       top: 140,
       right: 10,
+
+      [theme.breakpoints.up("sm")]: {
+        top: 580,
+        right: 20,
+      },
     },
     heroCta: {
       display: "flex",
@@ -46,6 +55,11 @@ const useStyles = makeStyles((theme: Theme) =>
       border: "1px solid #fff",
       borderRadius: "50%",
 
+      [theme.breakpoints.up("sm")]: {
+        width: 294,
+        height: 175,
+      },
+
       "& p": {
         fontFamily: "Grotesk",
         fontWeight: 500,
@@ -53,6 +67,10 @@ const useStyles = makeStyles((theme: Theme) =>
         color: "#fff",
         margin: 0,
         padding: 0,
+
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "22px",
+        },
       },
     },
   })
