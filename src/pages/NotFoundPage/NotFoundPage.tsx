@@ -9,12 +9,25 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     wrapper: {
       display: "flex",
+      flexFlow: "column wrap",
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
+      height: "100%",
+
+      "& p": {
+        margin: 0,
+        marginTop: "15px",
+        marginBottom: "15px",
+        fontSize: "42px",
+        fontWeight: 500,
+        fontFamily: "Hatton",
+      },
     },
     btn: {
-      minWidth: "210px",
+      minWidth: "350px",
+      marginTop: "15px",
+      fontSize: "24px",
     },
   })
 );
