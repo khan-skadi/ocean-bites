@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { makeStyles, createStyles, Theme, Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -34,6 +35,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const NotFoundPage = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
@@ -41,7 +43,7 @@ const NotFoundPage = () => {
         <p>404</p>
         <p>Page Not Found</p>
 
-        <Button color="primary" variant="contained" className={classes.btn}>
+        <Button color="primary" variant="contained" className={classes.btn} onClick={() => history.goBack()}>
           Go Back
         </Button>
       </div>
