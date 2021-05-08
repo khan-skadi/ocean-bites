@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { PATHS } from "utils/appConstants";
 
-import { Home, ContactUs, Menu, NotFoundPage, TestHome } from "pages";
+import { Home, ContactUs, Menu, NotFoundPage, TestHome } from "pages"; //eslint-disable-line
 
 const AppRouter = () => (
   <Switch>

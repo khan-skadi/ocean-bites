@@ -3,10 +3,10 @@ import { makeStyles, createStyles, Theme } from "@material-ui/core";
 
 // Assets
 import hero from "assets/images/wallpapers/hero.png";
-import ourStory from "assets/images/wallpapers/our-story.png";
-import iceCream from "assets/images/wallpapers/ice-cream.png";
-import contact from "assets/images/wallpapers/contact.png";
-import quote from "assets/images/quote.svg";
+import ourStory from "assets/images/wallpapers/our-story.png"; //eslint-disable-line
+import iceCream from "assets/images/wallpapers/ice-cream.png"; //eslint-disable-line
+import contact from "assets/images/wallpapers/contact.png"; //eslint-disable-line
+import quote from "assets/images/quote.svg"; //eslint-disable-line
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

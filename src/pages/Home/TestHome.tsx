@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, createStyles, Theme } from "@material-ui/core";
-import Navbar from "components/Navbar";
+// import Navbar from "components/Navbar";
 
 import TestLandingPage from "components/Home";
 import TestNavbar from "components/Navbar/TestNavbar";
