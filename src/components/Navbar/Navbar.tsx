@@ -33,10 +33,10 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
       justifyContent: "flex-end",
       color: "#fff",
-      fontSize: "26px",
+      fontSize: "22px",
       fontFamily: "Hatton",
       textTransform: "uppercase",
-      marginTop: "100px",
+      marginTop: "190px",
 
       "& ul": {
         listStyle: "none",
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const menuItems = ["home", "about", "menu"];
+const menuItems = ["home", "about", "view menu", "contact us"];
 
 const Navbar = () => {
   const classes = useStyles();
