@@ -18,13 +18,26 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     navTitle: {
       color: "#fff",
-      fontSize: "117px",
       fontFamily: "Grotesk",
       fontWeight: 600,
       lineHeight: 2.3,
-      padding: "0 60px",
-      animation: "fadeIn 0.8s ease-in-out forwards",
       whiteSpace: "nowrap",
+      animation: "fadeIn 0.8s ease-in-out forwards",
+
+      [theme.breakpoints.up("lg")]: {
+        fontSize: "117px",
+        padding: "0 60px",
+      },
+
+      [theme.breakpoints.down("md")]: {
+        fontSize: "80px",
+        padding: "0 40px",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "26px",
+        padding: "0 20px",
+      },
     },
     menuWrapper: {
       width: "100%",

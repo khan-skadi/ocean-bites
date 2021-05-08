@@ -7,8 +7,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     appWrapper: {
       width: "100%",
+      height: "100%",
       background: "rgb(30, 31, 32)",
-      height: '100%"',
     },
   })
 );

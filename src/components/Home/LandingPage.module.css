@@ -91,7 +91,7 @@
 }
 
 .intersectionTitle {
-  font-family: Montserrat, sans-serif;
+  font-family: Hatton;
   font-size: 56px;
   color: rgb(242, 244, 234);
   line-height: 1.2em;
@@ -103,7 +103,7 @@
 }
 
 .intersectionText {
-  font-family: Montserrat, sans-serif;
+  font-family: Grotesk;
   font-size: 24px;
   color: rgb(242, 244, 234);
   line-height: 1.5em;
@@ -112,6 +112,22 @@
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .intersectionTextWrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+    align-items: flex-start;
+  }
+
+  .intersectionTitle {
+    font-size: 20px;
+  }
+
+  .intersectionText {
+    font-size: 20px;
+  }
 }
 
 /* Filler */
@@ -203,6 +219,13 @@
   background-size: cover;
 }
 
+@media (max-width: 500px) {
+  .menuHeroItem {
+    min-height: unset;
+    width: 33%;
+  }
+}
+
 .menuHeroItem:nth-of-type(1) {
   background-image: url("assets/images/wallpapers/menu-item-1.png");
 }
@@ -225,6 +248,13 @@
   min-height: 480px;
   background-position: center center;
   background-size: cover;
+}
+
+@media (max-width: 500px) {
+  .secondaryMenuHeroItem {
+    min-height: unset;
+    width: 33%;
+  }
 }
 
 .secondaryMenuHeroItem:nth-of-type(1) {
@@ -254,7 +284,7 @@
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
-  font-family: Montserrat, sans-serif;
+  font-family: Grotesk;
   font-size: 36.6635px;
   color: rgb(242, 244, 234);
   line-height: 1.1em;
@@ -262,9 +292,25 @@
   text-transform: none;
 }
 
+@media (max-width: 500px) {
+  .menuHeroItemInner {
+    width: 100%;
+  }
+
+  .menuHeroItemInner p {
+    font-size: 22px;
+  }
+}
+
 /* Intersection Ice Cream */
 .intersectionIceCream {
   margin-bottom: 80px;
+}
+
+@media (max-width: 500px) {
+  .intersectionIceCream {
+    margin-bottom: 0;
+  }
 }
 
 .iceCreamTitleWrapper {
@@ -284,6 +330,22 @@
   line-height: 1.2em;
   letter-spacing: 0em;
   text-transform: uppercase;
+}
+
+@media (max-width: 500px) {
+  .iceCreamTitleWrapper {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .iceCreamTitle {
+    font-size: 28px;
+  }
+
+  .intersectionIceCream .fillerWhite {
+    height: unset;
+  }
 }
 
 .iceCreamWrapper {
@@ -383,15 +445,12 @@
   display: flex;
   align-items: center;
   width: 100%;
-
   font-weight: 700;
   font-style: normal;
   color: rgb(245, 245, 239);
   text-decoration: none;
   font-family: Montserrat, sans-serif;
-
   color: rgb(245, 245, 239);
-
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -415,6 +474,16 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 500px) {
+  .reviewsWrapper {
+    flex-flow: column wrap;
+  }
+
+  .reviewsTitleWrapper {
+    align-items: flex-start;
+  }
+}
+
 .intersectionReviews {
   height: 49vh;
 }
@@ -426,6 +495,19 @@
 
 .reviewItem:last-child {
   padding-right: 80px;
+}
+
+@media (max-width: 500px) {
+  .reviewItem {
+    width: 100%;
+    margin: 20px 15px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .reviewItem:last-child {
+    padding-right: 0;
+  }
 }
 
 .reviewItemImage {
@@ -445,6 +527,16 @@
   line-height: 1.3em;
   font-size: 16px;
   text-transform: none;
+}
+
+@media (max-width: 500px) {
+  .reviewItemTitle {
+    font-size: 16px;
+  }
+
+  .reviewItemText {
+    font-size: 14px;
+  }
 }
 
 /* Contact */
@@ -468,12 +560,18 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 30px;
-
   font-weight: 600;
   font-style: normal;
   color: rgb(245, 245, 239);
   text-decoration: none;
   font-family: Montserrat, sans-serif;
+}
+
+@media (max-width: 500px) {
+  .contactWrapper {
+    flex-flow: column wrap;
+    align-items: flex-start;
+  }
 }
 
 .contactTitle {
@@ -489,10 +587,37 @@
   letter-spacing: 0.14em;
 }
 
+@media (max-width: 500px) {
+  .contactTitle {
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .contactTitle p {
+    font-size: 28px;
+  }
+}
+
 .contactDescWrapper {
   display: flex;
   align-items: center;
   width: 70%;
+}
+
+@media (max-width: 500px) {
+  .contactDescWrapper {
+    flex-wrap: wrap;
+    padding-left: 15px;
+  }
+
+  .contactDescWrapper > div {
+    margin-top: 15px !important;
+  }
+
+  .contactDescWrapper > div:first-child {
+    margin-top: 0 !important;
+  }
 }
 
 .contactDetails {
