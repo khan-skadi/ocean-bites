@@ -6,6 +6,11 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       flexGrow: 1,
     },
+    toolbarRoot: {
+      [theme.breakpoints.up("md")]: {
+        minHeight: "40vh",
+      },
+    },
     appBar: {
       backgroundColor: "#000",
     },
@@ -27,7 +32,7 @@ const TestNavbar = () => {
   return (
     <div className={classes.root}>
       <AppBar position="static" classes={{ root: classes.appBar }}>
-        <Toolbar>
+        <Toolbar className={classes.toolbarRoot}>
           <Typography variant="h6" className={classes.title}>
             Ocean Bites
           </Typography>
