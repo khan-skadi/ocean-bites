@@ -356,6 +356,7 @@ const useStyles = makeStyles((theme: Theme) =>
       "& p": {
         fontSize: "12px",
         marginRight: "10px",
+        color: "#000",
 
         "&:not(:first-child)": {
           textAlign: "center",
@@ -363,6 +364,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& blockquote": {
+        color: "#000",
         fontFamily: "Hatton",
         fontSize: "10px",
         textAlign: "end",
@@ -419,6 +421,7 @@ const useStyles = makeStyles((theme: Theme) =>
       background: "#fff",
       top: 150,
       padding: "15px 0",
+      color: "#000",
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
@@ -489,6 +492,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     reviewText: {
       fontSize: "11px",
+      color: "#000",
 
       [theme.breakpoints.up("md")]: {
         fontSize: "26px",
