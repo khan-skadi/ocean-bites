@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "100%",
         objectFit: "cover",
         objectPosition: "center right",
-        filter: "brightness(75%)",
+        filter: "brightness(95%)",
       },
     },
     heroCtaWrapper: {
@@ -68,10 +68,10 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& p": {
-        fontFamily: "Grotesk",
+        fontFamily: "Hatton",
         fontWeight: 500,
         fontSize: "12px",
-        color: "#fff",
+        color: "#000",
         margin: 0,
         padding: 0,
         width: "100%",
@@ -98,6 +98,10 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         top: 600,
       },
+
+      [theme.breakpoints.up("md")]: {
+        paddingTop: "150px",
+      },
     },
     ourStoryWrapper: {
       display: "flex",
@@ -118,13 +122,17 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingLeft: theme.spacing(4),
         fontSize: "26px",
       },
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "80px",
+      },
     },
     ourStoryText: {
       color: "#fff",
-      fontFamily: "Grotesk",
+      fontFamily: "Hatton",
 
       [theme.breakpoints.up("md")]: {
-        padding: "80px 0",
+        margin: "0 auto",
       },
 
       "& p": {
@@ -137,8 +145,12 @@ const useStyles = makeStyles((theme: Theme) =>
           marginRight: theme.spacing(4),
         },
 
+        [theme.breakpoints.up("md")]: { fontSize: "26px" },
+
         "&:last-of-type": {
           marginTop: "20px",
+
+          [theme.breakpoints.up("md")]: { marginTop: "50px" },
         },
       },
     },
@@ -159,7 +171,7 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "100%",
         objectFit: "cover",
         objectPosition: "center right",
-        filter: "brightness(75%)",
+        filter: "brightness(95%)",
       },
     },
     onTheMenu: {
@@ -170,6 +182,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
+      },
+
+      [theme.breakpoints.up("md")]: {
+        paddingTop: 200,
+        paddingBottom: 40,
       },
     },
     onTheMenuWrapper: {
@@ -187,6 +204,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.up("sm")]: {
         fontSize: "26px",
+      },
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "80px",
+        margin: 0,
       },
     },
     menuCategoriesWrapper: {
@@ -238,7 +260,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& p": {
-        fontFamily: "Grotesk",
+        fontFamily: "Hatton",
         fontWeight: 500,
         fontSize: "12px",
         color: "#fff",
@@ -261,6 +283,11 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("sm")]: {
         top: 600,
       },
+
+      [theme.breakpoints.up("md")]: {
+        paddingTop: 40,
+        paddingBottom: 150,
+      },
     },
     promoWrapper: {
       display: "flex",
@@ -279,6 +306,10 @@ const useStyles = makeStyles((theme: Theme) =>
         [theme.breakpoints.up("sm")]: {
           fontSize: "26px",
         },
+
+        [theme.breakpoints.up("md")]: {
+          fontSize: "40px",
+        },
       },
     },
     iceCreamWrapper: {
@@ -289,6 +320,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
+        paddingTop: "150px",
+        paddingBottom: "150px",
       },
     },
     iceCreamImageWrapper: {
@@ -303,9 +336,19 @@ const useStyles = makeStyles((theme: Theme) =>
         objectFit: "cover",
         objectPosition: "center right",
       },
+
+      [theme.breakpoints.up("md")]: {
+        width: "1000px",
+        top: 150,
+        left: 50,
+      },
     },
     fillerIceCream: {
       minWidth: "230px",
+
+      [theme.breakpoints.up("md")]: {
+        minWidth: "55vw",
+      },
     },
     iceCreamDescWrapper: {
       position: "relative",
@@ -320,6 +363,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& blockquote": {
+        fontFamily: "Hatton",
         fontSize: "10px",
         textAlign: "end",
         marginTop: "30px",
@@ -327,17 +371,48 @@ const useStyles = makeStyles((theme: Theme) =>
         marginInlineEnd: "10px",
         marginBlockEnd: "0.3em",
       },
+
+      [theme.breakpoints.up("md")]: {
+        "& p": {
+          fontFamily: "Grotesk",
+          fontSize: "36px",
+
+          "&:nth-of-type(3)": {
+            width: "80%",
+            marginLeft: "35px",
+            textAlign: "left",
+          },
+        },
+
+        "& blockquote": {
+          marginTop: "150px",
+          fontSize: "22px",
+          marginLeft: "395px",
+          marginInlineEnd: "40px",
+        },
+      },
     },
     small: {
+      fontFamily: "Hatton",
       display: "inherit",
       fontSize: "10px",
       textAlign: "end",
       marginRight: "10px",
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "18px",
+        marginRight: "40px",
+      },
     },
     iceCreamTitle: {
       fontSize: "16px !important",
       textTransform: "uppercase",
       textAlign: "center",
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "60px !important",
+        fontWeight: 500,
+      },
     },
     reviews: {
       position: "relative",
@@ -347,6 +422,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
+        paddingTop: "300px",
       },
     },
     reviewsWrapper: {
@@ -366,6 +442,13 @@ const useStyles = makeStyles((theme: Theme) =>
 
         [theme.breakpoints.up("sm")]: {
           fontSize: "26px",
+        },
+
+        [theme.breakpoints.up("md")]: {
+          fontSize: "80px",
+          letterSpacing: 6.3,
+          fontWeight: 600,
+          paddingBottom: "50px",
         },
       },
     },
@@ -387,14 +470,31 @@ const useStyles = makeStyles((theme: Theme) =>
       flexFlow: "column wrap",
       flexBasis: "33.3333%",
       margin: "0 5px",
+
+      [theme.breakpoints.up("md")]: {
+        paddingLeft: "50px",
+        paddingRight: "50px",
+        marginBottom: "300px",
+      },
     },
     reviewTitle: {
       textTransform: "uppercase",
       fontSize: "11px",
       color: "#000",
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "26px",
+        fontWeight: 500,
+      },
     },
     reviewText: {
       fontSize: "11px",
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "26px",
+        fontWeight: 400,
+        margin: 0,
+      },
     },
     footerImageWrapper: {
       maxWidth: "100%",
@@ -413,7 +513,7 @@ const useStyles = makeStyles((theme: Theme) =>
         height: "100%",
         objectFit: "cover",
         objectPosition: "center right",
-        filter: "brightness(75%)",
+        filter: "brightness(95%)",
       },
     },
     footer: {
@@ -516,6 +616,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
       [theme.breakpoints.up("md")]: {
         fontSize: "26px !important",
+      },
+    },
+    fillerBlack: {
+      width: "100%",
+      height: "300px",
+      background: "#000",
+      position: "relative",
+      top: "600px",
+
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
       },
     },
   })
@@ -636,6 +747,8 @@ const TestLandingPage = () => {
           </p>
         </div>
       </div>
+
+      <div className={classes.fillerBlack} />
 
       {/* Footer */}
       <div className={classes.footerImageWrapper}>

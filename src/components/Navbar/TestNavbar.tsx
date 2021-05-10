@@ -7,6 +7,11 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     toolbarRoot: {
+      [theme.breakpoints.up("sm")]: {
+        minHeight: "50vh",
+        alignItems: "flex-end",
+      },
+
       [theme.breakpoints.up("md")]: {
         minHeight: "40vh",
       },
@@ -22,6 +27,15 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "26px",
       textTransform: "uppercase",
       fontFamily: "Hatton",
+      fontWeight: 300,
+
+      [theme.breakpoints.up("sm")]: {
+        fontSize: "60px",
+      },
+
+      [theme.breakpoints.up("md")]: {
+        fontSize: "120px",
+      },
     },
   })
 );
