@@ -78,8 +78,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const menuItems = ["home", "about", "view menu", "contact us"];
-
 const Navbar = () => {
   const classes = useStyles();
 
@@ -100,5 +98,7 @@ const Navbar = () => {
     </nav>
   );
 };
+
+const menuItems = ["home", "about", "view menu", "contact us"];
 
 export default Navbar;
