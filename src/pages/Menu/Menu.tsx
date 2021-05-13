@@ -85,8 +85,6 @@ const Menu = () => {
     setActiveMenuItem(item);
   }, [location.pathname, getActiveMenuItem]);
 
-  console.log(`menuListItems: `, menuListItems);
-
   return (
     <div className={classes.root}>
       <SecondaryNavbar />
