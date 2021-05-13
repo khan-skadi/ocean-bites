@@ -27,39 +27,60 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
-      flexGrow: 1,
-      fontSize: "26px",
-      textTransform: "uppercase",
-      fontFamily: "Hatton",
-      fontWeight: 300,
-
-      [theme.breakpoints.up("sm")]: {
-        fontSize: "60px",
+      "&:hover": {
+        textDecoration: "none",
       },
 
-      [theme.breakpoints.up("md")]: {
-        fontSize: "120px",
+      "& .MuiTypography-root": {
+        fontSize: "26px",
+        textTransform: "uppercase",
+        fontFamily: "Hatton",
+        fontWeight: 300,
+        color: "#fff",
+
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "60px",
+        },
+
+        [theme.breakpoints.up("md")]: {
+          fontSize: "120px",
+        },
       },
     },
     nav: {
       display: "flex",
       flexGrow: 1,
+
+      "& a:first-child": {
+        flexGrow: 1,
+      },
     },
     navMenu: {
       display: "flex",
       alignItems: "flex-start",
       marginTop: "15px",
 
-      "& .MuiButtonBase-root": {
-        fontSize: "26px",
-
+      "& .MuiLink-root": {
         "&:hover": {
-          color: theme.palette.primary.main,
-          opacity: 0.75,
+          textDecoration: "none",
         },
 
-        "&:not(:first-of-type)": {
-          marginLeft: "15px",
+        "& .MuiButtonBase-root": {
+          fontSize: "26px",
+          color: "#fff",
+
+          "&:not($active)": {
+            color: "#fff",
+          },
+
+          "&:hover": {
+            color: theme.palette.primary.main,
+            opacity: 0.75,
+          },
+
+          "&:not(:first-of-type)": {
+            marginLeft: "15px",
+          },
         },
       },
     },
@@ -69,7 +90,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     active: {
-      color: theme.palette.primary.main,
+      color: `${theme.palette.primary.main} !important`,
     },
   })
 );
@@ -104,9 +125,9 @@ const TestNavbar = () => {
       <AppBar position="static" classes={{ root: classes.appBar }}>
         <Toolbar className={classes.toolbarRoot}>
           <div className={classes.nav}>
-            <Typography variant="h6" color="textPrimary" className={classes.title}>
-              Ocean Bites
-            </Typography>
+            <Link className={classes.title} component={NavLink} to={PATHS.home}>
+              <Typography variant="h6">Ocean Bites</Typography>
+            </Link>
 
             <div className={classes.navMenu}>
               <Link className={classes.link} component={NavLink} to={PATHS.home}>

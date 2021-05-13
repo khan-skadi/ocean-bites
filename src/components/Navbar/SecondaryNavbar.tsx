@@ -32,20 +32,28 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
-      flexGrow: 1,
-      fontSize: "26px",
-      textTransform: "uppercase",
-      fontFamily: "Hatton",
-      fontWeight: 300,
-      color: "#fff",
+      "&:hover": {
+        textDecoration: "none",
+      },
 
-      [theme.breakpoints.up("sm")]: {
-        fontSize: "36px",
+      "& .MuiTypography-root": {
+        fontSize: "26px",
+        textTransform: "uppercase",
+        fontFamily: "Hatton",
+        fontWeight: 300,
+        color: "#fff",
+
+        [theme.breakpoints.up("sm")]: {
+          fontSize: "36px",
+        },
       },
     },
     nav: {
       display: "flex",
-      flexGrow: 1,
+
+      "& a:first-child": {
+        flexGrow: 1,
+      },
     },
     navMenu: {
       display: "flex",
@@ -111,9 +119,9 @@ const SecondaryNavbar = () => {
         <Toolbar className={classes.toolbarRoot}>
           <Container maxWidth="md">
             <div className={classes.nav}>
-              <Typography variant="h6" className={classes.title}>
-                Ocean Bites
-              </Typography>
+              <Link className={classes.title} component={NavLink} to={PATHS.home}>
+                <Typography variant="h6">Ocean Bites</Typography>
+              </Link>
 
               <div className={classes.navMenu}>
                 <Link component={NavLink} to={PATHS.home}>
