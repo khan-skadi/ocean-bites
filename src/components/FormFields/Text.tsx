@@ -4,7 +4,31 @@ import { makeStyles, createStyles, Theme, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {},
+    root: {
+      marginBottom: "24px",
+    },
+    formControl: {
+      "& label": {
+        fontFamily: "Grotesk",
+        fontSize: "19px",
+        fontWeight: 600,
+      },
+
+      "& .MuiFormLabel-filled": {
+        color: theme.palette.secondary.main,
+      },
+
+      "& .MuiInputBase-root": {
+        borderRadius: "2px",
+
+        "& input": {
+          fontSize: "16px",
+          paddingTop: "12px",
+          paddingBottom: "12px",
+          height: "28px",
+        },
+      },
+    },
   })
 );
 
@@ -17,6 +41,9 @@ export const Text: FC<FieldAttributes<any>> = forwardRef((props, ref) => {
   return (
     <div className={classes.root}>
       <TextField
+        classes={{
+          root: classes.formControl,
+        }}
         fullWidth
         variant="outlined"
         color="secondary"
