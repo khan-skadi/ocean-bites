@@ -32,14 +32,14 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& .MuiTypography-root": {
-        fontSize: "26px",
+        fontSize: "20px",
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
         color: theme.palette.primary.light,
 
         [theme.breakpoints.up("sm")]: {
-          fontSize: "60px",
+          fontSize: "36px",
         },
 
         [theme.breakpoints.up("md")]: {
@@ -72,6 +72,14 @@ const useStyles = makeStyles((theme: Theme) =>
           color: "#000",
           textTransform: "capitalize",
 
+          [theme.breakpoints.down("sm")]: {
+            fontSize: "20px",
+          },
+
+          [theme.breakpoints.down("xs")]: {
+            fontSize: "14px",
+          },
+
           "&:not($active)": {
             color: "#000",
           },
@@ -83,6 +91,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
           "&:not(:first-of-type)": {
             marginLeft: "15px",
+
+            [theme.breakpoints.down("xs")]: {
+              marginLeft: "10px",
+            },
           },
         },
       },

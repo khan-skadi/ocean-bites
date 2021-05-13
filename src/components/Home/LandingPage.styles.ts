@@ -94,11 +94,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
     },
     ourStoryTitle: {
+      fontFamily: "Grotesk",
+      fontWeight: 600,
       fontSize: "18px",
       textTransform: "uppercase",
       whiteSpace: "nowrap",
       color: theme.palette.primary.light,
-      fontFamily: "Grotesk",
       marginRight: theme.spacing(2),
       paddingLeft: theme.spacing(2),
 
@@ -180,11 +181,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
     },
     onTheMenuTitle: {
+      fontFamily: "Grotesk",
+      fontWeight: 600,
       fontSize: "18px",
       textTransform: "uppercase",
       whiteSpace: "nowrap",
       color: theme.palette.primary.light,
-      fontFamily: "Grotesk",
       textAlign: "center",
 
       [theme.breakpoints.up("sm")]: {
@@ -282,11 +284,12 @@ export const useStyles = makeStyles((theme: Theme) =>
 
       "& p": {
         margin: 0,
+        fontFamily: "Grotesk",
+        fontWeight: 600,
         fontSize: "18px",
         textTransform: "uppercase",
         whiteSpace: "nowrap",
         color: theme.palette.primary.light,
-        fontFamily: "Grotesk",
 
         [theme.breakpoints.up("sm")]: {
           fontSize: "26px",

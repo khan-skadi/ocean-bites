@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& .MuiTypography-root": {
-        fontSize: "26px",
+        fontSize: "20px",
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
@@ -67,15 +67,24 @@ const useStyles = makeStyles((theme: Theme) =>
 
         "& .MuiButtonBase-root": {
           fontFamily: "Hatton",
-          fontSize: "18px",
+          fontSize: "22px",
+          color: "#000",
           textTransform: "capitalize",
+
+          [theme.breakpoints.down("sm")]: {
+            fontSize: "20px",
+          },
+
+          [theme.breakpoints.down("xs")]: {
+            fontSize: "14px",
+          },
 
           "&:not($active)": {
             color: "#000",
           },
 
           "&:hover": {
-            color: theme.palette.primary.light,
+            // color: theme.palette.primary.light,
             opacity: 0.75,
           },
 
@@ -86,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     active: {
-      color: theme.palette.primary.light,
+      color: `${theme.palette.primary.light} !important`,
     },
   })
 );
@@ -97,6 +106,8 @@ const SecondaryNavbar = () => {
   const [activeTab, setActiveTab] = useState<NavItems | string>(NavItems.home);
 
   const getActiveTab = useCallback((loc: string) => {
+    if (loc.includes("menu")) return NavItems.menu;
+
     switch (loc) {
       case "/home":
         return NavItems.home;
@@ -104,8 +115,6 @@ const SecondaryNavbar = () => {
         return NavItems.about;
       case "/contact-us":
         return NavItems.contact;
-      case "/menu":
-        return NavItems.menu;
       default:
         return "";
     }
