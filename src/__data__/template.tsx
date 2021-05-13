@@ -12,7 +12,7 @@ const Template = () => {
 
   return (
     <div className={classes.root}>
-      <p>TEMPLATE</p>
+      <p>Template</p>
     </div>
   );
 };
