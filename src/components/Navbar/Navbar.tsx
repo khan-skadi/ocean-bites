@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     appBar: {
-      backgroundColor: "#000",
+      backgroundColor: theme.palette.secondary.light,
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -36,19 +36,20 @@ const useStyles = makeStyles((theme: Theme) =>
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
-        color: "#fff",
+        color: theme.palette.primary.light,
 
         [theme.breakpoints.up("sm")]: {
           fontSize: "60px",
         },
 
         [theme.breakpoints.up("md")]: {
-          fontSize: "120px",
+          fontSize: "80px",
         },
       },
     },
     nav: {
       display: "flex",
+      alignItems: "flex-end",
       flexGrow: 1,
 
       "& a:first-child": {
@@ -66,15 +67,17 @@ const useStyles = makeStyles((theme: Theme) =>
         },
 
         "& .MuiButtonBase-root": {
-          fontSize: "26px",
-          color: "#fff",
+          fontFamily: "Hatton",
+          fontSize: "30px",
+          color: "#000",
+          textTransform: "capitalize",
 
           "&:not($active)": {
-            color: "#fff",
+            color: "#000",
           },
 
           "&:hover": {
-            color: theme.palette.primary.main,
+            color: theme.palette.primary.light,
             opacity: 0.75,
           },
 
@@ -90,7 +93,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     active: {
-      color: `${theme.palette.primary.main} !important`,
+      color: `${theme.palette.primary.light} !important`,
     },
   })
 );
@@ -132,22 +135,22 @@ const TestNavbar = () => {
             <div className={classes.navMenu}>
               <Link className={classes.link} component={NavLink} to={PATHS.home}>
                 <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
-                  Home
+                  Home.
                 </Button>
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.menu}>
                 <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
-                  Menu
+                  Menu.
                 </Button>
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.about}>
                 <Button variant="text" className={classnames(activeTab === NavItems.about && classes.active)}>
-                  About Us
+                  About Us.
                 </Button>
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.contact}>
                 <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
-                  Contact
+                  Contact.
                 </Button>
               </Link>
             </div>

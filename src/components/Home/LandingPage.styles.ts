@@ -76,7 +76,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     ourStory: {
       position: "relative",
-      background: "#000",
+      background: theme.palette.secondary.light,
       top: 150,
       padding: "15px 0",
 
@@ -97,7 +97,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: "18px",
       textTransform: "uppercase",
       whiteSpace: "nowrap",
-      color: "#fff",
+      color: theme.palette.primary.light,
       fontFamily: "Grotesk",
       marginRight: theme.spacing(2),
       paddingLeft: theme.spacing(2),
@@ -113,7 +113,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     ourStoryText: {
-      color: "#fff",
+      color: "#000",
       fontFamily: "Hatton",
 
       [theme.breakpoints.up("md")]: {
@@ -161,7 +161,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     onTheMenu: {
       position: "relative",
-      background: "#000",
+      background: theme.palette.secondary.light,
       top: 150,
       padding: "15px 0",
 
@@ -183,7 +183,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: "18px",
       textTransform: "uppercase",
       whiteSpace: "nowrap",
-      color: "#fff",
+      color: theme.palette.primary.light,
       fontFamily: "Grotesk",
       textAlign: "center",
 
@@ -261,7 +261,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     promo: {
       position: "relative",
-      background: "#000",
+      background: theme.palette.secondary.light,
       top: 150,
       padding: "15px 0",
 
@@ -285,7 +285,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontSize: "18px",
         textTransform: "uppercase",
         whiteSpace: "nowrap",
-        color: "#fff",
+        color: theme.palette.primary.light,
         fontFamily: "Grotesk",
 
         [theme.breakpoints.up("sm")]: {
@@ -300,7 +300,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     iceCreamWrapper: {
       position: "relative",
       top: 150,
-      background: "#fff",
+      background: theme.palette.secondary.light,
       display: "flex",
 
       [theme.breakpoints.up("sm")]: {
@@ -325,7 +325,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("md")]: {
         width: "1000px",
         top: 150,
-        left: 50,
+        left: 0,
       },
     },
     fillerIceCream: {
@@ -385,6 +385,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: "10px",
       textAlign: "end",
       marginRight: "10px",
+      color: `${theme.palette.primary.light} !important`,
 
       [theme.breakpoints.up("md")]: {
         fontSize: "18px",
@@ -395,6 +396,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: "16px !important",
       textTransform: "uppercase",
       textAlign: "center",
+      color: `${theme.palette.primary.light} !important`,
 
       [theme.breakpoints.up("md")]: {
         fontSize: "60px !important",
@@ -403,10 +405,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     reviews: {
       position: "relative",
-      background: "#fff",
+      background: theme.palette.secondary.light,
       top: 150,
       padding: "15px 0",
-      color: "#000",
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
@@ -424,7 +425,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontSize: "18px",
         textTransform: "uppercase",
         whiteSpace: "nowrap",
-        color: "#000",
+        color: theme.palette.primary.light,
         fontWeight: 600,
         fontFamily: "Grotesk",
 
@@ -443,7 +444,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     reviewsInnerWrapper: {
       position: "relative",
       top: 150,
-      background: "#fff",
+      background: theme.palette.secondary.light,
       display: "flex",
       width: "100%",
       paddingLeft: "15px",
@@ -477,11 +478,12 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     reviewText: {
       fontSize: "11px",
+      fontWeight: 300,
       color: "#000",
 
       [theme.breakpoints.up("md")]: {
         fontSize: "26px",
-        fontWeight: 400,
+        fontWeight: 300,
         margin: 0,
       },
     },
@@ -507,53 +509,49 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     footer: {
       position: "relative",
-      background: "#000",
-      color: "#fff",
+      background: theme.palette.secondary.light,
+      color: "#000",
       top: 150,
       padding: "40px 0 80px",
 
       [theme.breakpoints.up("sm")]: {
         top: 600,
-        padding: "100px 0 300px",
+        padding: "50px 0 200px",
       },
     },
     footerWrapper: {
-      display: "flex",
-      alignItems: "center",
-      flexFlow: "row wrap",
-      marginLeft: "30px",
-
-      [theme.breakpoints.up("sm")]: {
-        justifyContent: "stretch",
-        flexFlow: "row wrap",
-        marginLeft: "30px",
-      },
-
-      [theme.breakpoints.up("md")]: {
-        justifyContent: "stretch",
-        flexFlow: "row nowrap",
-        marginLeft: "50px",
-      },
+      // display: "flex",
+      // alignItems: "center",
+      // flexFlow: "row wrap",
+      // marginLeft: "30px",
+      // [theme.breakpoints.up("sm")]: {
+      //   justifyContent: "stretch",
+      //   flexFlow: "row wrap",
+      //   marginLeft: "30px",
+      // },
+      // [theme.breakpoints.up("md")]: {
+      //   justifyContent: "stretch",
+      //   flexFlow: "row nowrap",
+      //   marginLeft: "50px",
+      // },
     },
     footerTitle: {
-      fontSize: "28px",
-      fontWeight: 600,
+      fontSize: "24px",
+      fontWeight: 700,
       fontFamily: "Grotesk",
       textTransform: "uppercase",
-      width: "50%",
+      color: theme.palette.primary.light,
 
       "& p": {
         margin: 0,
       },
 
       [theme.breakpoints.up("sm")]: {
-        width: "35%",
-        fontSize: "40px",
+        fontSize: "26px",
       },
 
       [theme.breakpoints.up("md")]: {
-        fontSize: "60px !important",
-        width: "25%",
+        fontSize: "30px !important",
       },
     },
     footerSectionWrapper: {
@@ -610,12 +608,155 @@ export const useStyles = makeStyles((theme: Theme) =>
     fillerBlack: {
       width: "100%",
       height: "300px",
-      background: "#000",
+      background: theme.palette.secondary.light,
       position: "relative",
       top: "600px",
 
       [theme.breakpoints.down("sm")]: {
         display: "none",
+      },
+    },
+    contactWrapper: {
+      display: "flex",
+      flexFlow: "column wrap",
+      justifyContent: "center",
+      alignItems: "flex-start",
+      marginLeft: "20px",
+    },
+    contactItem: {
+      display: "flex",
+      alignItems: "center",
+
+      "& .MuiTypography-root": {
+        fontFamily: "Grotesk",
+        fontWeight: 400,
+        fontSize: "18px",
+        marginTop: theme.spacing(2),
+
+        [theme.breakpoints.down("xs")]: {
+          marginTop: theme.spacing(1),
+        },
+      },
+
+      "& svg": {
+        fontSize: "2.1em",
+        marginRight: theme.spacing(2),
+        color: theme.palette.primary.light,
+        marginTop: theme.spacing(2),
+
+        [theme.breakpoints.down("xs")]: {
+          marginTop: theme.spacing(1),
+        },
+      },
+    },
+    hoursWrapper: {
+      display: "flex",
+      flexFlow: "column nowrap",
+      alignItems: "center",
+
+      "& .MuiTypography-root.MuiTypography-body1": {
+        fontFamily: "Grotesk",
+        fontWeight: 600,
+        fontSize: "18px",
+        textTransform: "uppercase",
+        letterSpacing: 1.5,
+        color: theme.palette.primary.light,
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        marginTop: theme.spacing(5),
+      },
+    },
+    hoursItem: {
+      marginTop: theme.spacing(1),
+
+      "& .MuiTypography-root": {
+        fontFamily: "Grotesk",
+        fontWeight: 400,
+        fontSize: "18px",
+
+        [theme.breakpoints.down("sm")]: {
+          textAlign: "center",
+        },
+      },
+    },
+    locationWrapper: {
+      display: "flex",
+      flexFlow: "column wrap",
+      alignItems: "center",
+
+      "& .MuiTypography-root.MuiTypography-body1": {
+        fontFamily: "Grotesk",
+        fontWeight: 600,
+        fontSize: "18px",
+        textTransform: "uppercase",
+        letterSpacing: 1.5,
+        color: theme.palette.primary.light,
+      },
+
+      [theme.breakpoints.down("sm")]: {
+        marginTop: theme.spacing(5),
+      },
+    },
+    locationItem: {
+      marginTop: theme.spacing(1),
+
+      "& .MuiTypography-root": {
+        fontFamily: "Grotesk",
+        fontWeight: 400,
+        fontSize: "18px",
+
+        [theme.breakpoints.down("sm")]: {
+          textAlign: "center",
+        },
+      },
+    },
+    socialWrapper: {
+      "& .MuiTypography-root.MuiTypography-body1": {
+        fontFamily: "Grotesk",
+        fontWeight: 600,
+        fontSize: "18px",
+        textTransform: "uppercase",
+        letterSpacing: 1.5,
+        color: theme.palette.primary.light,
+      },
+
+      [theme.breakpoints.down("sm")]: {
+        marginTop: theme.spacing(5),
+      },
+    },
+    socialItem: {
+      marginTop: theme.spacing(1),
+      display: "flex",
+      flexFlow: "row nowrap",
+      justifyContent: "center",
+      alignItems: "center",
+      maxWidth: "112px",
+    },
+    socialIconWrapper: {
+      width: "30px",
+
+      "&:first-child": {
+        marginRight: theme.spacing(2),
+      },
+
+      "& img": {
+        width: "100%",
+        height: "100%",
+      },
+
+      "& svg": {
+        width: "100%",
+        height: "100%",
+      },
+    },
+    footerGridItem: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+
+      "&:first-child": {
+        flexFlow: "column nowrap",
       },
     },
   })
