@@ -5,7 +5,6 @@ import classnames from "classnames";
 
 // Helpers
 import { menuListItems } from "__data__/menuMockData";
-import { MenuNavItems } from "utils/navigation";
 import { PATHS } from "utils/appConstants";
 
 // Components
@@ -20,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
       height: "100%",
     },
     wrapper: {
-      marginTop: "50px",
+      marginTop: "30px",
     },
     menuItemsListWrapper: {
       display: "flex",
@@ -52,6 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     active: {
       color: `${theme.palette.secondary.main} !important`,
+      textDecoration: "underline",
     },
   })
 );
@@ -59,27 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Menu = () => {
   const classes = useStyles();
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState<MenuNavItems | string>(MenuNavItems.breakfast);
   const [activeMenuItem, setActiveMenuItem] = useState<MenuItem>(menuListItems[0]);
-
-  const getActiveTab = useCallback((loc: string) => {
-    switch (loc) {
-      case PATHS.menuItems.breakfast:
-        return MenuNavItems.breakfast;
-      case PATHS.menuItems.allDay:
-        return MenuNavItems.allDay;
-      case PATHS.menuItems.dessert:
-        return MenuNavItems.dessert;
-      case PATHS.menuItems.beverages:
-        return MenuNavItems.beverages;
-      case PATHS.menuItems.wines:
-        return MenuNavItems.wines;
-      case PATHS.menuItems.happyHour:
-        return MenuNavItems.happyHour;
-      default:
-        return "";
-    }
-  }, []);
 
   const getActiveMenuItem = useCallback((loc: string) => {
     switch (loc) {
@@ -101,11 +81,9 @@ const Menu = () => {
   }, []);
 
   useEffect(() => {
-    const tab = getActiveTab(location.pathname);
     const item = getActiveMenuItem(location.pathname);
-    setActiveTab(tab);
     setActiveMenuItem(item);
-  }, [location.pathname, getActiveTab, getActiveMenuItem]);
+  }, [location.pathname, getActiveMenuItem]);
 
   console.log(`menuListItems: `, menuListItems);
 
@@ -116,24 +94,19 @@ const Menu = () => {
         <Container maxWidth="md">
           <div className={classes.menuItemsListWrapper}>
             <ul className={classes.menuItemsList}>
-              {menuListItems.map((item) => {
-                console.log("item: ", item);
-                console.log(`item.link === activeTab`, item.link === activeTab);
-
-                return (
-                  <li key={item.name}>
-                    <Link className={classes.link} component={NavLink} to={item.link}>
-                      <Typography
-                        variant="body1"
-                        color="textSecondary"
-                        className={classnames(item.name === activeMenuItem.name && classes.active)}
-                      >
-                        {item.name}
-                      </Typography>
-                    </Link>
-                  </li>
-                );
-              })}
+              {menuListItems.map((item) => (
+                <li key={item.name}>
+                  <Link className={classes.link} component={NavLink} to={item.link}>
+                    <Typography
+                      variant="body1"
+                      color="textSecondary"
+                      className={classnames(item.name === activeMenuItem.name && classes.active)}
+                    >
+                      {item.name}
+                    </Typography>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <MenuPage menuItem={activeMenuItem} />
