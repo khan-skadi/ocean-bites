@@ -3,8 +3,10 @@ import { makeStyles, createStyles, Theme, Button, Typography } from "@material-u
 import * as Yup from "yup";
 import { useFormik, FormikValues } from "formik";
 import { getFormikFieldProps } from "utils/getFormikFieldProps";
+import { ALERT_MESSAGES } from "utils/verbiage";
 
 import { Text } from "components/FormFields";
+import Alert, { AlertProps } from "components/Alert";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -60,9 +62,23 @@ const VALIDATION_SCHEMA = Yup.object({
 
 const ContactForm = () => {
   const classes = useStyles();
+  const [alertProps, setAlertProps] = React.useState<Partial<AlertProps>>({
+    open: false,
+  });
 
   const onSubmit = (values: FormikValues) => {
-    console.log("values: ", values);
+    setAlertProps({
+      open: true,
+      onClose: () => setAlertProps({ open: false }),
+      severity: "success",
+      message: ALERT_MESSAGES.formSubmittedSuccessfully,
+    });
+
+    setTimeout(() => {
+      setAlertProps({
+        open: false,
+      });
+    }, 4000);
   };
 
   const formik = useFormik({
@@ -75,6 +91,7 @@ const ContactForm = () => {
 
   return (
     <div className={classes.root}>
+      <Alert {...alertProps} />
       <div className={classes.text}>
         <Typography variant="body1">For all other questions, please use the form.</Typography>
       </div>
