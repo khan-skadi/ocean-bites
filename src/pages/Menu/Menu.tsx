@@ -10,6 +10,7 @@ import { PATHS } from "utils/appConstants";
 // Components
 import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import MenuPage from "components/Menu/MenuPage";
+import Footer from "components/Footer";
 import { MenuItem } from "models/menu";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -110,6 +111,7 @@ const Menu = () => {
           <MenuPage menuItem={activeMenuItem} />
         </Container>
       </div>
+      <Footer position="static" />
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { makeStyles, createStyles, Theme, Container, Grid } from "@material-ui/c
 
 import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import { ContactForm, Sidebar } from "components/ContactUs";
+import Footer from "components/Footer";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -40,6 +41,7 @@ const ContactUs = () => {
           </Grid>
         </Container>
       </div>
+      <Footer position="fixed" />
     </div>
   );
 };
