@@ -1,26 +1,30 @@
-type CategoryName = "Breakfast" | "All Day" | "Dessert" | "Beverages" | "Wines" | "Happy Hour";
-type SubCategoryName =
-  | "Tea"
-  | "Red"
-  | "Beer"
-  | "Rosé"
-  | "Water"
-  | "Sides"
-  | "White"
-  | "Coffee"
+type CategoryName =
+  | "Pizza"
   | "Salads"
-  | "Snacks"
-  | "Toasts"
-  | "Plates"
-  | "Frozen"
-  | "Dessert"
-  | "Breakfast"
-  | "Cocktails"
-  | "Non-Alcoholic"
-  | "Juices + Shots"
-  | "Salad Additions"
-  | "Sangria + Spritzer"
-  | "Sparkling/Champagne";
+  | "Wraps"
+  | "Kids Menu"
+  | "Sandwiches"
+  | "Appetizers"
+  | "Hot and Cold Subs"
+  | "Ice Cream and Treats";
+
+type SubCategoryName =
+  | "Beverages"
+  | "Kids Menu"
+  | "Pizza by Slice"
+  | "Bites Appetizers"
+  | "Ocean Bites Pizza"
+  | "Ocean Bites Wraps"
+  | "Ocean Bites Snacks"
+  | "Bites Banana Split"
+  | "Ocean Bites Baskets"
+  | "Ocean Bites Hot Subs"
+  | "Ocean Bites Cold Subs"
+  | "Topping of Your Choice"
+  | "Ocean Bites Sandwiches"
+  | "Ocean Bites Fresh Salads"
+  | "Fountain Soda - Pepsi Products"
+  | "Ocean Bites Ice Cream and Treats";
 
 interface SubCategoryItem {
   id: number;
@@ -33,6 +37,7 @@ interface SubCategoryItem {
 interface SubCategory {
   id: number;
   name: SubCategoryName;
+  subtitle?: string;
   items: SubCategoryItem[];
   timeSheet?: string;
 }

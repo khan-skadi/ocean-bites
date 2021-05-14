@@ -3,6 +3,8 @@ import { makeStyles, createStyles, Theme, Grid, Typography } from "@material-ui/
 import { MenuItem } from "models/menu";
 import classnames from "classnames";
 
+import PizzaToppings from "./CategoryDetails/PizzaToppings";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -103,6 +105,7 @@ interface Props {
 
 const MenuPage: FC<Props> = ({ menuItem }) => {
   const classes = useStyles();
+  const pizzaMenu = Boolean(menuItem.name === "Pizza"); // eslint-disable-line
 
   return (
     <div
@@ -132,8 +135,13 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
                   </div>
                   <div className={classes.itemSub}>
                     <Typography variant="body1" color="textSecondary">
-                      {item.ingredients && item.ingredients.join(", ").toString()}
+                      {item.ingredients && `(${item.ingredients.join(", ").toString()})`}
                     </Typography>
+                    {item.additional && (
+                      <Typography variant="body1" color="textSecondary">
+                        {`(${item.additional})`}
+                      </Typography>
+                    )}
                   </div>
                 </div>
               </Grid>
@@ -141,6 +149,7 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
           </Grid>
         </div>
       ))}
+      {/* {pizzaMenu && <PizzaToppings />} */}
       {menuItem.additional && (
         <Grid container className={classes.additionalContainer}>
           <Grid item xs={12}>

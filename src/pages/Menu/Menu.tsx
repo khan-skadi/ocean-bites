@@ -64,18 +64,22 @@ const Menu = () => {
 
   const getActiveMenuItem = useCallback((loc: string) => {
     switch (loc) {
-      case PATHS.menuItems.breakfast:
+      case PATHS.menuItems.appetizers:
         return menuListItems[0];
-      case PATHS.menuItems.allDay:
+      case PATHS.menuItems.pizza:
         return menuListItems[1];
-      case PATHS.menuItems.dessert:
+      case PATHS.menuItems.salads:
         return menuListItems[2];
-      case PATHS.menuItems.beverages:
+      case PATHS.menuItems.wraps:
         return menuListItems[3];
-      case PATHS.menuItems.wines:
+      case PATHS.menuItems.hotAndColdSubs:
         return menuListItems[4];
-      case PATHS.menuItems.happyHour:
+      case PATHS.menuItems.sandwiches:
         return menuListItems[5];
+      case PATHS.menuItems.iceCreamAndTreats:
+        return menuListItems[6];
+      case PATHS.menuItems.kidsMenu:
+        return menuListItems[7];
       default:
         return menuListItems[0];
     }
