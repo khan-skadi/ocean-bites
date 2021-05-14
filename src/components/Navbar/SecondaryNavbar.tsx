@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& .MuiTypography-root": {
-        fontSize: "20px",
+        fontSize: "12px",
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
@@ -51,6 +51,11 @@ const useStyles = makeStyles((theme: Theme) =>
     nav: {
       display: "flex",
       alignItems: "flex-end",
+
+      [theme.breakpoints.down("xs")]: {
+        justifyContent: "center",
+        alignItems: "center",
+      },
 
       "& a:first-child": {
         flexGrow: 1,
@@ -72,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
           textTransform: "capitalize",
 
           [theme.breakpoints.down("sm")]: {
-            fontSize: "20px",
+            fontSize: "12px !important",
           },
 
           [theme.breakpoints.down("xs")]: {
@@ -84,7 +89,6 @@ const useStyles = makeStyles((theme: Theme) =>
           },
 
           "&:hover": {
-            // color: theme.palette.primary.light,
             opacity: 0.75,
           },
 

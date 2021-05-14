@@ -1,5 +1,6 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, Container, Grid } from "@material-ui/core";
+import { makeStyles, createStyles, Theme, Container, Grid, useMediaQuery } from "@material-ui/core";
+import classnames from "classnames";
 
 import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import { ContactForm, Sidebar } from "components/ContactUs";
@@ -16,16 +17,24 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     sidebar: {},
     form: {},
+    marginBottom: {
+      marginBottom: "200px",
+    },
   })
 );
 
 const ContactUs = () => {
   const classes = useStyles();
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("xs"));
 
   return (
     <div className={classes.root}>
       <SecondaryNavbar />
-      <div className={classes.wrapper}>
+      <div
+        className={classnames(classes.wrapper, {
+          [classes.marginBottom]: isMobile,
+        })}
+      >
         <Container maxWidth="md">
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4}>
@@ -41,7 +50,7 @@ const ContactUs = () => {
           </Grid>
         </Container>
       </div>
-      <Footer position="fixed" />
+      <Footer position="static" />
     </div>
   );
 };
