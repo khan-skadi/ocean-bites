@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme, Grid, Typography } from "@material-ui/
 import { MenuItem } from "models/menu";
 import classnames from "classnames";
 
-import PizzaToppings from "./CategoryDetails/PizzaToppings";
+import PizzaToppings from "./CategoryDetails/PizzaToppings"; // eslint-disable-line
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -135,9 +135,9 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
                   </div>
                   <div className={classes.itemSub}>
                     <Typography variant="body1" color="textSecondary">
-                      {item.ingredients && `(${item.ingredients.join(", ").toString()})`}
+                      {item.ingredients && item.ingredients.length && `(${item.ingredients.join(", ").toString()})`}
                     </Typography>
-                    {item.additional && (
+                    {item.additional && item.additional.length && (
                       <Typography variant="body1" color="textSecondary">
                         {`(${item.additional})`}
                       </Typography>

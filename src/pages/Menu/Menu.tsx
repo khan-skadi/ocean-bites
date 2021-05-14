@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     wrapper: {
       marginTop: "30px",
+      marginBottom: "528px",
     },
     menuItemsListWrapper: {
       display: "flex",
@@ -38,8 +39,9 @@ const useStyles = makeStyles((theme: Theme) =>
         float: "left",
 
         "& p": {
-          fontWeight: 600,
           fontFamily: "Grotesk",
+          fontWeight: 600,
+          fontSize: "15px",
           textTransform: "uppercase",
           color: "#000",
         },

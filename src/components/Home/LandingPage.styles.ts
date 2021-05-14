@@ -231,6 +231,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
       alignItems: "center",
     },
+    menuItemLink: {
+      "&:hover": {
+        textDecorationColor: theme.palette.primary.light,
+      },
+    },
     menuItemInner: {
       display: "flex",
       alignItems: "center",
@@ -240,6 +245,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       textAlign: "center",
       border: "1px solid #fff",
       borderRadius: "50%",
+
+      "&:hover": {
+        background: "rgba(0, 0, 0, 0.7)",
+      },
 
       [theme.breakpoints.up("sm")]: {
         width: 295,

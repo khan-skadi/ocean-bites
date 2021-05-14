@@ -1,5 +1,8 @@
 import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Link as NavLink } from "react-router-dom";
+import { Container, Grid, Typography, Link } from "@material-ui/core";
+import { PATHS } from "utils/appConstants";
+
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
 
@@ -67,9 +70,11 @@ const LandingPage = () => {
                   backgroundImage: `url(${item.img})`,
                 }}
               >
-                <div className={classes.menuItemInner}>
-                  <p>{item.name}</p>
-                </div>
+                <Link className={classes.menuItemLink} component={NavLink} to={item.link}>
+                  <div className={classes.menuItemInner}>
+                    <p>{item.name}</p>
+                  </div>
+                </Link>
               </div>
             </li>
           ))}
@@ -200,31 +205,37 @@ const menuItems = [
   {
     name: "Cold & Hot Subs",
     label: "coldAndHotSubs",
+    link: PATHS.menuItems.hotAndColdSubs,
     img: menuItem1,
   },
   {
     name: "Wraps",
     label: "wraps",
+    link: PATHS.menuItems.wraps,
     img: menuItem2,
   },
   {
     name: "Pizza",
     label: "pizza",
+    link: PATHS.menuItems.pizza,
     img: menuItem3,
   },
   {
     name: "Burgers",
     label: "burgers",
+    link: PATHS.menuItems.wraps,
     img: menuItem4,
   },
   {
     name: "Salad",
     label: "salad",
+    link: PATHS.menuItems.salads,
     img: menuItem5,
   },
   {
     name: "Chicken Tenders",
     label: "chickenTenders",
+    link: PATHS.menuItems.appetizers,
     img: menuItem6,
   },
 ];
