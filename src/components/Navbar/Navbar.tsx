@@ -11,13 +11,15 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     toolbarRoot: {
+      padding: '20px 0 0',
+
       [theme.breakpoints.up("sm")]: {
-        minHeight: "50vh",
         alignItems: "flex-end",
+        justifyContent: "center",
       },
 
       [theme.breakpoints.up("md")]: {
-        minHeight: "40vh",
+        padding: "30px 0 0 120px",
       },
     },
     appBar: {
@@ -27,12 +29,13 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
+
       "&:hover": {
         textDecoration: "none",
       },
 
       "& .MuiTypography-root": {
-        fontSize: "12px",
+        fontSize: "24px",
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
@@ -43,18 +46,18 @@ const useStyles = makeStyles((theme: Theme) =>
         },
 
         [theme.breakpoints.up("md")]: {
-          fontSize: "80px",
+          fontSize: "64px",
         },
       },
     },
     nav: {
       display: "flex",
-      alignItems: "flex-end",
+      alignItems: "center",
       flexGrow: 1,
 
       [theme.breakpoints.down("xs")]: {
+        flexFlow: "column wrap",
         justifyContent: "center",
-        alignItems: "center",
       },
 
       "& a:first-child": {
@@ -64,7 +67,11 @@ const useStyles = makeStyles((theme: Theme) =>
     navMenu: {
       display: "flex",
       alignItems: "flex-start",
-      marginTop: "15px",
+
+      [theme.breakpoints.up("sm")]: {
+        marginTop: "15px",
+        paddingRight: "50px",
+      },
 
       "& .MuiLink-root": {
         "&:hover": {
@@ -105,6 +112,9 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     link: {
+      padding: "0 10px",
+      whiteSpace: "nowrap",
+
       "&:hover": {
         textDecoration: "none",
       },
@@ -112,7 +122,7 @@ const useStyles = makeStyles((theme: Theme) =>
     active: {
       color: `${theme.palette.primary.light} !important`,
     },
-  })
+  }),
 );
 
 const TestNavbar = () => {
@@ -142,7 +152,7 @@ const TestNavbar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" classes={{ root: classes.appBar }}>
+      <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar className={classes.toolbarRoot}>
           <div className={classes.nav}>
             <Link className={classes.title} component={NavLink} to={PATHS.home}>
@@ -152,29 +162,29 @@ const TestNavbar = () => {
             <div className={classes.navMenu}>
               <Link className={classes.link} component={NavLink} to={PATHS.home}>
                 <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
-                  Home.
-                </Button>
-              </Link>
-              <Link className={classes.link} component={NavLink} to={PATHS.menu}>
-                <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
-                  Menu.
+                  Home
                 </Button>
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.about}>
                 <Button variant="text" className={classnames(activeTab === NavItems.about && classes.active)}>
-                  About Us.
+                  About Us
+                </Button>
+              </Link>
+              <Link className={classes.link} component={NavLink} to={PATHS.menu}>
+                <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
+                  Menu
                 </Button>
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.contact}>
                 <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
-                  Contact.
+                  Contact
                 </Button>
               </Link>
             </div>
           </div>
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}
+           <MenuIcon />
+           </IconButton> */}
         </Toolbar>
       </AppBar>
     </div>
