@@ -8,6 +8,11 @@ const useStyles = makeStyles((theme: Theme) =>
       flexFlow: "column wrap",
       justifyContent: "flex-start",
       alignItems: "flex-start",
+
+      [theme.breakpoints.down("xs")]: {
+        justifyContent: "center",
+        alignItems: "center",
+      },
     },
     title: {
       fontFamily: "Grotesk",
@@ -18,6 +23,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     addressWrapper: {
       margin: "20px 0",
+
+      [theme.breakpoints.down("xs")]: {
+        textAlign: "center",
+      },
     },
     description: {
       fontFamily: "Grotesk",

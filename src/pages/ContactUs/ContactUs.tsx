@@ -1,12 +1,12 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, Container, Grid, useMediaQuery } from "@material-ui/core";
+import { makeStyles, createStyles, Container, Theme, Grid, useMediaQuery } from "@material-ui/core";
 import classnames from "classnames";
 
 import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import { ContactForm, Sidebar } from "components/ContactUs";
 import Footer from "components/Footer";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       width: "100%",
@@ -50,7 +50,7 @@ const ContactUs = () => {
           </Grid>
         </Container>
       </div>
-      <Footer position="fixed" />
+      <Footer position={isMobile ? "static" : "fixed"} spacing="50px" />
     </div>
   );
 };

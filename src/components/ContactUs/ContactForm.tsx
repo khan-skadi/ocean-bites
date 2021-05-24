@@ -77,6 +77,9 @@ const ContactForm = () => {
   });
 
   const onSubmit = (values: FormikValues) => {
+    // eslint-disable-next-line no-console
+    console.log("values: ", values);
+
     setAlertProps({
       open: true,
       onClose: () => setAlertProps({ open: false }),
@@ -112,7 +115,7 @@ const ContactForm = () => {
               fullWidth
               id="firstName"
               name="firstName"
-              label="First Name*"
+              label="First Name"
               value={values.firstName}
               error={touched.firstName && Boolean(errors.firstName)}
               helperText={touched.firstName && errors.firstName}
@@ -124,7 +127,7 @@ const ContactForm = () => {
               fullWidth
               id="lastName"
               name="lastName"
-              label="Last Name*"
+              label="Last Name"
               value={values.lastName}
               error={touched.lastName && Boolean(errors.lastName)}
               helperText={touched.lastName && errors.lastName}
@@ -136,7 +139,7 @@ const ContactForm = () => {
           fullWidth
           id="email"
           name="email"
-          label="Email*"
+          label="Email"
           type="email"
           value={values.email}
           error={touched.email && Boolean(errors.email)}
@@ -149,7 +152,7 @@ const ContactForm = () => {
           rows={4}
           id="subject"
           name="subject"
-          label="Subject*"
+          label="Subject"
           value={values.subject}
           error={touched.subject && Boolean(errors.subject)}
           helperText={touched.subject && errors.subject}
@@ -159,7 +162,7 @@ const ContactForm = () => {
           fullWidth
           id="message"
           name="message"
-          label="Message*"
+          label="Message"
           value={values.message}
           error={touched.message && Boolean(errors.message)}
           helperText={touched.message && errors.message}

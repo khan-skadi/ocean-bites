@@ -196,7 +196,7 @@ const menuItems = [
   {
     name: "Burgers",
     label: "burgers",
-    link: PATHS.menuItems.wraps,
+    link: PATHS.menuItems.sandwiches,
     img: Burgers,
   },
   {
