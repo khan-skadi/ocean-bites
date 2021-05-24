@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "24px",
       fontWeight: 600,
       textTransform: "uppercase",
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.light,
     },
     addressWrapper: {
       margin: "20px 0",
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontFamily: "Grotesk",
       fontWeight: 400,
       fontSize: "17px",
-      color: theme.palette.secondary.main,
+      color: "#000",
     },
   })
 );

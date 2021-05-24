@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
         fontFamily: "Grotesk",
         fontSize: "16px",
         fontWeight: 600,
-        color: theme.palette.secondary.main,
+        color: "#000",
       },
     },
     row: {
@@ -34,6 +34,16 @@ const useStyles = makeStyles((theme: Theme) =>
       textTransform: "uppercase",
       fontFamily: "Grotesk",
       fontSize: "18px",
+      fontWeight: 600,
+      background: theme.palette.primary.light,
+    },
+    halfWidthLeft: {
+      width: "100%",
+      marginRight: "15px",
+    },
+    halfWidthRight: {
+      width: "100%",
+      marginLeft: "15px",
     },
   })
 );
@@ -97,26 +107,30 @@ const ContactForm = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div className={classes.row}>
-          <Text
-            fullWidth
-            id="firstName"
-            name="firstName"
-            label="First Name*"
-            value={values.firstName}
-            error={touched.firstName && Boolean(errors.firstName)}
-            helperText={touched.firstName && errors.firstName}
-            formikFieldProps={formikFieldProps.firstName}
-          />
-          <Text
-            fullWidth
-            id="lastName"
-            name="lastName"
-            label="Last Name*"
-            value={values.lastName}
-            error={touched.lastName && Boolean(errors.lastName)}
-            helperText={touched.lastName && errors.lastName}
-            formikFieldProps={formikFieldProps.lastName}
-          />
+          <div className={classes.halfWidthLeft}>
+            <Text
+              fullWidth
+              id="firstName"
+              name="firstName"
+              label="First Name*"
+              value={values.firstName}
+              error={touched.firstName && Boolean(errors.firstName)}
+              helperText={touched.firstName && errors.firstName}
+              formikFieldProps={formikFieldProps.firstName}
+            />
+          </div>
+          <div className={classes.halfWidthRight}>
+            <Text
+              fullWidth
+              id="lastName"
+              name="lastName"
+              label="Last Name*"
+              value={values.lastName}
+              error={touched.lastName && Boolean(errors.lastName)}
+              helperText={touched.lastName && errors.lastName}
+              formikFieldProps={formikFieldProps.lastName}
+            />
+          </div>
         </div>
         <Text
           fullWidth
@@ -151,7 +165,6 @@ const ContactForm = () => {
           helperText={touched.message && errors.message}
           formikFieldProps={formikFieldProps.message}
         />
-
         <Button type="submit" color="secondary" variant="contained" className={classes.submitButton} fullWidth>
           Submit
         </Button>

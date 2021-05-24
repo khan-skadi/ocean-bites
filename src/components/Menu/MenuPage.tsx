@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import { makeStyles, createStyles, Theme, Grid, Typography } from "@material-ui/core";
 import { MenuItem } from "models/menu";
 import classnames from "classnames";
@@ -24,11 +24,12 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "center",
     },
     title: {
-      color: theme.palette.secondary.main,
+      color: theme.palette.primary.light,
       fontFamily: "Grotesk",
       fontWeight: 600,
       fontSize: "24px",
       textTransform: "capitalize",
+      textAlign: "center",
     },
     timeSheet: {
       color: theme.palette.secondary.main,
@@ -59,14 +60,14 @@ const useStyles = makeStyles((theme: Theme) =>
       "& .MuiTypography-root": {
         fontFamily: "Grotesk",
         fontWeight: 600,
-        color: theme.palette.secondary.main,
+        color: "#000",
       },
     },
     itemSub: {
       "& .MuiTypography-root": {
         fontFamily: "Grotesk",
         fontWeight: 400,
-        color: theme.palette.secondary.main,
+        color: "rgba(0, 0, 0, 0.8)",
       },
     },
     additionalContainer: {
@@ -106,6 +107,14 @@ interface Props {
 const MenuPage: FC<Props> = ({ menuItem }) => {
   const classes = useStyles();
   const pizzaMenu = Boolean(menuItem.name === "Pizza"); // eslint-disable-line
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div

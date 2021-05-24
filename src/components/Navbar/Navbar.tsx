@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     toolbarRoot: {
-      padding: '20px 0 0',
+      padding: "20px 0 0",
 
       [theme.breakpoints.up("sm")]: {
         alignItems: "flex-end",
@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
-
       "&:hover": {
         textDecoration: "none",
       },
@@ -115,6 +114,10 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: "0 10px",
       whiteSpace: "nowrap",
 
+      "& .MuiButtonBase-root": {
+        fontSize: "22px !important",
+      },
+
       "&:hover": {
         textDecoration: "none",
       },
@@ -122,10 +125,10 @@ const useStyles = makeStyles((theme: Theme) =>
     active: {
       color: `${theme.palette.primary.light} !important`,
     },
-  }),
+  })
 );
 
-const TestNavbar = () => {
+const Navbar = () => {
   const classes = useStyles();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<NavItems | string>(NavItems.home);
@@ -182,13 +185,10 @@ const TestNavbar = () => {
               </Link>
             </div>
           </div>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-           <MenuIcon />
-           </IconButton> */}
         </Toolbar>
       </AppBar>
     </div>
   );
 };
 
-export default TestNavbar;
+export default Navbar;

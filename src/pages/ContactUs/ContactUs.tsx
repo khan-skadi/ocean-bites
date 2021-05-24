@@ -50,7 +50,7 @@ const ContactUs = () => {
           </Grid>
         </Container>
       </div>
-      <Footer position="static" />
+      <Footer position="fixed" />
     </div>
   );
 };

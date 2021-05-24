@@ -32,12 +32,14 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
     },
     title: {
+      marginTop: "15px",
+
       "&:hover": {
         textDecoration: "none",
       },
 
       "& .MuiTypography-root": {
-        fontSize: "12px",
+        fontSize: "19px",
         textTransform: "uppercase",
         fontFamily: "Hatton",
         fontWeight: 300,
@@ -53,6 +55,7 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: "flex-end",
 
       [theme.breakpoints.down("xs")]: {
+        flexFlow: "column wrap",
         justifyContent: "center",
         alignItems: "center",
       },
@@ -64,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) =>
     navMenu: {
       display: "flex",
       alignItems: "flex-start",
+      justifyContent: "center",
 
       "& .MuiLink-root": {
         "&:hover": {
@@ -142,22 +146,22 @@ const SecondaryNavbar = () => {
               <div className={classes.navMenu}>
                 <Link component={NavLink} to={PATHS.home}>
                   <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
-                    Home.
+                    Home
                   </Button>
                 </Link>
                 <Link component={NavLink} to={PATHS.menu}>
                   <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
-                    Menu.
+                    Menu
                   </Button>
                 </Link>
                 <Link component={NavLink} to={PATHS.about}>
                   <Button variant="text" className={classnames(activeTab === NavItems.about && classes.active)}>
-                    About Us.
+                    About Us
                   </Button>
                 </Link>
                 <Link component={NavLink} to={PATHS.contact}>
                   <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
-                    Contact.
+                    Contact
                   </Button>
                 </Link>
               </div>

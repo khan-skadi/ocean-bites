@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     wrapper: {
       marginTop: "30px",
-      marginBottom: "528px",
     },
     menuItemsListWrapper: {
       display: "flex",
@@ -43,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) =>
           fontWeight: 600,
           fontSize: "15px",
           textTransform: "uppercase",
-          color: "#000",
+          color: "rgba(0, 0, 0, 0.6)",
         },
       },
     },
@@ -53,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     active: {
-      color: `${theme.palette.secondary.main} !important`,
+      color: `#000 !important`,
       textDecoration: "underline",
     },
   })
@@ -87,6 +86,29 @@ const Menu = () => {
     }
   }, []);
 
+  const getSpacing = useCallback((loc: string) => {
+    switch (loc) {
+      case PATHS.menuItems.appetizers:
+        return "";
+      case PATHS.menuItems.pizza:
+        return "";
+      case PATHS.menuItems.salads:
+        return "306px";
+      case PATHS.menuItems.wraps:
+        return "384px";
+      case PATHS.menuItems.hotAndColdSubs:
+        return "";
+      case PATHS.menuItems.sandwiches:
+        return "282px";
+      case PATHS.menuItems.iceCreamAndTreats:
+        return "174px";
+      case PATHS.menuItems.kidsMenu:
+        return "";
+      default:
+        return "";
+    }
+  }, []);
+
   useEffect(() => {
     const item = getActiveMenuItem(location.pathname);
     setActiveMenuItem(item);
@@ -117,7 +139,7 @@ const Menu = () => {
           <MenuPage menuItem={activeMenuItem} />
         </Container>
       </div>
-      <Footer position="static" />
+      <Footer position="static" spacing={getSpacing(activeMenuItem.link)} />
     </div>
   );
 };

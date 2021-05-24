@@ -8,6 +8,7 @@ import facebook from "assets/images/social/facebook.png";
 
 interface Props {
   position: "fixed" | "static";
+  spacing?: string | undefined;
 }
 
 const useStyles = makeStyles<Theme, Props>((theme) => ({
@@ -18,6 +19,7 @@ const useStyles = makeStyles<Theme, Props>((theme) => ({
     position: ({ position }) => position,
     bottom: 0,
     width: "100%",
+    marginTop: ({ spacing }) => spacing || "",
   },
   footerTitle: {
     fontSize: "24px",
