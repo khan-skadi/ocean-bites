@@ -8,48 +8,32 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: "center",
     alignItems: "center",
     marginTop: "100px",
+    width: "100%",
   },
   title: {
-    fontFamily: "Grotesk",
-    fontSize: "18px",
-    fontWeight: 600,
-    textTransform: "uppercase",
-  },
-  list: {
-    listStyle: "circle",
-    width: "400px",
-    textAlign: "center",
-    margin: 0,
-    padding: 0,
-  },
-  listItem: {
-    display: "inline",
-    whiteSpace: "nowrap",
-
-    "&:after": {
-      content: " \u00b7",
-    },
-
     "& .MuiTypography-root": {
       fontFamily: "Grotesk",
-      fontSize: "18px",
-      fontWeight: 400,
-      textTransform: "capitalize",
+      fontSize: "20px",
+      fontWeight: 900,
+      textTransform: "uppercase",
+      color: "#000",
+    },
+  },
+  wrapper: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexFlow: "row wrap",
+    width: "300px",
+
+    "& p": {
+      fontFamily: "Grotesk",
+      fontSize: "16px",
+      fontWeight: 600,
+      margin: "5px",
     },
   },
 }));
-
-const toppings = [
-  "Ham",
-  "Banana Peppers",
-  "Jalapeno Sausage",
-  "Pepperoni",
-  "Green Peppers",
-  "Onions",
-  "Tomatoes",
-  "Sweet Peppers",
-  "Mushrooms",
-];
 
 const PizzaToppings = () => {
   const classes = useStyles();
@@ -59,14 +43,17 @@ const PizzaToppings = () => {
       <div className={classes.title}>
         <Typography variant="body1">Topping of Your Choice:</Typography>
       </div>
-      <ul className={classes.list}>
-        {toppings.map((topping) => (
-          <li key={topping} className={classes.listItem}>
-            <a href="#!">{topping}</a>
-            {/* <Typography variant="body1">{topping}</Typography> */}
-          </li>
-        ))}
-      </ul>
+      <div className={classes.wrapper}>
+        <p style={{ marginTop: "20px" }}>Ham {String.fromCharCode(183)}</p>
+        <p style={{ marginTop: "20px" }}>Banana Peppers</p>
+        <p>Jalapeno Sasuage {String.fromCharCode(183)}</p>
+        <p>Pepperoni</p>
+        <p>Green Peppers {String.fromCharCode(183)}</p>
+        <p>Onions {String.fromCharCode(183)}</p>
+        <p>Tomatoes</p>
+        <p>Sweet Peppers {String.fromCharCode(183)}</p>
+        <p>Mushrooms</p>
+      </div>
     </div>
   );
 };

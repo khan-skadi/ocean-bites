@@ -26,11 +26,20 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+
+      [theme.breakpoints.down("xs")]: {
+        display: "table",
+        margin: "0 auto",
+      },
     },
     menuItemsList: {
       margin: 0,
       padding: 0,
       listStyle: "none",
+
+      [theme.breakpoints.down("xs")]: {
+        marginLeft: "30px",
+      },
 
       "& li": {
         margin: "0 10px",
@@ -47,6 +56,12 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     link: {
+      [theme.breakpoints.down("xs")]: {
+        "& .MuiTypography-root": {
+          textTransform: "capitalize",
+        },
+      },
+
       "&:hover": {
         textDecoration: "none",
       },

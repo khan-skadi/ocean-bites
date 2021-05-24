@@ -1,104 +1,24 @@
 import React, { FC, useEffect } from "react";
-import { makeStyles, createStyles, Theme, Grid, Typography } from "@material-ui/core";
-import { MenuItem } from "models/menu";
+import { Grid, Typography } from "@material-ui/core";
+import { MenuItem, SubCategory } from "models/menu";
 import classnames from "classnames";
+import { useStyles } from "./MenuPage.styles";
 
-import PizzaToppings from "./CategoryDetails/PizzaToppings"; // eslint-disable-line
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: "100%",
-    },
-    subCategoryWrapper: {
-      marginTop: "60px",
-
-      "&:not(:first-child)": {
-        marginTop: "100px",
-      },
-    },
-    titleWrapper: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    title: {
-      color: theme.palette.primary.light,
-      fontFamily: "Grotesk",
-      fontWeight: 600,
-      fontSize: "24px",
-      textTransform: "capitalize",
-      textAlign: "center",
-    },
-    timeSheet: {
-      color: theme.palette.secondary.main,
-      fontFamily: "Grotesk",
-      fontWeight: 400,
-      fontSize: "18px",
-      textTransform: "capitalize",
-      margin: 0,
-      marginTop: "-5px",
-    },
-    gridWrapper: {
-      marginTop: "20px",
-    },
-    gridItem: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      marginTop: "30px",
-    },
-    itemWrapper: {
-      display: "flex",
-      flexFlow: "column wrap",
-    },
-    itemHead: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 600,
-        color: "#000",
-      },
-    },
-    itemSub: {
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 400,
-        color: "rgba(0, 0, 0, 0.8)",
-      },
-    },
-    additionalContainer: {
-      margin: "100px 0",
-    },
-    additionalWrapper: {
-      display: "flex",
-      flexFlow: "column wrap",
-      justifyContent: "center",
-      alignItems: "center",
-
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        color: theme.palette.secondary.main,
-
-        "&:first-child": {
-          fontSize: "24px",
-          fontWeight: 600,
-        },
-
-        "&:last-child": {
-          fontSize: "16px",
-          fontWeight: 400,
-        },
-      },
-    },
-    marginBottom: {
-      marginBottom: "100px",
-    },
-  })
-);
+// Components
+import {
+  Pizza,
+  Wraps,
+  Snacks,
+  Baskets,
+  IceCream,
+  KidsMenu,
+  Beverages,
+  NormalList,
+  Sandwiches,
+  FreshSalads,
+  FountainSoda,
+  HotAndColdSubs,
+} from "./CategoryDetails";
 
 interface Props {
   menuItem: MenuItem;
@@ -116,6 +36,41 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
     });
   }, []);
 
+  const renderSubcategory = (subCategory: SubCategory) => {
+    const { name, items } = subCategory;
+
+    switch (name) {
+      case "Ocean Bites Baskets":
+        return <Baskets items={items} />;
+      case "Ocean Bites Pizza":
+        return <Pizza items={items} showToppings={true} />;
+      case "Pizza by Slice":
+        return <Pizza items={items} showToppings={false} />;
+      case "Ocean Bites Fresh Salads":
+        return <FreshSalads items={items} />;
+      case "Ocean Bites Wraps":
+        return <Wraps items={items} />;
+      case "Ocean Bites Hot Subs":
+        return <HotAndColdSubs items={items} />;
+      case "Ocean Bites Cold Subs":
+        return <HotAndColdSubs items={items} />;
+      case "Ocean Bites Sandwiches":
+        return <Sandwiches items={items} />;
+      case "Ocean Bites Ice Cream and Treats":
+        return <IceCream items={items} />;
+      case "Kids Menu":
+        return <KidsMenu />;
+      case "Ocean Bites Snacks":
+        return <Snacks />;
+      case "Beverages":
+        return <Beverages />;
+      case "Fountain Soda - Pepsi Products":
+        return <FountainSoda />;
+      default:
+        return <NormalList items={items} />;
+    }
+  };
+
   return (
     <div
       className={classnames(classes.root, {
@@ -128,33 +83,15 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
             <Typography variant="body1" color="textSecondary" className={classes.title}>
               {subCategory.name}
             </Typography>
+            {subCategory.subtitle && (
+              <Typography variant="body1" color="textSecondary" className={classes.subtitle}>
+                {subCategory.subtitle}
+              </Typography>
+            )}
             {subCategory.timeSheet && <Typography className={classes.timeSheet}>{subCategory.timeSheet}</Typography>}
           </div>
           <Grid container className={classes.gridWrapper}>
-            {subCategory.items.map((item) => (
-              <Grid item key={item.id} className={classes.gridItem} xs={12} sm={6} md={4}>
-                <div className={classes.itemWrapper}>
-                  <div className={classes.itemHead}>
-                    <Typography variant="body1" color="textSecondary">
-                      {item.name}
-                    </Typography>
-                    <Typography variant="body1" color="textSecondary">
-                      {item.price && `$${item.price}`}
-                    </Typography>
-                  </div>
-                  <div className={classes.itemSub}>
-                    <Typography variant="body1" color="textSecondary">
-                      {item.ingredients && item.ingredients.length && `(${item.ingredients.join(", ").toString()})`}
-                    </Typography>
-                    {item.additional && item.additional.length && (
-                      <Typography variant="body1" color="textSecondary">
-                        {`(${item.additional})`}
-                      </Typography>
-                    )}
-                  </div>
-                </div>
-              </Grid>
-            ))}
+            {renderSubcategory(subCategory)}
           </Grid>
         </div>
       ))}

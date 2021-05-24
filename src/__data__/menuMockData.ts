@@ -94,6 +94,7 @@ export const menuListItems: MenuItem[] = [
         name: "Ocean Bites Baskets",
         subtitle: "Served with french fries",
         id: 1,
+        image: "assets/images/newImages/IMG_0024.jpg",
         items: [
           {
             id: 117,
@@ -367,7 +368,7 @@ export const menuListItems: MenuItem[] = [
         id: 600,
         name: "Ocean Bites Sandwiches",
         timeSheet: "",
-        subtitle: "Choice of Bread: White * Wheat * Kaiser Roll * Pita Bread",
+        subtitle: "",
         items: [
           {
             id: 601,
@@ -406,6 +407,13 @@ export const menuListItems: MenuItem[] = [
           },
           {
             id: 607,
+            name: "Hot Dog",
+            ingredients: ["1/4lb all beef"],
+            price: "3.75",
+            additional: "",
+          },
+          {
+            id: 608,
             name: "Add bacon or Cheese",
             ingredients: [],
             price: ".75",
@@ -434,22 +442,6 @@ export const menuListItems: MenuItem[] = [
           {
             id: 702,
             name: "Sundaes",
-            ingredients: [],
-            price: "",
-            additional: "",
-          },
-        ],
-      },
-      {
-        id: 800,
-        name: "Bites Banana Split",
-        timeSheet: "",
-        subtitle:
-          "Scoop Vanilla, Scoop Chocolate, Scoop Strawbery Topped with Strawberries, Chocolate Syrup, Whipper Cream and Cherries",
-        items: [
-          {
-            id: 801,
-            name: "Italian Ice",
             ingredients: [],
             price: "",
             additional: "",
