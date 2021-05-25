@@ -5,18 +5,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: "100%",
     height: "150px",
     position: "relative",
-    background: "#000",
 
     [theme.breakpoints.up("sm")]: {
       height: "600px",
-    },
-
-    "& img": {
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      objectPosition: "center right",
-      filter: "brightness(95%)",
     },
   },
   footer: {

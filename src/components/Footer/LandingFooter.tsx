@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Grid, Typography } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
+import { Parallax } from "react-parallax";
 
 import ColdAndHotSubs from "assets/images/menu-items/Cold&HotSubs.jpg";
 import instagram from "assets/images/social/instagram.svg";
@@ -14,9 +15,9 @@ const LandingFooter = () => {
 
   return (
     <>
-      <div className={classes.footerImageWrapper}>
-        <img src={ColdAndHotSubs} alt="" />
-      </div>
+      <Parallax bgImage={ColdAndHotSubs} strength={-300}>
+        <div className={classes.footerImageWrapper} />
+      </Parallax>
       <section className={classes.footer}>
         <Container maxWidth="xl">
           <Grid container justify="center" alignItems="center">

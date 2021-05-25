@@ -108,13 +108,13 @@ const Menu = () => {
       case PATHS.menuItems.pizza:
         return "";
       case PATHS.menuItems.salads:
-        return "306px";
+        return "476px";
       case PATHS.menuItems.wraps:
-        return "384px";
+        return "644px";
       case PATHS.menuItems.hotAndColdSubs:
         return "";
       case PATHS.menuItems.sandwiches:
-        return "282px";
+        return "214px";
       case PATHS.menuItems.iceCreamAndTreats:
         return "174px";
       case PATHS.menuItems.kidsMenu:

@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core";
+import { Parallax } from "react-parallax";
 import peopleEatingPizza from "assets/images/wallpapers/peopleEatingPizza.png";
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -73,18 +74,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     height: "150px",
     overflow: "hidden",
     position: "relative",
-    background: "#000",
 
     [theme.breakpoints.up("sm")]: {
       minHeight: "600px",
     },
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition: "center",
-    filter: "brightness(95%)",
   },
 }));
 
@@ -103,9 +96,9 @@ const OurStory = () => {
           </div>
         </div>
       </section>
-      <div className={classes.ourStoryImageWrapper}>
-        <img className={classes.image} src={peopleEatingPizza} alt="" />
-      </div>
+      <Parallax bgImage={peopleEatingPizza} strength={300}>
+        <div className={classes.ourStoryImageWrapper} />
+      </Parallax>
     </>
   );
 };

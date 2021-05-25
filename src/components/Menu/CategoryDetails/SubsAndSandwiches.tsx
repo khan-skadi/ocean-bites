@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: "center",
     marginTop: "100px",
     width: "100%",
+    marginLeft: "-15px",
   },
   title: {
     "& .MuiTypography-root": {
