@@ -1,7 +1,8 @@
 import React from "react";
 import { Link as NavLink } from "react-router-dom";
-import { Link, makeStyles, Theme } from "@material-ui/core";
+import { Link, Theme, useMediaQuery } from "@material-ui/core";
 import { PATHS } from "utils/appConstants";
+import { Parallax } from "react-parallax";
 
 // Assets
 import Pizza from "assets/images/menu-items/Pizza.jpg";
@@ -11,137 +12,11 @@ import Burgers from "assets/images/menu-items/Burgers.jpg";
 import ChickenWings from "assets/images/menu-items/ChickenWings.jpg";
 import ColdAndHotSubs from "assets/images/menu-items/Cold&HotSubs.jpg";
 
-const useStyles = makeStyles((theme: Theme) => ({
-  onTheMenu: {
-    background: theme.palette.secondary.light,
-    padding: "15px 0",
-
-    [theme.breakpoints.up("md")]: {
-      paddingTop: 100,
-      paddingBottom: 40,
-    },
-  },
-  onTheMenuWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  onTheMenuTitle: {
-    fontFamily: "Grotesk",
-    fontWeight: 600,
-    fontSize: "18px",
-    textTransform: "uppercase",
-    whiteSpace: "nowrap",
-    color: theme.palette.primary.light,
-    textAlign: "center",
-
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "26px",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      fontSize: "53.3px",
-      margin: 0,
-    },
-  },
-  menuCategoriesWrapper: {
-    background: "#000",
-  },
-  menuList: {
-    margin: 0,
-    padding: 0,
-    listStyle: "none",
-
-    "& li": {
-      float: "left",
-      width: "33.3333%",
-      height: "150px",
-
-      [theme.breakpoints.up("sm")]: {
-        height: 450,
-      },
-
-      "&:nth-child(4)": {
-        marginTop: "200px",
-
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
-
-      "&:nth-child(5)": {
-        marginTop: "200px",
-
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
-
-      "&:nth-child(6)": {
-        marginTop: "200px",
-
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
-    },
-  },
-  menuItem: {
-    width: "100%",
-    height: "100%",
-    backgroundPosition: "center center",
-    backgroundSize: "cover",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  menuItemLink: {
-    "&:hover": {
-      textDecoration: "none",
-    },
-  },
-  menuItemInner: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "100px",
-    height: "50px",
-    textAlign: "center",
-    border: "1px solid #fff",
-    borderRadius: "50%",
-
-    "&:hover": {
-      background: "rgba(0, 0, 0, 0.7)",
-    },
-
-    [theme.breakpoints.up("sm")]: {
-      width: 295,
-      height: 140,
-    },
-
-    "& p": {
-      fontFamily: "Hatton",
-      fontWeight: 500,
-      fontSize: "12px",
-      color: "#fff",
-      margin: 0,
-      padding: 0,
-      width: "100%",
-
-      "&:hover": {
-        color: theme.palette.primary.main,
-      },
-
-      [theme.breakpoints.up("sm")]: {
-        width: "90%",
-        fontSize: "22px",
-      },
-    },
-  },
-}));
+import { useStyles } from "./OnTheMenu.styles";
 
 const OnTheMenu = () => {
   const classes = useStyles();
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("xs"));
 
   return (
     <>
@@ -161,9 +36,29 @@ const OnTheMenu = () => {
                 }}
               >
                 <Link className={classes.menuItemLink} component={NavLink} to={item.link}>
-                  <div className={classes.menuItemInner}>
-                    <p>{item.name}</p>
-                  </div>
+                  <Parallax
+                    strength={200}
+                    renderLayer={(percentage) => (
+                      <div
+                        className={classes.menuItemInner}
+                        style={{
+                          position: "absolute",
+                          border: "1px solid #fff",
+                          width: isMobile ? "100px" : "295px",
+                          height: isMobile ? "50px" : "140px",
+                          left: "50%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          borderRadius: "50%",
+                          background: `rgba(0, 0, 0, ${percentage})`,
+                        }}
+                      />
+                    )}
+                  >
+                    <div className={classes.menuItemInner}>
+                      <p>{item.name}</p>
+                    </div>
+                  </Parallax>
                 </Link>
               </div>
             </li>
