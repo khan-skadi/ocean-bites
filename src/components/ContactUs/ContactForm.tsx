@@ -27,17 +27,6 @@ const ContactForm = () => {
       message: `Subject: ${values.subject}. Message: ${values.message}`,
     };
 
-    // const url = "https://us-central1-ocean-bites.cloudfunctions.net/sendEmail";
-    // try {
-    //   await axios.post(url, data, {
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Access-Control-Allow-Origin": "*",
-    //     },
-    //   });
-    // } catch (err) {
-    //   console.error(err);
-    // }
     setLoading(true);
     sendEmail(data)
       .then((res) => {
