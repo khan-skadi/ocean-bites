@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core";
-import peopleEatingPizza from "../../assets/images/wallpapers/peopleEatingPizza.png";
+import peopleEatingPizza from "assets/images/wallpapers/peopleEatingPizza.png";
 
 const useStyles = makeStyles((theme: Theme) => ({
   ourStory: {

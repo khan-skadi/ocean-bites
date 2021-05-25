@@ -1,5 +1,5 @@
 import React from "react";
-import heroImage from "assets/images/newImages/IMG_0031.jpg";
+import heroImage from "assets/images/wallpapers/heroImage.jpg";
 
 // Components
 import Promo from "components/Promo";

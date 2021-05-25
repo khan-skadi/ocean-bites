@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Theme } from "@material-ui/core";
-import iceCream from "../../assets/images/wallpapers/ice-c.png";
+import iceCream from "assets/images/wallpapers/iceCream.png";
 
 const useStyles = makeStyles((theme: Theme) => ({
   promo: {

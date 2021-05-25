@@ -1,97 +1,65 @@
-import React from "react";
-import { makeStyles, createStyles, Theme, Button, Typography } from "@material-ui/core";
-import * as Yup from "yup";
+import React, { useState } from "react";
+import firebase from "config/firebase";
 import { useFormik, FormikValues } from "formik";
 import { getFormikFieldProps } from "utils/getFormikFieldProps";
 import { ALERT_MESSAGES } from "utils/verbiage";
 
+import { Button, Typography } from "@material-ui/core";
 import { Text } from "components/FormFields";
 import Alert, { AlertProps } from "components/Alert";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {},
-    text: {
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "30px",
+import { VALIDATION_SCHEMA } from "./constants";
+import { useStyles } from "./styles/ContactForm.styles";
 
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontSize: "16px",
-        fontWeight: 600,
-        color: "#000",
-      },
-    },
-    row: {
-      display: "flex",
-      flexFlow: "row nowrap",
-      justifyContent: "space-between",
-      alignItems: "center",
-    },
-    submitButton: {
-      borderRadius: 0,
-      textTransform: "uppercase",
-      fontFamily: "Grotesk",
-      fontSize: "18px",
-      fontWeight: 600,
-      background: theme.palette.primary.light,
-    },
-    halfWidthLeft: {
-      width: "100%",
-      marginRight: "15px",
-    },
-    halfWidthRight: {
-      width: "100%",
-      marginLeft: "15px",
-    },
-  })
-);
-
-const INITIAL_VALUES = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  subject: "",
-  message: "",
-};
-
-const ERRORS = {
-  MAX_CHAR_LIMIT: "Must be 15 characters or less",
-  REQUIRED: "This field is required",
-  INVALID_EMAIL: "Invalid email address",
-};
-
-const VALIDATION_SCHEMA = Yup.object({
-  firstName: Yup.string().max(15, ERRORS.MAX_CHAR_LIMIT).required(ERRORS.REQUIRED),
-  lastName: Yup.string().max(15, ERRORS.MAX_CHAR_LIMIT).required(ERRORS.REQUIRED),
-  email: Yup.string().email(ERRORS.INVALID_EMAIL).required(ERRORS.REQUIRED),
-  subject: Yup.string().max(15, ERRORS.MAX_CHAR_LIMIT).required(ERRORS.REQUIRED),
-  message: Yup.string().required(ERRORS.REQUIRED),
-});
+const sendEmail = firebase.functions().httpsCallable("sendEmail");
 
 const ContactForm = () => {
   const classes = useStyles();
   const [alertProps, setAlertProps] = React.useState<Partial<AlertProps>>({
     open: false,
   });
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = (values: FormikValues) => {
-    // eslint-disable-next-line no-console
-    console.log("values: ", values);
+  const onSubmit = async (values: FormikValues) => {
+    const data = {
+      name: `${values.firstName} ${values.lastName}`,
+      email: values.email,
+      message: `Subject: ${values.subject}. Message: ${values.message}`,
+    };
 
-    setAlertProps({
-      open: true,
-      onClose: () => setAlertProps({ open: false }),
-      severity: "success",
-      message: ALERT_MESSAGES.formSubmittedSuccessfully,
-    });
-
-    setTimeout(() => {
-      setAlertProps({
-        open: false,
+    // const url = "https://us-central1-ocean-bites.cloudfunctions.net/sendEmail";
+    // try {
+    //   await axios.post(url, data, {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "Access-Control-Allow-Origin": "*",
+    //     },
+    //   });
+    // } catch (err) {
+    //   console.error(err);
+    // }
+    setLoading(true);
+    sendEmail(data)
+      .then((res) => {
+        console.log("res: ", res);
+        setAlertProps({
+          open: true,
+          onClose: () => setAlertProps({ open: false }),
+          severity: "success",
+          message: ALERT_MESSAGES.formSubmittedSuccessfully,
+        });
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+        setAlertProps({
+          open: true,
+          onClose: () => setAlertProps({ open: false }),
+          severity: "error",
+          message: ALERT_MESSAGES.errorSubmittingForm,
+        });
+        setLoading(false);
       });
-    }, 4000);
   };
 
   const formik = useFormik({
@@ -168,12 +136,27 @@ const ContactForm = () => {
           helperText={touched.message && errors.message}
           formikFieldProps={formikFieldProps.message}
         />
-        <Button type="submit" color="secondary" variant="contained" className={classes.submitButton} fullWidth>
+        <Button
+          type="submit"
+          color="secondary"
+          variant="contained"
+          className={classes.submitButton}
+          disabled={loading}
+          fullWidth
+        >
           Submit
         </Button>
       </form>
     </div>
   );
+};
+
+const INITIAL_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  subject: "",
+  message: "",
 };
 
 export default ContactForm;

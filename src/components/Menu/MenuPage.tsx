@@ -26,7 +26,6 @@ interface Props {
 
 const MenuPage: FC<Props> = ({ menuItem }) => {
   const classes = useStyles();
-  const pizzaMenu = Boolean(menuItem.name === "Pizza"); // eslint-disable-line
 
   useEffect(() => {
     window.scrollTo({
@@ -95,7 +94,6 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
           </Grid>
         </div>
       ))}
-      {/* {pizzaMenu && <PizzaToppings />} */}
       {menuItem.additional && (
         <Grid container className={classes.additionalContainer}>
           <Grid item xs={12}>
