@@ -1,29 +1,19 @@
 import { makeStyles, Theme } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme: Theme) => ({
-  footerImageWrapper: {
-    maxWidth: "100%",
-    height: "150px",
-    position: "relative",
+export interface Props {
+  position: "fixed" | "static";
+  spacing?: string | undefined;
+}
 
-    [theme.breakpoints.up("sm")]: {
-      height: "600px",
-    },
-  },
-  parallax: {
-    [theme.breakpoints.down("xs")]: {
-      height: "275px",
-    },
-  },
-  footer: {
-    position: "relative",
+export const useStyles = makeStyles<Theme, Props>((theme) => ({
+  root: {
     background: theme.palette.secondary.light,
-    color: "#000",
-    padding: "40px 0 80px",
-
-    [theme.breakpoints.up("sm")]: {
-      padding: "50px 0 200px",
-    },
+    padding: "50px 0 100px",
+    boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
+    position: ({ position }) => position,
+    bottom: 0,
+    width: "100%",
+    marginTop: ({ spacing }) => spacing || "",
   },
   footerTitle: {
     fontSize: "24px",
@@ -42,57 +32,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
     [theme.breakpoints.up("md")]: {
       fontSize: "30px !important",
-    },
-  },
-  footerSectionWrapper: {
-    display: "flex",
-    flexFlow: "column wrap",
-
-    [theme.breakpoints.up("sm")]: {
-      flexFlow: "row wrap",
-      justifyContent: "space-between",
-      alignItems: "center",
-      width: "100%",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      flexFlow: "row nowrap",
-      justifyContent: "space-evenly",
-      width: "100%",
-    },
-  },
-  footerSection: {
-    margin: "20px 0",
-
-    [theme.breakpoints.up("sm")]: {
-      margin: 0,
-      marginTop: "30px",
-      display: "flex",
-      flexFlow: "column wrap",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      display: "block",
-    },
-
-    "& p": {
-      margin: 0,
-      fontFamily: "Grotesk",
-      fontSize: "14px",
-    },
-  },
-  footerSectionTitle: {
-    fontWeight: 600,
-
-    [theme.breakpoints.up("md")]: {
-      fontSize: "26px !important",
-    },
-  },
-  footerSectionText: {
-    fontWeight: 400,
-
-    [theme.breakpoints.up("md")]: {
-      fontSize: "26px !important",
     },
   },
   contactWrapper: {

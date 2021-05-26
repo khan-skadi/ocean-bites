@@ -49,30 +49,23 @@ export const useStyles = makeStyles((theme: Theme) => ({
       [theme.breakpoints.up("sm")]: {
         height: 450,
       },
+    },
+  },
+  intersection: {
+    maxWidth: "100%",
+    height: "150px",
+    overflow: "hidden",
+    position: "relative",
 
-      "&:nth-child(4)": {
-        marginTop: "200px",
+    [theme.breakpoints.up("sm")]: {
+      minHeight: "600px",
+    },
+  },
+  menuListItem2: {
+    marginTop: "200px",
 
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
-
-      "&:nth-child(5)": {
-        marginTop: "200px",
-
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
-
-      "&:nth-child(6)": {
-        marginTop: "200px",
-
-        [theme.breakpoints.down("xs")]: {
-          marginTop: "50px",
-        },
-      },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "50px",
     },
   },
   menuItem: {

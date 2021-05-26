@@ -15,7 +15,7 @@ const LandingFooter = () => {
 
   return (
     <>
-      <Parallax bgImage={ColdAndHotSubs} strength={-300}>
+      <Parallax bgImage={ColdAndHotSubs} strength={-300} className={classes.parallax}>
         <div className={classes.footerImageWrapper} />
       </Parallax>
       <section className={classes.footer}>

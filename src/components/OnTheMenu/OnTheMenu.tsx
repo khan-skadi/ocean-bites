@@ -27,8 +27,44 @@ const OnTheMenu = () => {
       </section>
       <div className={classes.menuCategoriesWrapper}>
         <ul className={classes.menuList}>
-          {menuItems.map((item) => (
+          {menuItems1.map((item) => (
             <li key={item.label}>
+              <div
+                className={classes.menuItem}
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${item.img})`,
+                }}
+              >
+                <Link className={classes.menuItemLink} component={NavLink} to={item.link}>
+                  <Parallax
+                    strength={200}
+                    renderLayer={(percentage) => (
+                      <div
+                        className={classes.menuItemInner}
+                        style={{
+                          position: "absolute",
+                          border: "1px solid #fff",
+                          width: isMobile ? "100px" : "295px",
+                          height: isMobile ? "50px" : "140px",
+                          left: "50%",
+                          top: "50%",
+                          transform: "translate(-50%, -50%)",
+                          borderRadius: "50%",
+                          background: `rgba(0, 0, 0, ${percentage})`,
+                        }}
+                      />
+                    )}
+                  >
+                    <div className={classes.menuItemInner}>
+                      <p>{item.name}</p>
+                    </div>
+                  </Parallax>
+                </Link>
+              </div>
+            </li>
+          ))}
+          {menuItems2.map((item) => (
+            <li key={item.label} className={classes.menuListItem2}>
               <div
                 className={classes.menuItem}
                 style={{
@@ -69,7 +105,7 @@ const OnTheMenu = () => {
   );
 };
 
-const menuItems = [
+const menuItems1 = [
   {
     name: "Salads",
     label: "salads",
@@ -88,6 +124,9 @@ const menuItems = [
     link: PATHS.menuItems.wraps,
     img: Wraps,
   },
+];
+
+const menuItems2 = [
   {
     name: "Burgers",
     label: "burgers",
