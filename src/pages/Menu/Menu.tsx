@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     wrapper: {
       marginTop: "30px",
+
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "87px",
+      },
     },
     menuItemsListWrapper: {
       display: "flex",

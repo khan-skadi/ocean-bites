@@ -6,7 +6,7 @@ import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import { ContactForm, Sidebar } from "components/ContactUs";
 import Footer from "components/Footer";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: "100%",
@@ -14,6 +14,10 @@ const useStyles = makeStyles(() =>
     },
     wrapper: {
       marginTop: "30px",
+
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "87px",
+      },
     },
     sidebar: {},
     form: {},

@@ -1,117 +1,30 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, Link as NavLink } from "react-router-dom";
-import {
-  makeStyles,
-  createStyles,
-  Theme,
-  Container,
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  Link,
-} from "@material-ui/core";
-import { NavItems } from "utils/navigation";
-import { PATHS } from "utils/appConstants";
 import classnames from "classnames";
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    toolbarRoot: {
-      [theme.breakpoints.up("sm")]: {
-        minHeight: "100px",
-      },
-    },
-    appBar: {
-      backgroundColor: theme.palette.secondary.light,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      marginTop: "15px",
-
-      "&:hover": {
-        textDecoration: "none",
-      },
-
-      "& .MuiTypography-root": {
-        fontSize: "19px",
-        textTransform: "uppercase",
-        fontFamily: "Hatton",
-        fontWeight: 300,
-        color: theme.palette.primary.light,
-
-        [theme.breakpoints.up("sm")]: {
-          fontSize: "36px",
-        },
-      },
-    },
-    nav: {
-      display: "flex",
-      alignItems: "flex-end",
-
-      [theme.breakpoints.down("xs")]: {
-        flexFlow: "column wrap",
-        justifyContent: "center",
-        alignItems: "center",
-      },
-
-      "& a:first-child": {
-        flexGrow: 1,
-      },
-    },
-    navMenu: {
-      display: "flex",
-      alignItems: "flex-start",
-      justifyContent: "center",
-
-      "& .MuiLink-root": {
-        "&:hover": {
-          textDecoration: "none",
-        },
-
-        "& .MuiButtonBase-root": {
-          fontFamily: "Hatton",
-          fontSize: "22px",
-          color: "#000",
-          textTransform: "capitalize",
-
-          [theme.breakpoints.down("sm")]: {
-            fontSize: "12px !important",
-          },
-
-          [theme.breakpoints.down("xs")]: {
-            fontSize: "14px",
-          },
-
-          "&:not($active)": {
-            color: "#000",
-          },
-
-          "&:hover": {
-            opacity: 0.75,
-          },
-
-          "&:not(:first-of-type)": {
-            marginLeft: "15px",
-          },
-        },
-      },
-    },
-    active: {
-      color: `${theme.palette.primary.light} !important`,
-    },
-  })
-);
+import {
+  Menu,
+  Link,
+  AppBar,
+  Button,
+  Hidden,
+  Toolbar,
+  MenuItem,
+  Container,
+  IconButton,
+  Typography,
+} from "@material-ui/core";
+import MenuIcon from "@material-ui/icons/Menu";
+import { PATHS } from "utils/appConstants";
+import { NavItems } from "utils/navigation";
+import { useStyles } from "./styles/SecondaryNavbar.styles";
 
 const SecondaryNavbar = () => {
   const classes = useStyles();
   const location = useLocation();
   const [activeTab, setActiveTab] = useState<NavItems | string>(NavItems.home);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
+
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const getActiveTab = useCallback((loc: string) => {
     if (loc.includes("menu")) return NavItems.menu;
@@ -119,8 +32,6 @@ const SecondaryNavbar = () => {
     switch (loc) {
       case "/home":
         return NavItems.home;
-      case "/about-us":
-        return NavItems.about;
       case "/contact-us":
         return NavItems.contact;
       default:
@@ -133,42 +44,93 @@ const SecondaryNavbar = () => {
     setActiveTab(tab);
   }, [location.pathname, getActiveTab]);
 
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const mobileMenuId = "menu-mobile";
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: "top", horizontal: "right" }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: "top", horizontal: "right" }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+      className={classes.mobileMenu}
+    >
+      <MenuItem>
+        <Link component={NavLink} to={PATHS.home}>
+          <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
+            Home
+          </Button>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link component={NavLink} to={PATHS.menu}>
+          <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
+            Menu
+          </Button>
+        </Link>
+      </MenuItem>
+      <MenuItem>
+        <Link component={NavLink} to={PATHS.contact}>
+          <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
+            Contact Us
+          </Button>
+        </Link>
+      </MenuItem>
+    </Menu>
+  );
+
   return (
     <div className={classes.root}>
-      <AppBar position="static" classes={{ root: classes.appBar }}>
+      <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar className={classes.toolbarRoot}>
           <Container maxWidth="md">
             <div className={classes.nav}>
               <Link className={classes.title} component={NavLink} to={PATHS.home}>
                 <Typography variant="h6">Ocean Bites</Typography>
               </Link>
+              <Hidden smUp>
+                <IconButton
+                  edge="start"
+                  className={classes.menuButton}
+                  color="inherit"
+                  aria-label="menu"
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </Hidden>
 
-              <div className={classes.navMenu}>
-                <Link component={NavLink} to={PATHS.home}>
-                  <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
-                    Home
-                  </Button>
-                </Link>
-                <Link component={NavLink} to={PATHS.menu}>
-                  <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
-                    Menu
-                  </Button>
-                </Link>
-                <Link component={NavLink} to={PATHS.about}>
-                  <Button variant="text" className={classnames(activeTab === NavItems.about && classes.active)}>
-                    About Us
-                  </Button>
-                </Link>
-                <Link component={NavLink} to={PATHS.contact}>
-                  <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
-                    Contact
-                  </Button>
-                </Link>
-              </div>
+              {renderMobileMenu}
+              <Hidden xsDown>
+                <div className={classes.navMenu}>
+                  <Link component={NavLink} to={PATHS.home}>
+                    <Button variant="text" className={classnames(activeTab === NavItems.home && classes.active)}>
+                      Home
+                    </Button>
+                  </Link>
+                  <Link component={NavLink} to={PATHS.menu}>
+                    <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
+                      Menu
+                    </Button>
+                  </Link>
+                  <Link component={NavLink} to={PATHS.contact}>
+                    <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
+                      Contact Us
+                    </Button>
+                  </Link>
+                </div>
+              </Hidden>
             </div>
-            {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}
           </Container>
         </Toolbar>
       </AppBar>

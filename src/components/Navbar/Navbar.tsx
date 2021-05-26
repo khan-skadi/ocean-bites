@@ -137,8 +137,6 @@ const Navbar = () => {
     switch (loc) {
       case "/home":
         return NavItems.home;
-      case "/about-us":
-        return NavItems.about;
       case "/contact-us":
         return NavItems.contact;
       case "/menu":
@@ -168,11 +166,6 @@ const Navbar = () => {
                   Home
                 </Button>
               </Link>
-              <Link className={classes.link} component={NavLink} to={PATHS.about}>
-                <Button variant="text" className={classnames(activeTab === NavItems.about && classes.active)}>
-                  About Us
-                </Button>
-              </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.menu}>
                 <Button variant="text" className={classnames(activeTab === NavItems.menu && classes.active)}>
                   Menu
@@ -180,7 +173,7 @@ const Navbar = () => {
               </Link>
               <Link className={classes.link} component={NavLink} to={PATHS.contact}>
                 <Button variant="text" className={classnames(activeTab === NavItems.contact && classes.active)}>
-                  Contact
+                  Contact Us
                 </Button>
               </Link>
             </div>
