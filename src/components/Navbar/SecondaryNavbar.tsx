@@ -62,7 +62,7 @@ const SecondaryNavbar = () => {
       transformOrigin={{ vertical: "top", horizontal: "right" }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      className={classes.mobileMenu}
+      classes={{ paper: classes.menuPaper }}
     >
       <MenuItem>
         <Link component={NavLink} to={PATHS.home}>
@@ -100,7 +100,6 @@ const SecondaryNavbar = () => {
               <Hidden smUp>
                 <IconButton
                   edge="start"
-                  className={classes.menuButton}
                   color="inherit"
                   aria-label="menu"
                   aria-haspopup="true"
@@ -109,7 +108,6 @@ const SecondaryNavbar = () => {
                   <MenuIcon />
                 </IconButton>
               </Hidden>
-
               {renderMobileMenu}
               <Hidden xsDown>
                 <div className={classes.navMenu}>

@@ -1,13 +1,13 @@
 @font-face {
-  font-family: "Grotesk";
-  src: local("Grotesk"), url(./assets/fonts/Grotesk.ttf) format("truetype");
+    font-family: "Grotesk";
+    src: local("Grotesk"), url(./assets/fonts/Grotesk.ttf) format("truetype");
 }
 
 @font-face {
-  font-family: "Hatton";
-  src: local("Hatton"), url(./assets/fonts/Hatton.otf) format("opentype");
+    font-family: "Hatton";
+    src: local("Hatton"), url(./assets/fonts/Hatton.otf) format("opentype");
 }
 
 body {
-  font-family: "Grotesk", "Hatton", "Roboto", "Montserrat", sans-serif;
+    font-family: "Grotesk", "Hatton", "Roboto", "Montserrat", sans-serif;
 }
