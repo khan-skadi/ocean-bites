@@ -22,11 +22,15 @@ const Footer: FC<Props> = (props) => {
             <div className={classes.contactWrapper}>
               <div className={classes.contactItem}>
                 <PhoneIcon />
-                <Typography variant="body2">(410) 289-3007</Typography>
+                <Typography variant="body2">
+                  <a href="tel:410-289-3007">(410) 289-3007</a>
+                </Typography>
               </div>
               <div className={classes.contactItem}>
                 <MailIcon />
-                <Typography variant="body2">hello@oceanbites.com</Typography>
+                <Typography variant="body2">
+                  <a href="mailto:hello@oceanbites.com">hello@oceanbites.com</a>
+                </Typography>
               </div>
             </div>
           </Grid>

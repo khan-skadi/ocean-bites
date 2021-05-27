@@ -22,11 +22,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     padding: "40px 0 80px",
 
     [theme.breakpoints.up("sm")]: {
-      padding: "50px 0 200px",
+      padding: "100px 0",
     },
   },
   footerTitle: {
-    fontSize: "24px",
+    fontSize: "18px",
     fontWeight: 700,
     fontFamily: "Grotesk",
     textTransform: "uppercase",
@@ -34,14 +34,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
     "& p": {
       margin: 0,
-    },
-
-    [theme.breakpoints.up("sm")]: {
-      fontSize: "26px",
-    },
-
-    [theme.breakpoints.up("md")]: {
-      fontSize: "30px !important",
     },
   },
   footerSectionWrapper: {
@@ -100,7 +92,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     flexFlow: "column wrap",
     justifyContent: "center",
     alignItems: "flex-start",
-    marginLeft: "20px",
+    marginTop: "8px",
   },
   contactItem: {
     display: "flex",
@@ -110,22 +102,17 @@ export const useStyles = makeStyles((theme: Theme) => ({
       fontFamily: "Grotesk",
       fontWeight: 400,
       fontSize: "18px",
-      marginTop: theme.spacing(2),
+      marginLeft: theme.spacing(1),
 
-      [theme.breakpoints.down("xs")]: {
-        marginTop: theme.spacing(1),
+      "& a": {
+        color: "#000",
+        textDecoration: "none",
       },
     },
 
     "& svg": {
       fontSize: "2.1em",
-      marginRight: theme.spacing(2),
       color: theme.palette.primary.light,
-      marginTop: theme.spacing(2),
-
-      [theme.breakpoints.down("xs")]: {
-        marginTop: theme.spacing(1),
-      },
     },
   },
   hoursWrapper: {
@@ -213,7 +200,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     maxWidth: "112px",
   },
   socialIconWrapper: {
-    width: "30px",
+    width: "26px",
 
     "&:first-child": {
       marginRight: theme.spacing(2),
