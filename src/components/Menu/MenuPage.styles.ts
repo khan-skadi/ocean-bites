@@ -72,4 +72,19 @@ export const useStyles = makeStyles((theme: Theme) => ({
   marginBottom: {
     marginBottom: "100px",
   },
+  imageWrapper: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+
+    "& img": {
+      width: "450px",
+      marginTop: "30px",
+      marginBottom: "-60px",
+
+      [theme.breakpoints.down("xs")]: {
+        width: "250px",
+      },
+    },
+  },
 }));
