@@ -22,6 +22,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     menuButton: {
       marginRight: theme.spacing(2),
     },
+    logoWrapper: {
+      flexGrow: 1,
+    },
     title: {
       [theme.breakpoints.down("xs")]: {
         paddingTop: theme.spacing(1),
@@ -37,6 +40,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontFamily: "Hatton",
         fontWeight: 300,
         color: theme.palette.primary.light,
+        maxWidth: "10ch",
 
         [theme.breakpoints.up("sm")]: {
           fontSize: "36px",
@@ -55,10 +59,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down("xs")]: {
         flexFlow: "row nowrap",
         justifyContent: "center",
-      },
-
-      "& a:first-child": {
-        flexGrow: 1,
       },
     },
     menuPaper: {

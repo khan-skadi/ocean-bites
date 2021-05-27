@@ -30,6 +30,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       boxShadow: "0px 0px 0px 0px, 0px 8px 10px 1px rgb(0 0 0 / 14%)",
       backgroundColor: "rgb(242, 244, 234)",
     },
+    logoWrapper: {
+      flexGrow: 1,
+    },
     title: {
       marginTop: "15px",
 
@@ -47,6 +50,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontFamily: "Hatton",
         fontWeight: 300,
         color: theme.palette.primary.light,
+        maxWidth: "10ch",
 
         [theme.breakpoints.up("sm")]: {
           fontSize: "36px",
@@ -61,10 +65,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         flexFlow: "row nowrap",
         justifyContent: "space-between",
         alignItems: "center",
-      },
-
-      "& a:first-child": {
-        flexGrow: 1,
       },
     },
     navMenu: {

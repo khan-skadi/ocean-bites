@@ -9,7 +9,7 @@ import OurStory from "components/OurStory";
 import OnTheMenu from "components/OnTheMenu";
 import { LandingFooter } from "components/Footer";
 
-import { useStyles } from "./LandingPage.styles";
+import { useStyles } from "./styles/LandingPage.styles";
 
 // const centeredDivStyle = {
 //   background: "#fff",

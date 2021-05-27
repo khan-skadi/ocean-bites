@@ -40,9 +40,11 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: 0,
       padding: 0,
       listStyle: "none",
+      marginTop: "100px",
 
       [theme.breakpoints.down("xs")]: {
         marginLeft: "30px",
+        marginTop: 0,
       },
 
       "& li": {
@@ -60,6 +62,10 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     link: {
+      "& .MuiTypography-root": {
+        color: theme.palette.primary.light,
+      },
+
       [theme.breakpoints.down("xs")]: {
         "& .MuiTypography-root": {
           textTransform: "capitalize",
@@ -73,6 +79,14 @@ const useStyles = makeStyles((theme: Theme) =>
     active: {
       color: `#000 !important`,
       textDecoration: "underline",
+    },
+    listButton: {
+      background: theme.palette.primary.light,
+      marginTop: "5px",
+
+      "& .MuiTypography-root": {
+        color: "#fff",
+      },
     },
   })
 );
@@ -132,6 +146,7 @@ const Menu = () => {
     const item = getActiveMenuItem(location.pathname);
     setActiveMenuItem(item);
   }, [location.pathname, getActiveMenuItem]);
+  console.log(menuListItems);
 
   return (
     <div className={classes.root}>
@@ -143,6 +158,7 @@ const Menu = () => {
               {menuListItems.map((item) => (
                 <li key={item.name}>
                   <Link className={classes.link} component={NavLink} to={item.link}>
+                    {/* <Button variant="outlined" className={classes.listButton}> */}
                     <Typography
                       variant="body1"
                       color="textSecondary"
@@ -150,6 +166,7 @@ const Menu = () => {
                     >
                       {item.name}
                     </Typography>
+                    {/* </Button> */}
                   </Link>
                 </li>
               ))}

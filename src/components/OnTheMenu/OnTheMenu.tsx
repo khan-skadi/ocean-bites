@@ -113,8 +113,8 @@ const menuItems1 = [
     img: Salad,
   },
   {
-    name: "Chicken Wings",
-    label: "chickenWings",
+    name: "Appetizers",
+    label: "appetizers",
     link: PATHS.menuItems.appetizers,
     img: ChickenWings,
   },
@@ -128,8 +128,8 @@ const menuItems1 = [
 
 const menuItems2 = [
   {
-    name: "Burgers",
-    label: "burgers",
+    name: "Sandwiches",
+    label: "sandwiches",
     link: PATHS.menuItems.sandwiches,
     img: Burgers,
   },

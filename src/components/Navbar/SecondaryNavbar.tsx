@@ -97,6 +97,7 @@ const SecondaryNavbar = () => {
               <Link className={classes.title} component={NavLink} to={PATHS.home}>
                 <Typography variant="h6">Ocean Bites</Typography>
               </Link>
+              <div className={classes.logoWrapper} />
               <Hidden smUp>
                 <IconButton
                   edge="start"
