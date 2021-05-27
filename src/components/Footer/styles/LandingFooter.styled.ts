@@ -225,4 +225,58 @@ export const useStyles = makeStyles((theme: Theme) => ({
       flexFlow: "column nowrap",
     },
   },
+  watermark: {
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "& .MuiTypography-root": {
+      fontSize: "14px",
+      margin: 0,
+      marginTop: "10px",
+      textAlign: "center",
+
+      "&:last-of-type": {
+        marginTop: 0,
+      },
+
+      "& a": {
+        color: "#7b7b7b",
+        textDecoration: "none",
+      },
+    },
+
+    "& img": {
+      maxWidth: "180px",
+      width: "100%",
+      marginRight: "5px",
+    },
+  },
+  watermarkDesktop: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "& .MuiTypography-root": {
+      fontSize: "16px",
+      margin: 0,
+      textAlign: "center",
+
+      "&:last-of-type": {
+        marginTop: 0,
+      },
+
+      "& a": {
+        color: "#7b7b7b",
+        textDecoration: "none",
+      },
+    },
+
+    "& img": {
+      maxWidth: "200px",
+      width: "100%",
+      marginRight: "5px",
+    },
+  },
 }));

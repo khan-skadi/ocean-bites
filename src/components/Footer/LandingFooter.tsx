@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography, Hidden } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
 import { Parallax } from "react-parallax";
@@ -7,6 +7,7 @@ import { Parallax } from "react-parallax";
 import ColdAndHotSubs from "assets/images/menu-items/Cold&HotSubs.jpg";
 import instagram from "assets/images/social/instagram.svg";
 import facebook from "assets/images/social/facebook.png";
+import antonyTechLogo from "assets/images/logo/digital-black.png";
 
 import { useStyles } from "./styles/LandingFooter.styled";
 
@@ -73,6 +74,27 @@ const LandingFooter = () => {
           </Grid>
         </Container>
       </section>
+      <Hidden smUp>
+        <div className={classes.watermark}>
+          <div>
+            <Typography variant="body1">
+              Designed and developed by <a href="https://antonytech.com">Antony Tech</a>.
+            </Typography>
+            <Typography variant="body1">All rights reserved &copy;</Typography>
+          </div>
+          <div>
+            <img src={antonyTechLogo} alt="Antony Tech Logo" />
+          </div>
+        </div>
+      </Hidden>
+      <Hidden xsDown>
+        <div className={classes.watermarkDesktop}>
+          <Typography variant="body1">
+            Designed and developed by <a href="https://antonytech.com">Antony Tech</a>. All rights reserved &copy;
+          </Typography>
+          <img src={antonyTechLogo} alt="Antony Tech Logo" />
+        </div>
+      </Hidden>
     </>
   );
 };
