@@ -90,9 +90,27 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     flexWrap: "nowrap",
     overflowX: "auto",
+    margin: "0 auto",
+
+    msOverflowStyle: "none",
+    scrollbarWidth: "none",
+    borderRadius: "10px",
+
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   horizontalInner: {
     flex: "0 0 auto",
-    width: "200px",
+    width: "210px",
+    margin: "0 15px",
+
+    "&:last-of-type": {
+      width: "225px",
+
+      "& p": {
+        width: "210px",
+      },
+    },
   },
 }));

@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     link: {
       "& .MuiTypography-root": {
-        color: theme.palette.primary.light,
+        color: "#000",
       },
 
       [theme.breakpoints.down("xs")]: {
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) =>
       },
     },
     active: {
-      color: `#000 !important`,
+      color: `${theme.palette.primary.light} !important`,
       textDecoration: "underline",
     },
     listButton: {
@@ -158,7 +158,6 @@ const Menu = () => {
               {menuListItems.map((item) => (
                 <li key={item.name}>
                   <Link className={classes.link} component={NavLink} to={item.link}>
-                    {/* <Button variant="outlined" className={classes.listButton}> */}
                     <Typography
                       variant="body1"
                       color="textSecondary"
@@ -166,7 +165,6 @@ const Menu = () => {
                     >
                       {item.name}
                     </Typography>
-                    {/* </Button> */}
                   </Link>
                 </li>
               ))}
