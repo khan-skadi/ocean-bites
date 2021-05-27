@@ -8,10 +8,12 @@ const useStyles = makeStyles((theme: Theme) =>
       flexFlow: "column wrap",
       justifyContent: "flex-start",
       alignItems: "flex-start",
+      marginTop: "100px",
 
       [theme.breakpoints.down("xs")]: {
         justifyContent: "center",
         alignItems: "center",
+        marginTop: 0,
       },
     },
     title: {

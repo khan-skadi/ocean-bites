@@ -15,7 +15,7 @@ const sendEmail = firebase.functions().httpsCallable("sendEmail");
 
 const ContactForm = () => {
   const classes = useStyles();
-  const [alertProps, setAlertProps] = React.useState<Partial<AlertProps>>({
+  const [alertProps, setAlertProps] = useState<Partial<AlertProps>>({
     open: false,
   });
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ const ContactForm = () => {
     const data = {
       name: `${values.firstName} ${values.lastName}`,
       email: values.email,
-      message: `Subject: ${values.subject}. Message: ${values.message}`,
+      message: values.message,
     };
 
     setLoading(true);
@@ -54,6 +54,8 @@ const ContactForm = () => {
   const formik = useFormik({
     initialValues: INITIAL_VALUES,
     validationSchema: VALIDATION_SCHEMA,
+    validateOnBlur: false,
+    validateOnMount: false,
     onSubmit,
   });
   const { values, touched, errors, handleSubmit } = formik;
@@ -105,21 +107,11 @@ const ContactForm = () => {
         />
         <Text
           fullWidth
-          multiline
-          rows={4}
-          id="subject"
-          name="subject"
-          label="Subject"
-          value={values.subject}
-          error={touched.subject && Boolean(errors.subject)}
-          helperText={touched.subject && errors.subject}
-          formikFieldProps={formikFieldProps.subject}
-        />
-        <Text
-          fullWidth
           id="message"
           name="message"
           label="Message"
+          multiline
+          rows={3}
           value={values.message}
           error={touched.message && Boolean(errors.message)}
           helperText={touched.message && errors.message}

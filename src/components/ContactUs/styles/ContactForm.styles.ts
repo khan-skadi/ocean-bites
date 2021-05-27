@@ -2,7 +2,13 @@ import { createStyles, makeStyles, Theme } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {},
+    root: {
+      marginTop: "100px",
+
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "20px",
+      },
+    },
     text: {
       display: "flex",
       alignItems: "center",
