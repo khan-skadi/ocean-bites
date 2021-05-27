@@ -90,9 +90,15 @@ const LandingFooter = () => {
       <Hidden xsDown>
         <div className={classes.watermarkDesktop}>
           <Typography variant="body1">
-            Designed and developed by <a href="https://antonytech.com">Antony Tech</a>. All rights reserved &copy;
+            Designed and developed by{" "}
+            <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+              Antony Tech
+            </a>
+            . All rights reserved &copy;
           </Typography>
-          <img src={antonyTechLogo} alt="Antony Tech Logo" />
+          <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+            <img src={antonyTechLogo} alt="Antony Tech Logo" />
+          </a>
         </div>
       </Hidden>
     </>

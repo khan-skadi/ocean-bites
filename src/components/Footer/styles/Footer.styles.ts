@@ -9,7 +9,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
   root: {
     background: theme.palette.secondary.light,
     padding: "50px 0 100px",
-    boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
+    boxShadow: "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
     position: ({ position }) => position,
     bottom: 0,
     width: "100%",
@@ -162,6 +162,60 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
 
     "&:first-child": {
       flexFlow: "column nowrap",
+    },
+  },
+  watermark: {
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "& .MuiTypography-root": {
+      fontSize: "14px",
+      margin: 0,
+      marginTop: "10px",
+      textAlign: "center",
+
+      "&:last-of-type": {
+        marginTop: 0,
+      },
+
+      "& a": {
+        color: "#7b7b7b",
+        textDecoration: "none",
+      },
+    },
+
+    "& img": {
+      maxWidth: "180px",
+      width: "100%",
+      marginRight: "5px",
+    },
+  },
+  watermarkDesktop: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "& .MuiTypography-root": {
+      fontSize: "16px",
+      margin: 0,
+      textAlign: "center",
+
+      "&:last-of-type": {
+        marginTop: 0,
+      },
+
+      "& a": {
+        color: "#7b7b7b",
+        textDecoration: "none",
+      },
+    },
+
+    "& img": {
+      maxWidth: "200px",
+      width: "100%",
+      marginRight: "5px",
     },
   },
 }));
