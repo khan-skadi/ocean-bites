@@ -87,4 +87,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
       },
     },
   },
+  mobileImage: {
+    width: "100%",
+    height: "300px",
+    padding: "0 15px",
+  },
 }));

@@ -1,6 +1,7 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
-import { Grid, Typography } from "@material-ui/core";
+import { Parallax } from "react-parallax";
+import { Grid, Typography, Hidden } from "@material-ui/core";
 import { MenuItem, SubCategory } from "models/menu";
 import { PATHS } from "utils/appConstants";
 import classnames from "classnames";
@@ -11,6 +12,7 @@ import salad from "assets/images/menu-items/Salad.png";
 import wraps from "assets/images/menu-items/Wraps.jpg";
 import burgers from "assets/images/menu-items/Burgers.jpg";
 import iceCream from "assets/images/wallpapers/iceCream.png";
+import kidsMenu from "assets/images/instagram/1.jpg";
 
 import { useStyles } from "./MenuPage.styles";
 
@@ -81,7 +83,7 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
     }
   };
 
-  const getImage = () => {
+  const getImage = useCallback(() => {
     switch (location.pathname) {
       case PATHS.menuItems.pizza:
         return pizza;
@@ -97,10 +99,12 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
         return burgers;
       case PATHS.menuItems.iceCreamAndTreats:
         return iceCream;
+      case PATHS.menuItems.kidsMenu:
+        return kidsMenu;
       default:
         return "";
     }
-  };
+  }, [location.pathname]);
 
   return (
     <div
@@ -108,9 +112,23 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
         [classes.marginBottom]: !menuItem.additional,
       })}
     >
-      <div className={classes.imageWrapper}>
-        <img src={getImage()} alt="" width="300px" />
-      </div>
+      <Hidden xsDown>
+        <div className={classes.imageWrapper}>
+          <img src={getImage()} alt="" width="300px" />
+        </div>
+      </Hidden>
+      <Hidden smUp>
+        <div
+          style={{
+            marginTop: "30px",
+            marginBottom: "-60px",
+          }}
+        >
+          <Parallax bgImage={getImage() || appetizers} strength={400} bgImageStyle={{ height: "450px" }}>
+            <div className={classes.mobileImage} />
+          </Parallax>
+        </div>
+      </Hidden>
       {menuItem.subCategories.map((subCategory) => (
         <div key={subCategory.id} className={classes.subCategoryWrapper}>
           <div className={classes.titleWrapper}>
