@@ -114,7 +114,7 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
     >
       <Hidden xsDown>
         <div className={classes.imageWrapper}>
-          <img src={getImage()} alt="" width="300px" />
+          <img src={getImage() || appetizers} alt="" width="300px" />
         </div>
       </Hidden>
       <Hidden smUp>
