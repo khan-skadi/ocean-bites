@@ -6,14 +6,22 @@ import MailIcon from "@material-ui/icons/MailOutline";
 import instagram from "assets/images/social/instagram.svg";
 import facebook from "assets/images/social/facebook.png";
 
-import { useStyles, Props } from "./styles/Footer.styles";
+import { useStyles } from "./styles/Footer.styles";
 import antonyTechLogo from "../../assets/images/logo/digital-black-cut.png";
+import ScrollTop from "../ScrollTop";
+
+interface Props {
+  position: "fixed" | "static";
+  spacing?: string | undefined;
+  children?: React.ReactElement;
+}
 
 const Footer: FC<Props> = (props) => {
   const classes = useStyles(props);
 
   return (
     <>
+      <ScrollTop>{props.children!}</ScrollTop>
       <div className={classes.root}>
         <Container maxWidth="xl">
           <Grid container justify="center" alignItems="center" style={{ paddingBottom: "60px" }}>

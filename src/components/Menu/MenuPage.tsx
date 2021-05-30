@@ -50,8 +50,6 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
     const { name, items } = subCategory;
 
     switch (name) {
-      // case "Bites Appetizers":
-      //   return <Appetizers items={items} />;
       case "Ocean Bites Baskets":
         return <Baskets items={items} />;
       case "Ocean Bites Pizza":

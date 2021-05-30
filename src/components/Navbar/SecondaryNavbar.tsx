@@ -89,7 +89,7 @@ const SecondaryNavbar = () => {
   );
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} id="back-to-top-anchor">
       <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar className={classes.toolbarRoot}>
           <Container maxWidth="md">
