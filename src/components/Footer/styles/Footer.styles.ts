@@ -8,7 +8,7 @@ export interface Props {
 export const useStyles = makeStyles<Theme, Props>((theme) => ({
   root: {
     background: theme.palette.secondary.light,
-    padding: "50px 0 100px",
+    padding: "50px 0 0",
     position: ({ position }) => position,
     bottom: 0,
     width: "100%",
@@ -168,6 +168,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     flexFlow: "column wrap",
     justifyContent: "center",
     alignItems: "center",
+    background: "#e3e3e3",
 
     "& .MuiTypography-root": {
       fontSize: "14px",
@@ -186,7 +187,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     },
 
     "& img": {
-      maxWidth: "180px",
+      maxWidth: "80px",
       width: "100%",
       marginRight: "5px",
     },
@@ -195,14 +196,18 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    paddingTop: "7px",
+    background: "#e3e3e3",
 
     "& .MuiTypography-root": {
       fontSize: "16px",
       margin: 0,
       textAlign: "center",
+      marginBottom: "2px",
 
       "&:last-of-type": {
         marginTop: 0,
+        marginRight: "10px",
       },
 
       "& a": {
@@ -212,7 +217,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     },
 
     "& img": {
-      maxWidth: "200px",
+      maxWidth: "80px",
       width: "100%",
       marginRight: "5px",
     },

@@ -35,5 +35,9 @@ export const useStyles = makeStyles((theme: Theme) =>
         display: "table",
       },
     },
+    embedWrapper: {
+      width: "100%",
+      maxWidth: "600px",
+    },
   })
 );

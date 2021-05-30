@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Typography, Hidden } from "@material-ui/core";
+import { Container, Grid, Typography, Hidden, useMediaQuery, Theme } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
 import { Parallax } from "react-parallax";
@@ -7,12 +7,13 @@ import { Parallax } from "react-parallax";
 import ColdAndHotSubs from "assets/images/menu-items/Cold&HotSubs.jpg";
 import instagram from "assets/images/social/instagram.svg";
 import facebook from "assets/images/social/facebook.png";
-import antonyTechLogo from "assets/images/logo/digital-black.png";
+import antonyTechLogo from "assets/images/logo/digital-black-cut.png";
 
 import { useStyles } from "./styles/LandingFooter.styled";
 
 const LandingFooter = () => {
   const classes = useStyles();
+  const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("xs"));
 
   return (
     <>
@@ -21,7 +22,12 @@ const LandingFooter = () => {
       </Parallax>
       <section className={classes.footer}>
         <Container maxWidth="xl">
-          <Grid container justify="center" alignItems="center">
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            style={isMobile ? { paddingBottom: "30px" } : { paddingBottom: "60px" }}
+          >
             <Grid item xs={12} sm={6} md={3} className={classes.footerGridItem}>
               <div className={classes.footerTitle}>
                 <p>Reach out to us!</p>
@@ -73,6 +79,20 @@ const LandingFooter = () => {
             </Grid>
           </Grid>
         </Container>
+        <Hidden xsDown>
+          <div className={classes.watermarkDesktop}>
+            <Typography variant="body1">
+              Designed and developed by{" "}
+              <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+                Antony Tech
+              </a>
+              . All rights reserved &copy;
+            </Typography>
+            <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+              <img src={antonyTechLogo} alt="Antony Tech Logo" />
+            </a>
+          </div>
+        </Hidden>
       </section>
       <Hidden smUp>
         <div className={classes.watermark}>
@@ -85,20 +105,6 @@ const LandingFooter = () => {
           <div>
             <img src={antonyTechLogo} alt="Antony Tech Logo" />
           </div>
-        </div>
-      </Hidden>
-      <Hidden xsDown>
-        <div className={classes.watermarkDesktop}>
-          <Typography variant="body1">
-            Designed and developed by{" "}
-            <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
-              Antony Tech
-            </a>
-            . All rights reserved &copy;
-          </Typography>
-          <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
-            <img src={antonyTechLogo} alt="Antony Tech Logo" />
-          </a>
         </div>
       </Hidden>
     </>

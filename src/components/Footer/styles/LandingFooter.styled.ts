@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     padding: "40px 0 80px",
 
     [theme.breakpoints.up("sm")]: {
-      padding: "100px 0",
+      padding: "100px 0 0",
     },
   },
   footerTitle: {
@@ -230,6 +230,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     flexFlow: "column wrap",
     justifyContent: "center",
     alignItems: "center",
+    background: "#e3e3e3",
 
     "& .MuiTypography-root": {
       fontSize: "14px",
@@ -248,7 +249,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
 
     "& img": {
-      maxWidth: "180px",
+      maxWidth: "80px",
       width: "100%",
       marginRight: "5px",
     },
@@ -257,6 +258,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    paddingTop: "7px",
+    background: "#e3e3e3",
 
     "& .MuiTypography-root": {
       fontSize: "16px",
@@ -274,7 +277,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
 
     "& img": {
-      maxWidth: "200px",
+      maxWidth: "80px",
       width: "100%",
       marginRight: "5px",
     },

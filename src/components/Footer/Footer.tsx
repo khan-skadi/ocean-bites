@@ -7,7 +7,7 @@ import instagram from "assets/images/social/instagram.svg";
 import facebook from "assets/images/social/facebook.png";
 
 import { useStyles, Props } from "./styles/Footer.styles";
-import antonyTechLogo from "../../assets/images/logo/digital-black.png";
+import antonyTechLogo from "../../assets/images/logo/digital-black-cut.png";
 
 const Footer: FC<Props> = (props) => {
   const classes = useStyles(props);
@@ -16,7 +16,7 @@ const Footer: FC<Props> = (props) => {
     <>
       <div className={classes.root}>
         <Container maxWidth="xl">
-          <Grid container justify="center" alignItems="center">
+          <Grid container justify="center" alignItems="center" style={{ paddingBottom: "60px" }}>
             <Grid item xs={12} sm={6} md={3} className={classes.footerGridItem}>
               <div className={classes.footerTitle}>
                 <p>Reach out to us!</p>
@@ -68,6 +68,20 @@ const Footer: FC<Props> = (props) => {
             </Grid>
           </Grid>
         </Container>
+        <Hidden xsDown>
+          <div className={classes.watermarkDesktop}>
+            <Typography variant="body1">
+              Designed and developed by{" "}
+              <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+                Antony Tech
+              </a>
+              . All rights reserved &copy;
+            </Typography>
+            <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
+              <img src={antonyTechLogo} alt="Antony Tech Logo" />
+            </a>
+          </div>
+        </Hidden>
       </div>
       <Hidden smUp>
         <div className={classes.watermark}>
@@ -80,20 +94,6 @@ const Footer: FC<Props> = (props) => {
           <div>
             <img src={antonyTechLogo} alt="Antony Tech Logo" />
           </div>
-        </div>
-      </Hidden>
-      <Hidden xsDown>
-        <div className={classes.watermarkDesktop}>
-          <Typography variant="body1">
-            Designed and developed by{" "}
-            <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
-              Antony Tech
-            </a>
-            . All rights reserved &copy;
-          </Typography>
-          <a href="https://antonytech.com" target="_blank" rel="noopener noreferrer">
-            <img src={antonyTechLogo} alt="Antony Tech Logo" />
-          </a>
         </div>
       </Hidden>
     </>
