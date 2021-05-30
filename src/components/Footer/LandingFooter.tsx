@@ -1,15 +1,15 @@
 import React from "react";
-import { Container, Grid, Typography, Hidden, useMediaQuery, Theme } from "@material-ui/core";
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
-import { Parallax } from "react-parallax";
+import { Container, Grid, Typography, Hidden, useMediaQuery, Theme } from "@material-ui/core";
+import InstagramList from "components/InstagramList";
 
-import ColdAndHotSubs from "assets/images/menu-items/Cold&HotSubs.jpg";
 import instagram from "assets/images/social/instagram.svg";
 import facebook from "assets/images/social/facebook.png";
 import antonyTechLogo from "assets/images/logo/digital-black-cut.png";
 
 import { useStyles } from "./styles/LandingFooter.styled";
+import { GLOBALS } from "../../utils/appConstants";
 
 const LandingFooter = () => {
   const classes = useStyles();
@@ -17,9 +17,7 @@ const LandingFooter = () => {
 
   return (
     <>
-      <Parallax bgImage={ColdAndHotSubs} strength={-300} className={classes.parallax}>
-        <div className={classes.footerImageWrapper} />
-      </Parallax>
+      <InstagramList />
       <section className={classes.footer}>
         <Container maxWidth="xl">
           <Grid
@@ -42,7 +40,7 @@ const LandingFooter = () => {
                 <div className={classes.contactItem}>
                   <MailIcon />
                   <Typography variant="body2">
-                    <a href="mailto:hello@oceanbites.com">hello@oceanbites.com</a>
+                    <a href="mailto:hello@oceanbites.com">oceanbites123@gmail.com</a>
                   </Typography>
                 </div>
               </div>
@@ -69,10 +67,14 @@ const LandingFooter = () => {
                 <Typography variant="body1">Follow Us</Typography>
                 <div className={classes.socialItem}>
                   <div className={classes.socialIconWrapper}>
-                    <img src={instagram} alt="" />
+                    <a href={GLOBALS.instagramLink} target="_blank" rel="noopener noreferrer">
+                      <img src={instagram} alt="" />
+                    </a>
                   </div>
                   <div className={classes.socialIconWrapper}>
-                    <img src={facebook} alt="" />
+                    <a href={GLOBALS.facebookLink} target="_blank" rel="noopener noreferrer">
+                      <img src={facebook} alt="" />
+                    </a>
                   </div>
                 </div>
               </div>

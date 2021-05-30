@@ -61,13 +61,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
       minHeight: "600px",
     },
   },
-  menuListItem2: {
-    marginTop: "200px",
-
-    [theme.breakpoints.down("xs")]: {
-      marginTop: "50px",
-    },
-  },
+  menuListItem2: {},
   menuItem: {
     width: "100%",
     height: "100%",

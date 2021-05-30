@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { Container, Grid, Hidden, Typography } from "@material-ui/core";
+import { GLOBALS } from "utils/appConstants";
 
 import PhoneIcon from "@material-ui/icons/Phone";
 import MailIcon from "@material-ui/icons/MailOutline";
@@ -39,7 +40,7 @@ const Footer: FC<Props> = (props) => {
                 <div className={classes.contactItem}>
                   <MailIcon />
                   <Typography variant="body2">
-                    <a href="mailto:hello@oceanbites.com">hello@oceanbites.com</a>
+                    <a href="mailto:hello@oceanbites.com">oceanbites123@gmail.com</a>
                   </Typography>
                 </div>
               </div>
@@ -66,10 +67,14 @@ const Footer: FC<Props> = (props) => {
                 <Typography variant="body1">Follow Us</Typography>
                 <div className={classes.socialItem}>
                   <div className={classes.socialIconWrapper}>
-                    <img src={instagram} alt="" />
+                    <a href={GLOBALS.instagramLink} target="_blank" rel="noopener noreferrer">
+                      <img src={instagram} alt="" />
+                    </a>
                   </div>
                   <div className={classes.socialIconWrapper}>
-                    <img src={facebook} alt="" />
+                    <a href={GLOBALS.facebookLink} target="_blank" rel="noopener noreferrer">
+                      <img src={facebook} alt="" />
+                    </a>
                   </div>
                 </div>
               </div>

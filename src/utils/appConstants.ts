@@ -15,3 +15,8 @@ export const PATHS = {
     iceCreamAndTreats: "/menu/ice-cream-and-treats",
   },
 };
+
+export const GLOBALS = {
+  facebookLink: "https://www.facebook.com/Oceanbitesoc",
+  instagramLink: "https://www.instagram.com/ocean_bites_ocmd/",
+};

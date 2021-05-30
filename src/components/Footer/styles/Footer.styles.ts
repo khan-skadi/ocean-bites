@@ -168,7 +168,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     flexFlow: "column wrap",
     justifyContent: "center",
     alignItems: "center",
-    background: "#e3e3e3",
+    background: "rgb(242, 244, 234)",
 
     "& .MuiTypography-root": {
       fontSize: "14px",
@@ -197,7 +197,7 @@ export const useStyles = makeStyles<Theme, Props>((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     paddingTop: "7px",
-    background: "#e3e3e3",
+    background: "rgb(242, 244, 234)",
 
     "& .MuiTypography-root": {
       fontSize: "16px",
