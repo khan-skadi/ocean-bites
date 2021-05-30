@@ -62,7 +62,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     [theme.breakpoints.up("md")]: {
       paddingLeft: "50px",
       paddingRight: "50px",
-      marginBottom: "300px",
+      marginBottom: "200px",
     },
   },
   reviewTitle: {
@@ -99,7 +99,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
     msOverflowStyle: "none",
     scrollbarWidth: "none",
-    borderRadius: "10px",
 
     "&::-webkit-scrollbar": {
       display: "none",
