@@ -5,6 +5,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     position: "relative",
     background: theme.palette.secondary.light,
     padding: "15px 0",
+
+    [theme.breakpoints.down("xs")]: {
+      background: "#fff",
+      marginTop: "20px",
+    },
   },
   reviewsWrapper: {
     display: "flex",
@@ -42,7 +47,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
     width: "100%",
     paddingLeft: "15px",
     paddingRight: "15px",
-    paddingBottom: "50px",
 
     [theme.breakpoints.up("sm")]: {
       flexFlow: "row nowrap",
@@ -91,6 +95,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     flexWrap: "nowrap",
     overflowX: "auto",
     margin: "0 auto",
+    background: "#fff",
 
     msOverflowStyle: "none",
     scrollbarWidth: "none",
