@@ -1,9 +1,9 @@
 import * as functions from "firebase-functions";
 
+require("dotenv").config();
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
-const cors = require("cors")({ origin: "https://ocean-bites.web.app" });
-require("dotenv").config();
+const cors = require("cors")({ origin: process.env.BASE_URL });
 
 admin.initializeApp();
 
@@ -15,11 +15,6 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
       pass: process.env.EMAIL_PASSWORD,
     },
   });
-
-  // eslint-disable-next-line no-console
-  console.log("EMAIL_USERNAME: ", process.env.EMAIL_USERNAME);
-  // eslint-disable-next-line no-console
-  console.log("PASSWORD: ", process.env.EMAIL_PASSWORD);
 
   cors(req, res, () => {
     const { email, name, message } = req.body.data;
