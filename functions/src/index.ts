@@ -3,7 +3,21 @@ import * as functions from "firebase-functions";
 require("dotenv").config();
 const admin = require("firebase-admin");
 const nodemailer = require("nodemailer");
-const cors = require("cors")({ origin: process.env.BASE_URL });
+// const cors = require("cors")({ origin: process.env.BASE_URL });
+const cors = require("cors");
+
+const whitelist = [process.env.BASE_URL, "https://oceanbites.net"];
+const corsOptions = {
+  origin: (origin: string, callback: (err: Error | null, allow?: boolean) => void) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+cors(corsOptions);
 
 admin.initializeApp();
 
@@ -28,8 +42,6 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
 
     return transporter.sendMail(mailOptions, (error: Object, info: unknown) => {
       if (error) {
-        // eslint-disable-next-line no-console
-        console.log("TRANSPORTER ERR: ", error);
         return res.status(500).send({
           data: {
             status: 500,
@@ -37,8 +49,6 @@ exports.sendEmail = functions.https.onRequest((req, res) => {
           },
         });
       }
-      // eslint-disable-next-line no-console
-      console.log("Info: ", info);
 
       return res.status(200).send({
         data: {

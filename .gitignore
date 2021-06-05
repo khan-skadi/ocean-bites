@@ -8,3 +8,6 @@ functions/.env
 .env
 
 .idea/
+
+functions
+functions/
