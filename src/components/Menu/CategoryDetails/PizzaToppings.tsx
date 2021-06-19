@@ -1,7 +1,7 @@
 import React from "react";
-import { makeStyles, Theme, Typography } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     flexFlow: "column wrap",
@@ -45,14 +45,15 @@ const PizzaToppings = () => {
       </div>
       <div className={classes.wrapper}>
         <p style={{ marginTop: "20px" }}>Ham {String.fromCharCode(183)}</p>
-        <p style={{ marginTop: "20px" }}>Banana Peppers</p>
-        <p>Jalapeno Sasuage {String.fromCharCode(183)}</p>
-        <p>Pepperoni</p>
-        <p>Green Peppers {String.fromCharCode(183)}</p>
-        <p>Onions {String.fromCharCode(183)}</p>
+        <p style={{ marginTop: "20px" }}>Sausage</p>
+        <p>Pepperoni {String.fromCharCode(183)}</p>
         <p>Tomatoes</p>
-        <p>Sweet Peppers {String.fromCharCode(183)}</p>
-        <p>Mushrooms</p>
+        <p>Mushroom {String.fromCharCode(183)}</p>
+        <p>Banana Pepper {String.fromCharCode(183)}</p>
+        <p>Jalapeños</p>
+        <p>Sweet Pepper {String.fromCharCode(183)}</p>
+        <p>Green Pepper</p>
+        <p>Onions</p>
       </div>
     </div>
   );
