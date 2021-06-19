@@ -1,7 +1,7 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, Typography, Grid } from "@material-ui/core";
+import { makeStyles, createStyles, Typography, Grid } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     gridItem: {
       paddingLeft: "20px",
@@ -33,9 +33,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const NormalList = (props) => {
-  const { items } = props;
+const NormalList = ({ items }) => {
   const classes = useStyles();
+  console.log(items);
 
   return items.map((item) => (
     <Grid item key={item.id} className={classes.gridItem} xs={12} sm={6} md={4}>

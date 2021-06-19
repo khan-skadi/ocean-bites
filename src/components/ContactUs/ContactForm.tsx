@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import firebase from "config/firebase";
 import { useFormik, FormikValues } from "formik";
 import { getFormikFieldProps } from "utils/getFormikFieldProps";
 import { ALERT_MESSAGES } from "utils/verbiage";
@@ -11,8 +10,6 @@ import Alert, { AlertProps } from "components/Alert";
 
 import { VALIDATION_SCHEMA } from "./constants";
 import { useStyles } from "./styles/ContactForm.styles";
-
-// const sendEmail = firebase.functions().httpsCallable("sendEmail");
 
 const ContactForm = () => {
   const classes = useStyles();
@@ -52,28 +49,6 @@ const ContactForm = () => {
     } finally {
       setLoading(false);
     }
-
-    // sendEmail(data)
-    //   .then((res) => {
-    //     console.log("res: ", res);
-    //     setAlertProps({
-    //       open: true,
-    //       onClose: () => setAlertProps({ open: false }),
-    //       severity: "success",
-    //       message: ALERT_MESSAGES.formSubmittedSuccessfully,
-    //     });
-    //     setLoading(false);
-    //   })
-    //   .catch((err) => {
-    //     console.log("err: ", err);
-    //     setAlertProps({
-    //       open: true,
-    //       onClose: () => setAlertProps({ open: false }),
-    //       severity: "error",
-    //       message: ALERT_MESSAGES.errorSubmittingForm,
-    //     });
-    //     setLoading(false);
-    //   });
   };
 
   const formik = useFormik({
