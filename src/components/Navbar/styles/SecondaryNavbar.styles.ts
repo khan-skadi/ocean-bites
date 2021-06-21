@@ -39,13 +39,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
 
       "& img": {
-        width: "261px",
+        width: "400px",
 
         [theme.breakpoints.down("sm")]: {
-          width: "200px",
+          width: "250px",
         },
 
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
           width: "150px",
         },
       },

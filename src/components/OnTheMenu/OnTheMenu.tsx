@@ -17,6 +17,8 @@ import { useStyles } from "./OnTheMenu.styles";
 const OnTheMenu = () => {
   const classes = useStyles();
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("xs"));
+  const isTablet = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const isDesktop = useMediaQuery((theme: Theme) => theme.breakpoints.down("xl"));
 
   return (
     <>
@@ -44,8 +46,10 @@ const OnTheMenu = () => {
                         style={{
                           position: "absolute",
                           border: "1px solid #fff",
-                          width: isMobile ? "100px" : "295px",
-                          height: isMobile ? "50px" : "140px",
+                          // eslint-disable-next-line no-nested-ternary
+                          width: isMobile ? "100px" : isTablet ? "200px" : isDesktop ? "295px" : "",
+                          // eslint-disable-next-line no-nested-ternary
+                          height: isMobile ? "50px" : isTablet ? "78px" : isDesktop ? "140px" : "",
                           left: "50%",
                           top: "50%",
                           transform: "translate(-50%, -50%)",
@@ -64,7 +68,7 @@ const OnTheMenu = () => {
             </li>
           ))}
           {menuItems2.map((item) => (
-            <li key={item.label} className={classes.menuListItem2}>
+            <li key={item.label}>
               <div
                 className={classes.menuItem}
                 style={{
@@ -80,8 +84,10 @@ const OnTheMenu = () => {
                         style={{
                           position: "absolute",
                           border: "1px solid #fff",
-                          width: isMobile ? "100px" : "295px",
-                          height: isMobile ? "50px" : "140px",
+                          // eslint-disable-next-line no-nested-ternary
+                          width: isMobile ? "100px" : isTablet ? "200px" : isDesktop ? "295px" : "",
+                          // eslint-disable-next-line no-nested-ternary
+                          height: isMobile ? "50px" : isTablet ? "78px" : isDesktop ? "140px" : "",
                           left: "50%",
                           top: "50%",
                           transform: "translate(-50%, -50%)",
