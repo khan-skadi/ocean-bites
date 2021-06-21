@@ -34,32 +34,26 @@ export const useStyles = makeStyles((theme: Theme) =>
       flexGrow: 1,
     },
     title: {
-      marginTop: "15px",
-
       [theme.breakpoints.down("xs")]: {
         marginTop: "5px",
       },
 
-      "&:hover": {
-        textDecoration: "none",
-      },
+      "& img": {
+        width: "261px",
 
-      "& .MuiTypography-root": {
-        fontSize: "19px",
-        textTransform: "uppercase",
-        fontFamily: "Hatton",
-        fontWeight: 300,
-        color: theme.palette.primary.light,
-        maxWidth: "10ch",
+        [theme.breakpoints.down("sm")]: {
+          width: "200px",
+        },
 
-        [theme.breakpoints.up("sm")]: {
-          fontSize: "36px",
+        [theme.breakpoints.down("sm")]: {
+          width: "150px",
         },
       },
     },
     nav: {
       display: "flex",
-      alignItems: "flex-end",
+      alignItems: "center",
+      justifyContent: "center",
 
       [theme.breakpoints.down("xs")]: {
         flexFlow: "row nowrap",
@@ -84,7 +78,7 @@ export const useStyles = makeStyles((theme: Theme) =>
           textTransform: "capitalize",
 
           [theme.breakpoints.down("sm")]: {
-            fontSize: "12px !important",
+            fontSize: "16px !important",
           },
 
           [theme.breakpoints.down("xs")]: {

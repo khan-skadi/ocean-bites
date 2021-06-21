@@ -15,6 +15,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up("md")]: {
         padding: "30px 0 0 120px",
       },
+
+      [theme.breakpoints.up("sm")]: {
+        padding: "30px 0 0 20px",
+      },
     },
     appBar: {
       backgroundColor: theme.palette.secondary.light,
@@ -30,24 +34,15 @@ export const useStyles = makeStyles((theme: Theme) =>
         paddingTop: theme.spacing(1),
       },
 
-      "&:hover": {
-        textDecoration: "none",
-      },
+      "& img": {
+        width: "400px",
 
-      "& .MuiTypography-root": {
-        fontSize: "24px",
-        textTransform: "uppercase",
-        fontFamily: "Hatton",
-        fontWeight: 300,
-        color: theme.palette.primary.light,
-        maxWidth: "10ch",
-
-        [theme.breakpoints.up("sm")]: {
-          fontSize: "36px",
+        [theme.breakpoints.down("sm")]: {
+          width: "300px",
         },
 
-        [theme.breakpoints.up("md")]: {
-          fontSize: "64px",
+        [theme.breakpoints.down("xs")]: {
+          width: "150px",
         },
       },
     },
@@ -92,7 +87,7 @@ export const useStyles = makeStyles((theme: Theme) =>
           textTransform: "capitalize",
 
           [theme.breakpoints.down("sm")]: {
-            fontSize: "20px",
+            fontSize: "16px !important",
           },
 
           [theme.breakpoints.down("xs")]: {
