@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
     [theme.breakpoints.up("sm")]: {
       paddingTop: "150px",
+      justifyContent: "space-around",
     },
   },
   iceCreamImageWrapper: {
@@ -64,6 +65,10 @@ const useStyles = makeStyles((theme: Theme) => ({
       top: 150,
       left: 0,
     },
+
+    [theme.breakpoints.up("sm")]: {
+      width: "350px",
+    },
   },
   fillerIceCream: {
     minWidth: "200px",
@@ -77,7 +82,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     top: "-245px",
 
     [theme.breakpoints.down("xs")]: {
-      top: "-5px",
+      top: "-5px !important",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      width: "50%",
+      top: "-150px",
     },
 
     "& p": {

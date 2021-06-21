@@ -35,7 +35,6 @@ const useStyles = makeStyles(() =>
 
 const NormalList = ({ items }) => {
   const classes = useStyles();
-  console.log(items);
 
   return items.map((item) => (
     <Grid item key={item.id} className={classes.gridItem} xs={12} sm={6} md={4}>

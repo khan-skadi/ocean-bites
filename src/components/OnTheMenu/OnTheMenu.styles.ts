@@ -61,7 +61,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
       minHeight: "600px",
     },
   },
-  menuListItem2: {},
   menuItem: {
     width: "100%",
     height: "100%",
@@ -91,6 +90,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
 
     [theme.breakpoints.up("sm")]: {
+      width: 200,
+      height: 78,
+    },
+
+    [theme.breakpoints.up("md")]: {
       width: 295,
       height: 140,
     },
@@ -110,6 +114,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
 
       [theme.breakpoints.up("sm")]: {
         width: "90%",
+        fontSize: "18px",
+      },
+
+      [theme.breakpoints.up("md")]: {
         fontSize: "22px",
       },
     },

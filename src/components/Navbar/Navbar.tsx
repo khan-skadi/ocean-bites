@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, Link as NavLink } from "react-router-dom";
-import { Link, AppBar, Hidden, Button, Toolbar, IconButton, Typography, Menu, MenuItem } from "@material-ui/core";
+import { Link, AppBar, Hidden, Button, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
 import { NavItems } from "utils/navigation";
 import { PATHS } from "utils/appConstants";
 import classnames from "classnames";
 import MenuIcon from "@material-ui/icons/Menu";
+import OceanBitesLogo from "assets/images/logo/ocean-bites-logo.png";
 import { useStyles } from "./styles/Navbar.styles";
 
 const Navbar = () => {
@@ -83,7 +84,7 @@ const Navbar = () => {
         <Toolbar className={classes.toolbarRoot}>
           <div className={classes.nav}>
             <Link className={classes.title} component={NavLink} to={PATHS.home}>
-              <Typography variant="h6">Ocean Bites</Typography>
+              <img src={OceanBitesLogo} alt="Ocean Bites Logo" />
             </Link>
             <div className={classes.logoWrapper} />
             <Hidden smUp>

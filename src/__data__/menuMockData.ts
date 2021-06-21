@@ -396,7 +396,7 @@ export const menuListItems: MenuItem[] = [
             id: 602,
             name: "Grilled Chicken",
             ingredients: ["Grilled Chicken Breast", "Choice of Toppings"],
-            price: "7.49",
+            price: "8.49",
             additional: "",
           },
           {
@@ -410,14 +410,14 @@ export const menuListItems: MenuItem[] = [
             id: 604,
             name: "Gyro Pita",
             ingredients: ["Grilled Lamb and Beef", "Lettuce", "Tomatoes", "Onions", "Tzatziki Sauce"],
-            price: "8.49",
+            price: "8.99",
             additional: "",
           },
           {
             id: 605,
             name: "Chicken Pita",
             ingredients: ["Grilled Chicken Breast", "Lettuce", "Tomatoes", "Onions", "Tzatziki Sauce"],
-            price: "8.49",
+            price: "8.99",
             additional: "",
           },
           {

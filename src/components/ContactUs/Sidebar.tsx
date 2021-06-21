@@ -27,6 +27,14 @@ const useStyles = makeStyles((theme: Theme) =>
       textTransform: "uppercase",
       color: theme.palette.primary.light,
       margin: "0 auto",
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "20px",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "24px",
+      },
     },
     secondLocTitle: {
       fontFamily: "Grotesk",
@@ -35,12 +43,28 @@ const useStyles = makeStyles((theme: Theme) =>
       textTransform: "uppercase",
       color: theme.palette.primary.light,
       margin: "30px auto 0",
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "20px",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "24px",
+      },
     },
     addressWrapper: {
       margin: "20px 0",
 
       "& .MuiTypography-root": {
         fontSize: "18px",
+
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "15px",
+        },
+
+        [theme.breakpoints.down("xs")]: {
+          fontSize: "17px",
+        },
       },
 
       [theme.breakpoints.down("xs")]: {
@@ -53,12 +77,28 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "17px",
       color: "#000",
 
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "15px",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "17px",
+      },
+
       "& a": {
         fontFamily: "Grotesk",
         fontWeight: 400,
         fontSize: "17px",
         color: "#000",
         textDecoration: "none",
+
+        [theme.breakpoints.down("sm")]: {
+          fontSize: "15px",
+        },
+
+        [theme.breakpoints.down("xs")]: {
+          fontSize: "17px",
+        },
       },
     },
     wrapper: {
@@ -73,6 +113,14 @@ const useStyles = makeStyles((theme: Theme) =>
     icon: {
       marginRight: "10px",
       color: theme.palette.primary.light,
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "24px",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "30px",
+      },
     },
     phone: {
       marginTop: "4px",
