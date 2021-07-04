@@ -8,6 +8,7 @@ import Reviews from "components/Reviews";
 import OurStory from "components/OurStory";
 import OnTheMenu from "components/OnTheMenu";
 import { LandingFooter } from "components/Footer";
+import { Button, Link } from "@material-ui/core";
 
 import { useStyles } from "./styles/LandingPage.styles";
 
@@ -27,7 +28,23 @@ const LandingPage = () => {
     <>
       <section className={classes.hero}>
         <Parallax bgImage={heroImage} strength={400}>
-          <div style={{ height: "98vh" }} />
+          <div className={classes.heroCTA}>
+            <div>
+              <p className={classes.textCTA}>
+                We deliver with <br />
+                <span>uber eats</span>
+              </p>
+              <Link
+                component={Button}
+                className={classes.buttonCTA}
+                href="https://www.ubereats.com/store/ocean-bites/0XwO_qnsS3qbosjHyVZeVQ?fbclid=IwAR3LzpgKsYEeL6zkwiqQXme5ggsPQqOcNZf8B4WT5661gUm4K0DxqM5Rr6A"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Order Now
+              </Link>
+            </div>
+          </div>
         </Parallax>
       </section>
 
