@@ -60,14 +60,18 @@ const useStyles = makeStyles((theme: Theme) => ({
       objectPosition: "center right",
     },
 
+    [theme.breakpoints.up("sm")]: {
+      width: "350px",
+    },
+
     [theme.breakpoints.up("md")]: {
-      width: "1000px",
+      width: "550px",
       top: 150,
       left: 0,
     },
 
-    [theme.breakpoints.up("sm")]: {
-      width: "350px",
+    [theme.breakpoints.up("lg")]: {
+      width: "1000px",
     },
   },
   fillerIceCream: {
@@ -109,6 +113,14 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginInlineStart: "2px",
       marginInlineEnd: "10px",
       marginBlockEnd: "0.3em",
+
+      [theme.breakpoints.up("md")]: {
+        marginLeft: 0,
+      },
+
+      [theme.breakpoints.up("lg")]: {
+        marginLeft: "200px",
+      },
     },
 
     [theme.breakpoints.up("md")]: {
