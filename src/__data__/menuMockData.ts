@@ -49,7 +49,7 @@ export const menuListItems: MenuItem[] = [
           {
             id: 104,
             name: "Jalapeno Poppers",
-            ingredients: [""],
+            ingredients: [],
             price: "7.25",
             additional: "",
           },

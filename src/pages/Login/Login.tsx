@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuthContext } from "context/AuthContext";
 import { useFormik, FormikValues } from "formik";
@@ -7,9 +7,11 @@ import { makeStyles, Theme } from "@material-ui/core/styles";
 // Components
 import { Button } from "@material-ui/core";
 import { Text } from "components/FormFields";
+import Alert, { AlertProps } from "components/Alert";
 
 // Helpers
 import { PATHS } from "utils/appConstants";
+import { ALERT_MESSAGES } from "utils/verbiage";
 import { getFormikFieldProps } from "utils/getFormikFieldProps";
 import { VALIDATION_SCHEMA } from "./constants";
 
@@ -45,11 +47,31 @@ const Login = () => {
   const classes = useStyles();
   const history = useHistory();
   const { currentUser, login } = useAuthContext();
+  const [alertProps, setAlertProps] = useState<Partial<AlertProps>>({
+    open: false,
+  });
 
-  const onSubmit = (values: FormikValues) => {
-    login(values.email, values.password);
-    history.push(PATHS.home);
-  };
+  const onSubmit = (values: FormikValues) =>
+    login(values.email, values.password)
+      .then((res) => {
+        if (res.user) {
+          setAlertProps({
+            open: true,
+            onClose: () => setAlertProps({ open: false }),
+            severity: "success",
+            message: ALERT_MESSAGES.formSubmittedSuccessfully,
+          });
+          history.push(PATHS.menu);
+        }
+      })
+      .catch((err) => {
+        setAlertProps({
+          open: true,
+          onClose: () => setAlertProps({ open: false }),
+          severity: "error",
+          message: err.message || ALERT_MESSAGES.errorSubmittingForm,
+        });
+      });
 
   const formik = useFormik({
     initialValues: INITIAL_VALUES,
@@ -65,6 +87,7 @@ const Login = () => {
 
   return (
     <div className={classes.root}>
+      <Alert {...alertProps} />
       <p className={classes.titleText}>Login to Ocean Bites</p>
 
       <form className={classes.form} onSubmit={handleSubmit}>
