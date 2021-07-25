@@ -49,8 +49,8 @@ const Footer: FC<Props> = (props) => {
               <div className={classes.hoursWrapper}>
                 <Typography variant="body1">Daily Hours</Typography>
                 <div className={classes.hoursItem}>
-                  <Typography variant="body2">Sun-Thur: 10:00am - 3:30am</Typography>
-                  <Typography variant="body2">Fri-Sat: 10:00am - 4:00am</Typography>
+                  <Typography variant="body2">Sun-Thur: 11:00am - 1:30am</Typography>
+                  <Typography variant="body2">Fri-Sat: 11:00am - 2:30am</Typography>
                 </div>
               </div>
             </Grid>

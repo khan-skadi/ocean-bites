@@ -49,7 +49,7 @@ export const menuListItems: MenuItem[] = [
           {
             id: 104,
             name: "Jalapeno Poppers",
-            ingredients: ["With Raunch or Old Bay sauce"],
+            ingredients: [""],
             price: "7.25",
             additional: "",
           },
@@ -70,14 +70,14 @@ export const menuListItems: MenuItem[] = [
           {
             id: 107,
             name: "Chicken Tenders (4)",
-            ingredients: [],
+            ingredients: ["With Ranch, BBQ, or honey mustard"],
             price: "7.49",
             additional: "",
           },
           {
             id: 108,
             name: "Buffalo Chicken Tenders (4)",
-            ingredients: ["with Ranch or Blue Cheese"],
+            ingredients: ["with Ranch, BBQ, or honey mustard"],
             price: "8.49",
             additional: "",
           },
@@ -194,7 +194,7 @@ export const menuListItems: MenuItem[] = [
             id: 303,
             name: "Buffalo Chicken Salad",
             ingredients: ["Buffalo Chicken Tenders", "House Salad"],
-            price: "10.00",
+            price: "11.00",
             additional: "",
           },
           {
@@ -242,7 +242,7 @@ export const menuListItems: MenuItem[] = [
             id: 402,
             name: "Chicken Caesar Wrap",
             ingredients: ["Grilled Chicken", "Lettuce", "Tomatoes", "Parmesan", "Caesar"],
-            price: "8.00",
+            price: "8.49",
           },
         ],
       },
@@ -396,7 +396,7 @@ export const menuListItems: MenuItem[] = [
             id: 602,
             name: "Grilled Chicken",
             ingredients: ["Grilled Chicken Breast", "Choice of Toppings"],
-            price: "8.49",
+            price: "7.49",
             additional: "",
           },
           {
@@ -484,12 +484,6 @@ export const menuListItems: MenuItem[] = [
         subtitle: "",
         items: [
           {
-            id: 901,
-            name: "Nacho & Cheese",
-            ingredients: [],
-            price: "3.00",
-          },
-          {
             id: 902,
             name: "Chips",
             ingredients: [],
@@ -529,19 +523,13 @@ export const menuListItems: MenuItem[] = [
             id: 908,
             name: "Pepsi Products 20oz",
             ingredients: [],
-            price: "2.00",
+            price: "2.50",
           },
           {
             id: 909,
-            name: "Juice, Gatorade, Lipton Tea",
+            name: "Pepsi Products 32oz",
             ingredients: [],
-            price: "2.75",
-          },
-          {
-            id: 910,
-            name: "Energy Drinks",
-            ingredients: [],
-            price: "3.00",
+            price: "3.25",
           },
         ],
       },
