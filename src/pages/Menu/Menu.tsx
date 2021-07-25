@@ -29,7 +29,7 @@ const Menu = () => {
   useEffect(() => {
     const item = getActiveMenuItem(location.pathname);
     setActiveMenuItem(item);
-  }, [location.pathname, getActiveMenuItem]);
+  }, [location.pathname]);
 
   useEffect(() => {
     fetchMenuItems();
