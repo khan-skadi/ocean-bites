@@ -2,6 +2,7 @@ export const PATHS = {
   root: "/",
   home: "/home",
   menu: "/menu",
+  login: "/login",
   about: "/about-us",
   contact: "/contact-us",
   menuItems: {

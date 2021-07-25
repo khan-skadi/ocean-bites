@@ -1,5 +1,10 @@
 import firebase from "firebase/app";
+// eslint-disable-next-line import/no-duplicates
 import "firebase/functions";
+// eslint-disable-next-line import/no-duplicates
+import "firebase/firestore";
+// eslint-disable-next-line import/no-duplicates
+import "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCVRxIQFZYIvgzdjMyFN4DJjkPO4GB5iYU",
@@ -11,11 +16,10 @@ const firebaseConfig = {
   measurementId: "G-M6P6HH8SWM",
 };
 
-// initialize a Firebase instance
 firebase.initializeApp(firebaseConfig);
 
-// initialize Cloud Functions through Firebase
 firebase.functions();
 
-// export the `firebase` namespace to import it in src/App.js
+export const auth = firebase.auth();
+export const db = firebase.firestore();
 export default firebase;
