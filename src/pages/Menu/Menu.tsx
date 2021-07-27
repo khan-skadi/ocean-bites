@@ -38,7 +38,7 @@ const Menu = () => {
       setActiveMenuItem(items[0]);
     });
     setLoading(false);
-  }, [ref]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     fetchMenuItems();

@@ -9,7 +9,7 @@ export interface AlertProps {
 
 const initialState: AlertProps = {
   open: false,
-  onClose: () => {},
+  onClose: undefined,
   severity: "success",
   message: "",
 };
@@ -27,9 +27,9 @@ const alertSlice = createSlice({
     },
     clearProps: (state) => {
       state.open = false;
-      state.onClose = () => {};
-      state.severity = "success";
-      state.message = "";
+      state.onClose = undefined;
+      state.severity = undefined;
+      state.message = undefined;
     },
   },
 });
