@@ -1,74 +1,72 @@
 import React, { FC } from "react";
-import { makeStyles, createStyles, Theme, Typography, Grid } from "@material-ui/core";
+import { makeStyles, Theme, Typography, Grid } from "@material-ui/core";
 import { SubCategoryItem } from "models/menu";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      [theme.breakpoints.down("xs")]: {
-        flexFlow: "column nowrap",
-        width: "100%",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  container: {
+    [theme.breakpoints.down("xs")]: {
+      flexFlow: "column nowrap",
+      width: "100%",
     },
-    gridItem: {
-      marginTop: "20px",
+  },
+  gridItem: {
+    marginTop: "20px",
 
-      [theme.breakpoints.down("xs")]: {
-        marginTop: 0,
-      },
-
-      "&:first-child": {
-        marginTop: 70,
-      },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: 0,
     },
-    itemWrapper: {
-      display: "flex",
-      paddingRight: "15px",
-      marginTop: "20px",
-      justifyContent: "space-between",
-      alignItems: "flex-start",
-    },
-    itemHead: {
-      display: "flex",
-      flexFlow: "column wrap",
-      justifyContent: "center",
-      alignItems: "flex-start",
 
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 600,
-        color: "#000",
-      },
+    "&:first-child": {
+      marginTop: 70,
     },
-    itemSub: {
-      display: "flex",
-      flexFlow: "column wrap",
+  },
+  itemWrapper: {
+    display: "flex",
+    paddingRight: "15px",
+    marginTop: "20px",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+  },
+  itemHead: {
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "flex-start",
 
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 400,
-        color: "rgba(0, 0, 0, 0.8)",
-      },
-    },
-    imageWrapper: {
-      width: "300px",
-
-      [theme.breakpoints.down("xs")]: {
-        margin: "40px auto 0",
-      },
-
-      "& img": {
-        width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        objectPosition: "center",
-      },
-    },
-    price: {
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
       fontWeight: 600,
+      color: "#000",
     },
-  })
-);
+  },
+  itemSub: {
+    display: "flex",
+    flexFlow: "column wrap",
+
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
+      fontWeight: 400,
+      color: "rgba(0, 0, 0, 0.8)",
+    },
+  },
+  imageWrapper: {
+    width: "300px",
+
+    [theme.breakpoints.down("xs")]: {
+      margin: "40px auto 0",
+    },
+
+    "& img": {
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      objectPosition: "center",
+    },
+  },
+  price: {
+    fontWeight: 600,
+  },
+}));
 
 interface Props {
   items: SubCategoryItem[];

@@ -28,8 +28,7 @@ const ContactForm = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post(url, data);
-      console.log("res: ", res);
+      await axios.post(url, data);
 
       setAlertProps({
         open: true,
