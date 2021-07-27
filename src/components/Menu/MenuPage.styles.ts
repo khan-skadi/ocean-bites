@@ -92,4 +92,5 @@ export const useStyles = makeStyles((theme: Theme) => ({
     height: "300px",
     padding: "0 15px",
   },
+  editButton: { marginBottom: "15px" },
 }));
