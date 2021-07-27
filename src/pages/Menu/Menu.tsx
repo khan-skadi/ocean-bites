@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, Link as NavLink } from "react-router-dom";
 import { Theme, Container, Typography, Link, useMediaQuery } from "@material-ui/core";
+import { menuListItems } from "__data__/menuMockData";
 import classnames from "classnames";
 import { db } from "config/firebase";
 
 // Components
 import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import MenuPage from "components/Menu/MenuPage";
+import Spinner from "components/Spinner";
 import Footer from "components/Footer";
 import { MenuItem } from "models/menu";
 
@@ -21,7 +23,7 @@ const Menu = () => {
   const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down("xs"));
   const [loading, setLoading] = useState(false);
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-  const [activeMenuItem, setActiveMenuItem] = useState<MenuItem>();
+  const [activeMenuItem, setActiveMenuItem] = useState<MenuItem>(menuListItems[0]);
   const ref = db.collection("menuItems");
 
   const fetchMenuItems = useCallback(() => {
@@ -35,8 +37,8 @@ const Menu = () => {
       });
 
       setMenuItems(items);
-      setActiveMenuItem(items[0]);
     });
+
     setLoading(false);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -45,12 +47,13 @@ const Menu = () => {
   }, [fetchMenuItems]);
 
   useEffect(() => {
-    const item = getActiveMenuItem(location.pathname);
-    setActiveMenuItem(item);
-  }, [location.pathname]);
+    if (menuItems.length) {
+      const item = getActiveMenuItem(location.pathname, menuItems);
+      setActiveMenuItem(item);
+    }
+  }, [location.pathname, menuItems]);
 
-  // Setup a spinner
-  if (!activeMenuItem) return <div>loading..</div>;
+  if (!activeMenuItem) return <Spinner />;
   return (
     <div className={classes.root}>
       <SecondaryNavbar />
@@ -58,7 +61,7 @@ const Menu = () => {
         <Container maxWidth="md">
           <div className={classes.menuItemsListWrapper}>
             <ul className={classes.menuItemsList}>
-              {loading && <div>Loading..</div>}
+              {loading && <Spinner />}
               {!!menuItems.length &&
                 menuItems.map((item) => (
                   <li key={item.name}>

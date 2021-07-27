@@ -1,26 +1,26 @@
 import { PATHS } from "utils/appConstants";
-import { menuListItems } from "../../__data__/menuMockData";
+import { MenuItem } from "models/menu";
 
-export const getActiveMenuItem = (loc: string) => {
+export const getActiveMenuItem = (loc: string, menuItems: MenuItem[]) => {
   switch (loc) {
     case PATHS.menuItems.appetizers:
-      return menuListItems[0];
-    case PATHS.menuItems.pizza:
-      return menuListItems[1];
-    case PATHS.menuItems.salads:
-      return menuListItems[2];
-    case PATHS.menuItems.wraps:
-      return menuListItems[3];
+      return menuItems[0];
     case PATHS.menuItems.hotAndColdSubs:
-      return menuListItems[4];
-    case PATHS.menuItems.sandwiches:
-      return menuListItems[5];
+      return menuItems[1];
     case PATHS.menuItems.iceCreamAndTreats:
-      return menuListItems[6];
+      return menuItems[2];
     case PATHS.menuItems.kidsMenu:
-      return menuListItems[7];
+      return menuItems[3];
+    case PATHS.menuItems.pizza:
+      return menuItems[4];
+    case PATHS.menuItems.salads:
+      return menuItems[5];
+    case PATHS.menuItems.sandwiches:
+      return menuItems[6];
+    case PATHS.menuItems.wraps:
+      return menuItems[7];
     default:
-      return menuListItems[0];
+      return menuItems[0];
   }
 };
 
