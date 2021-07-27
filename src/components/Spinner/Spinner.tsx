@@ -18,7 +18,6 @@ export default function Spinner() {
 
   return (
     <div className={classes.root}>
-      <CircularProgress />
       <CircularProgress color="secondary" />
     </div>
   );

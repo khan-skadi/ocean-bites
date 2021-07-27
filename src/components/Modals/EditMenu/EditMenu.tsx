@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeModal, setAlertProps } from "store";
 import { db } from "config/firebase";
@@ -26,8 +26,10 @@ interface Props {
 const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmitForm = async (values) => {
+    setLoading(true);
     const ref = db.collection("menuItems").doc(menuItem.name);
     const itemUpdates: SubCategoryItem[] = [];
 
@@ -87,6 +89,7 @@ const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
         })
       );
     } finally {
+      setLoading(false);
       dispatch(closeModal());
     }
   };
@@ -95,9 +98,19 @@ const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
     <ModalWrapper header={`Edit ${subCategory.name}`}>
       <div className={classes.formWrapper}>
         {subCategory.items[0].subItems && subCategory.items[0].subItems.length ? (
-          <EditMenuDualPrice subCategory={subCategory} state={initialState} handleSubmitForm={handleSubmitForm} />
+          <EditMenuDualPrice
+            subCategory={subCategory}
+            state={initialState}
+            loading={loading}
+            handleSubmitForm={handleSubmitForm}
+          />
         ) : (
-          <EditMenuForm subCategory={subCategory} state={initialState} handleSubmitForm={handleSubmitForm} />
+          <EditMenuForm
+            subCategory={subCategory}
+            state={initialState}
+            loading={loading}
+            handleSubmitForm={handleSubmitForm}
+          />
         )}
       </div>
     </ModalWrapper>

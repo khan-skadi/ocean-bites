@@ -12,6 +12,7 @@ import { closeModal } from "store";
 // Components
 import { MenuText } from "components/FormFields";
 import { Button } from "@material-ui/core";
+import Spinner from "components/Spinner";
 
 // Helpers
 import { getFormikFieldProps } from "utils/getFormikFieldProps";
@@ -52,9 +53,10 @@ interface Props {
   state: {
     [key: string]: string;
   };
+  loading: boolean;
 }
 
-const EditMenuDualPrice: FC<Props> = ({ handleSubmitForm, subCategory, state }) => {
+const EditMenuDualPrice: FC<Props> = ({ handleSubmitForm, subCategory, state, loading }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -128,8 +130,15 @@ const EditMenuDualPrice: FC<Props> = ({ handleSubmitForm, subCategory, state }) 
         </div>
       </div>
       <div className={classes.actionWrapper}>
-        <Button className={classes.submitButton} type="submit" variant="contained" color="secondary" tabIndex={0}>
-          Save
+        <Button
+          className={classes.submitButton}
+          type="submit"
+          variant="contained"
+          color="secondary"
+          disabled={loading}
+          tabIndex={0}
+        >
+          {loading ? <Spinner /> : "Save"}
         </Button>
         <Button
           className={classes.cancelButton}
