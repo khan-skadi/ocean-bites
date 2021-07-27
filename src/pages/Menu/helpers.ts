@@ -33,7 +33,7 @@ export const getSpacing = (loc: string, isMobile: boolean) => {
     case PATHS.menuItems.salads:
       return isMobile ? "20px" : "90px";
     case PATHS.menuItems.wraps:
-      return isMobile ? "40px" : "210px";
+      return isMobile ? "40px" : "235px";
     case PATHS.menuItems.hotAndColdSubs:
       return "";
     case PATHS.menuItems.sandwiches:
