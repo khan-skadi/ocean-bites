@@ -33,6 +33,9 @@ const useStyles = makeStyles(() => ({
       margin: "5px",
     },
   },
+  topMargin: {
+    marginTop: "20px",
+  },
 }));
 
 const PizzaToppings = () => {
@@ -44,8 +47,8 @@ const PizzaToppings = () => {
         <Typography variant="body1">Topping of Your Choice:</Typography>
       </div>
       <div className={classes.wrapper}>
-        <p style={{ marginTop: "20px" }}>Ham {String.fromCharCode(183)}</p>
-        <p style={{ marginTop: "20px" }}>Sausage</p>
+        <p className={classes.topMargin}>Ham {String.fromCharCode(183)}</p>
+        <p className={classes.topMargin}>Sausage</p>
         <p>Pepperoni {String.fromCharCode(183)}</p>
         <p>Tomatoes</p>
         <p>Mushroom {String.fromCharCode(183)}</p>

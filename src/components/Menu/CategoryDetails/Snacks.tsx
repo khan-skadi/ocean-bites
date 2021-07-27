@@ -1,8 +1,7 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, Typography, Grid } from "@material-ui/core";
+import { makeStyles, Typography, Grid } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
+const useStyles = makeStyles(() => ({
     gridItem: {
       paddingLeft: "20px",
       paddingRight: "20px",

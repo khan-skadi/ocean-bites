@@ -1,8 +1,9 @@
-import React from "react";
-import { Grid, makeStyles, Theme, Typography } from "@material-ui/core";
+import React, { FC } from "react";
+import { Grid, makeStyles, Typography } from "@material-ui/core";
+import { SubCategoryItem } from "models/menu";
 import PizzaToppings from "./PizzaToppings";
 
-const useStyles = makeStyles((theme: Theme) => ({
+const useStyles = makeStyles(() => ({
   gridItem: {
     paddingLeft: "20px",
     paddingRight: "20px",
@@ -33,8 +34,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const Pizza = (props) => {
-  const { items, showToppings } = props;
+interface Props {
+  items: SubCategoryItem[];
+  showToppings: boolean;
+}
+
+const Pizza: FC<Props> = ({ items, showToppings }) => {
   const classes = useStyles();
 
   return (

@@ -1,71 +1,74 @@
-import React from "react";
-import { makeStyles, createStyles, Theme, Grid, Typography } from "@material-ui/core";
+import React, { FC } from "react";
+import { makeStyles, Grid, Typography } from "@material-ui/core";
+import { SubCategoryItem } from "models/menu";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    gridItem: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      marginTop: "30px",
-    },
-    itemWrapper: {
-      display: "flex",
-      flexFlow: "column wrap",
-    },
-    itemHead: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
+const useStyles = makeStyles(() => ({
+  gridItem: {
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginTop: "30px",
+  },
+  itemWrapper: {
+    display: "flex",
+    flexFlow: "column wrap",
+  },
+  itemHead: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
 
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
+      fontWeight: 600,
+      color: "#000",
+    },
+  },
+  itemSub: {
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
+      fontWeight: 400,
+      color: "rgba(0, 0, 0, 0.8)",
+    },
+  },
+  subtitle: {
+    display: "flex",
+    flexFlow: "column wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    width: "100%",
+    marginTop: "-10px",
+    marginBottom: "30px",
+
+    "& p": {
+      fontFamily: "Grotesk",
+      fontSize: "15px",
+      fontWeight: 400,
+      textTransform: "uppercase",
+      margin: 0,
+
+      "&:nth-child(2)": {
         fontWeight: 600,
-        color: "#000",
+        letterSpacing: "0.1em",
+      },
+
+      "&:nth-child(3)": {
+        marginTop: "10px",
+      },
+
+      "&:nth-child(4)": {
+        fontWeight: 600,
+        letterSpacing: "0.1em",
       },
     },
-    itemSub: {
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 400,
-        color: "rgba(0, 0, 0, 0.8)",
-      },
-    },
-    subtitle: {
-      display: "flex",
-      flexFlow: "column wrap",
-      justifyContent: "center",
-      alignItems: "center",
-      textAlign: "center",
-      width: "100%",
-      marginTop: "-10px",
-      marginBottom: "30px",
+  },
+}));
 
-      "& p": {
-        fontFamily: "Grotesk",
-        fontSize: "15px",
-        fontWeight: 400,
-        textTransform: "uppercase",
-        margin: 0,
+interface Props {
+  items: SubCategoryItem[];
+}
 
-        "&:nth-child(2)": {
-          fontWeight: 600,
-          letterSpacing: "0.1em",
-        },
-
-        "&:nth-child(3)": {
-          marginTop: "10px",
-        },
-
-        "&:nth-child(4)": {
-          fontWeight: 600,
-          letterSpacing: "0.1em",
-        },
-      },
-    },
-  })
-);
-
-const FreshSalads = ({ items }) => {
+const FreshSalads: FC<Props> = ({ items }) => {
   const classes = useStyles();
 
   return (

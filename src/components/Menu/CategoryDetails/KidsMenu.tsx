@@ -1,37 +1,35 @@
 import React from "react";
-import { makeStyles, createStyles, Theme, Typography, Grid } from "@material-ui/core";
+import { makeStyles, Typography, Grid } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    gridItem: {
-      paddingLeft: "20px",
-      paddingRight: "20px",
-      marginTop: "30px",
-    },
-    itemWrapper: {
-      display: "flex",
-      flexFlow: "column wrap",
-    },
-    itemHead: {
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
+const useStyles = makeStyles(() => ({
+  gridItem: {
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    marginTop: "30px",
+  },
+  itemWrapper: {
+    display: "flex",
+    flexFlow: "column wrap",
+  },
+  itemHead: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
 
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 600,
-        color: "#000",
-      },
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
+      fontWeight: 600,
+      color: "#000",
     },
-    itemSub: {
-      "& .MuiTypography-root": {
-        fontFamily: "Grotesk",
-        fontWeight: 400,
-        color: "rgba(0, 0, 0, 0.8)",
-      },
+  },
+  itemSub: {
+    "& .MuiTypography-root": {
+      fontFamily: "Grotesk",
+      fontWeight: 400,
+      color: "rgba(0, 0, 0, 0.8)",
     },
-  })
-);
+  },
+}));
 
 const KidsMenu = () => {
   const classes = useStyles();
