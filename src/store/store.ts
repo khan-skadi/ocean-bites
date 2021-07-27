@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import modalReducer from "./slices/modalSlice";
+import alertReducer from "./slices/alertSlice";
 
 const store = configureStore({
   reducer: {
     modals: modalReducer,
+    alerts: alertReducer,
   },
 });
 
