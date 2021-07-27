@@ -1,16 +1,24 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, Link as NavLink } from "react-router-dom";
+import { useAuthContext } from "context/AuthContext";
 import classnames from "classnames";
+
+// Components
 import { Menu, Link, AppBar, Button, Hidden, Toolbar, MenuItem, Container, IconButton } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+
+// Helpers
 import { PATHS } from "utils/appConstants";
 import { NavItems } from "utils/navigation";
+
 import OceanBitesLogo from "assets/images/logo/ocean-bites-logo.png";
 import { useStyles } from "./styles/SecondaryNavbar.styles";
 
 const SecondaryNavbar = () => {
   const classes = useStyles();
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuthContext();
   const [activeTab, setActiveTab] = useState<NavItems | string>(NavItems.home);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -117,6 +125,11 @@ const SecondaryNavbar = () => {
                       Contact Us
                     </Button>
                   </Link>
+                  {isAuthenticated && (
+                    <Button variant="text" className={classes.logoutButton} onClick={() => logout()}>
+                      Logout <ExitToAppIcon />
+                    </Button>
+                  )}
                 </div>
               </Hidden>
             </div>

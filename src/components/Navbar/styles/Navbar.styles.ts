@@ -128,5 +128,17 @@ export const useStyles = makeStyles((theme: Theme) =>
     active: {
       color: `${theme.palette.primary.light} !important`,
     },
+    logoutButton: {
+      fontFamily: "Hatton",
+      fontSize: "16px",
+      color: "#000",
+      textTransform: "capitalize",
+      marginTop: "6px",
+      marginLeft: "10px",
+
+      "& svg": {
+        marginLeft: "5px",
+      },
+    },
   })
 );

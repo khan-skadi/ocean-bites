@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useLocation, Link as NavLink } from "react-router-dom";
 import { Link, AppBar, Hidden, Button, Toolbar, IconButton, Menu, MenuItem } from "@material-ui/core";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { useAuthContext } from "context/AuthContext";
 import { NavItems } from "utils/navigation";
 import { PATHS } from "utils/appConstants";
 import classnames from "classnames";
@@ -11,6 +13,7 @@ import { useStyles } from "./styles/Navbar.styles";
 const Navbar = () => {
   const classes = useStyles();
   const location = useLocation();
+  const { isAuthenticated, logout } = useAuthContext();
   const [activeTab, setActiveTab] = useState<NavItems | string>(NavItems.home);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -116,6 +119,11 @@ const Navbar = () => {
                     Contact Us
                   </Button>
                 </Link>
+                {isAuthenticated && (
+                  <Button variant="text" className={classes.logoutButton} onClick={() => logout()}>
+                    Logout <ExitToAppIcon />
+                  </Button>
+                )}
               </div>
             </Hidden>
           </div>

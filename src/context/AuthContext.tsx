@@ -49,6 +49,7 @@ const AuthContextProvider: FC = ({ children }): JSX.Element => {
     try {
       await auth.signOut();
       setIsAuthenticated(false);
+      setToken("");
       localStorage.removeItem("token");
 
       return true;
