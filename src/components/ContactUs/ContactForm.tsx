@@ -32,18 +32,14 @@ const ContactForm = () => {
 
       setAlertProps({
         open: true,
-        onClose: () => setAlertProps({ open: false }),
         severity: "success",
         message: ALERT_MESSAGES.formSubmittedSuccessfully,
       });
     } catch (err) {
-      console.log(err);
-
       setAlertProps({
         open: true,
-        onClose: () => setAlertProps({ open: false }),
         severity: "error",
-        message: ALERT_MESSAGES.errorSubmittingForm,
+        message: err.message || ALERT_MESSAGES.errorSubmittingForm,
       });
     } finally {
       setLoading(false);

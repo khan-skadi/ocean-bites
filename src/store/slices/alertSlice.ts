@@ -2,14 +2,12 @@ import { createSelector, createSlice, Dispatch, OutputSelector } from "@reduxjs/
 
 export interface AlertProps {
   open: boolean;
-  onClose?: () => void;
   severity?: "success" | "error";
   message?: string;
 }
 
 const initialState: AlertProps = {
   open: false,
-  onClose: undefined,
   severity: "success",
   message: "",
 };
@@ -19,15 +17,13 @@ const alertSlice = createSlice({
   initialState,
   reducers: {
     setProps: (state, action) => {
-      const { open, onClose, severity, message } = action.payload;
+      const { open, severity, message } = action.payload;
       state.open = open;
-      state.onClose = onClose;
       state.severity = severity;
       state.message = message;
     },
     clearProps: (state) => {
       state.open = false;
-      state.onClose = undefined;
       state.severity = undefined;
       state.message = undefined;
     },

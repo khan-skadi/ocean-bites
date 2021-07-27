@@ -1,4 +1,4 @@
-import React, { FC  } from "react";
+import React, { FC } from "react";
 import { useDispatch } from "react-redux";
 import { closeModal, setAlertProps } from "store";
 import { db } from "config/firebase";
@@ -73,7 +73,6 @@ const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
       dispatch(
         setAlertProps({
           open: true,
-          onClose: () => dispatch(setAlertProps({ open: false })),
           severity: "success",
           message: ALERT_MESSAGES.menuUpdatedSuccessfully,
         })
@@ -82,7 +81,6 @@ const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
       dispatch(
         setAlertProps({
           open: true,
-          onClose: () => dispatch(setAlertProps({ open: false })),
           severity: "error",
           message: err.message || ALERT_MESSAGES.errorUpdatingMenu,
         })

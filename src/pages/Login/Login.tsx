@@ -57,7 +57,6 @@ const Login = () => {
           dispatch(
             setAlertProps({
               open: true,
-              onClose: () => dispatch(setAlertProps({ open: false })),
               severity: "success",
               message: ALERT_MESSAGES.loggedInSuccessfully,
             })
@@ -69,7 +68,6 @@ const Login = () => {
         dispatch(
           setAlertProps({
             open: true,
-            onClose: () => dispatch(setAlertProps({ open: false })),
             severity: "error",
             message: err.message || ALERT_MESSAGES.errorSubmittingForm,
           })
