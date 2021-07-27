@@ -71,10 +71,20 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
                   const initialState: { [key: string]: string | string[] } = {};
 
                   subCategory.items.forEach((item) => {
-                    initialState[item.name] = item.name;
-                    initialState[`${item.name} price`] = item.price;
-                    initialState[`${item.name} ingredients`] = item.ingredients || [];
-                    initialState[`${item.name} additional`] = item.additional || "";
+                    if (item.subItems && item.subItems.length) {
+                      item.subItems.forEach((subItem) => {
+                        initialState[subItem.name] = subItem.name;
+                        initialState[`${subItem.name} price1`] = subItem.price1;
+                        initialState[`${subItem.name} price2`] = subItem.price2;
+                        initialState[`${subItem.name} ingredients`] = subItem.ingredients || [];
+                        initialState[`${subItem.name} additional`] = subItem.additional || "";
+                      });
+                    } else {
+                      initialState[item.name] = item.name;
+                      initialState[`${item.name} price`] = item.price;
+                      initialState[`${item.name} ingredients`] = item.ingredients || [];
+                      initialState[`${item.name} additional`] = item.additional || "";
+                    }
                   });
 
                   dispatch(

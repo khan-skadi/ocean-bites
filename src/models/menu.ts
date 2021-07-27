@@ -26,12 +26,22 @@ type SubCategoryName =
   | "Fountain Soda - Pepsi Products"
   | "Ocean Bites Ice Cream and Treats";
 
+export interface SubItem {
+  id: number;
+  name: string;
+  price1: string;
+  price2: string;
+  additional?: string;
+  ingredients?: string[];
+}
+
 export interface SubCategoryItem {
   id: number;
   name: string;
   price: string;
   additional?: string;
   ingredients?: string[];
+  subItems?: SubItem[];
 }
 
 export interface SubCategory {

@@ -124,80 +124,30 @@ const IceCream: FC<Props> = ({ items }) => {
   return (
     <>
       <Grid item className={classes.gridItem} xs={12} sm={8}>
-        <div className={classes.itemWrapper}>
-          <div className={classes.itemHead}>
-            <Typography variant="body1" color="textSecondary" className={classes.title}>
-              Hand Dipped Ice Cream
-            </Typography>
-          </div>
-          <div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                Small - One Dip
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                4.00
-              </Typography>
-            </div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                Regular - Two Dips
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                5.25
-              </Typography>
-            </div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                Soft Serve Ice Cream
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                4.00
-              </Typography>
-            </div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                With Sprinkles (Add)
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                .50
-              </Typography>
-            </div>
-          </div>
-        </div>
-        <div className={classes.itemWrapper}>
-          <div className={classes.itemHead}>
-            <Typography variant="body1" color="textSecondary" className={classes.title}>
-              Sundaes
-            </Typography>
-          </div>
-          <div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                One Scoop One Topping
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                4.50
-              </Typography>
-            </div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                Two Scoop Two Toppings
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                5.75
-              </Typography>
-            </div>
-            <div className={classes.item}>
-              <Typography variant="body1" color="textSecondary">
-                Extra Toppings
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                .50
-              </Typography>
-            </div>
-          </div>
-        </div>
+        {items.map(
+          (subCategoryItem, index) =>
+            index < 2 && (
+              <div className={classes.itemWrapper} key={subCategoryItem.id}>
+                <div className={classes.itemHead}>
+                  <Typography variant="body1" color="textSecondary" className={classes.title}>
+                    {subCategoryItem.name}
+                  </Typography>
+                </div>
+                <div>
+                  {subCategoryItem?.subItems?.map((subItem) => (
+                    <div className={classes.item} key={subItem.id}>
+                      <Typography variant="body1" color="textSecondary">
+                        {subItem.name}
+                      </Typography>
+                      <Typography variant="body1" color="textSecondary">
+                        $ {subItem.price1}
+                      </Typography>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+        )}
       </Grid>
       <IceCreamToppings />
       <div style={{ width: "100%", marginTop: "50px" }}>
@@ -222,94 +172,56 @@ const IceCream: FC<Props> = ({ items }) => {
       </div>
       <Grid item xs={12} sm={8} className={classes.gridItem}>
         <div className={classes.itemWrapper} style={{ marginTop: "30px" }}>
-          <div className={classes.itemHead}>
-            <Typography variant="body1" color="textSecondary" className={classes.title}>
-              Italian Ice
-            </Typography>
-          </div>
-          <Grid item xs={12}>
-            <div className={classes.priceHeadingWrapper}>
-              <div style={{ width: "60%" }} />
-              <Typography variant="body1" color="textSecondary">
-                Small
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                Large
-              </Typography>
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className={classes.itemWrapper}>
-              <div className={classes.iceCreamWrapper}>
-                <Typography variant="body1" color="textSecondary">
-                  Homemade
-                </Typography>
-                <Typography variant="body1" color="textSecondary">
-                  3.75
-                </Typography>
-                <Typography variant="body1" color="textSecondary">
-                  4.75
-                </Typography>
-              </div>
-              <div className={classes.itemSub}>
-                <Typography variant="body1" color="textSecondary">
-                  (Lots of Flavors)
-                </Typography>
-              </div>
-            </div>
-          </Grid>
+          {items.map(
+            (subCategoryItem, index) =>
+              index > 1 && (
+                <React.Fragment key={subCategoryItem.id}>
+                  <div className={classes.itemHead}>
+                    <Typography variant="body1" color="textSecondary" className={classes.title}>
+                      {subCategoryItem.name}
+                    </Typography>
+                  </div>
+                  <Grid item xs={12}>
+                    <div className={classes.priceHeadingWrapper}>
+                      <div style={{ width: "60%" }} />
+                      <Typography variant="body1" color="textSecondary">
+                        Small
+                      </Typography>
+                      <Typography variant="body1" color="textSecondary">
+                        Large
+                      </Typography>
+                    </div>
+                  </Grid>
+                  {subCategoryItem.subItems?.map((subItem) => (
+                    <React.Fragment key={subItem.id}>
+                      <Grid item xs={12}>
+                        <div className={classes.itemWrapper}>
+                          <div className={classes.iceCreamWrapper}>
+                            <Typography variant="body1" color="textSecondary">
+                              {subItem.name}
+                            </Typography>
+                            <Typography variant="body1" color="textSecondary">
+                              {subItem.price1 && `$ ${subItem.price1}`}
+                            </Typography>
+                            <Typography variant="body1" color="textSecondary">
+                              {subItem.price2 && `$ ${subItem.price2}`}
+                            </Typography>
+                          </div>
+                          {subItem.additional && (
+                            <div className={classes.itemSub}>
+                              <Typography variant="body1" color="textSecondary">
+                                {subItem.additional}
+                              </Typography>
+                            </div>
+                          )}
+                        </div>
+                      </Grid>
+                    </React.Fragment>
+                  ))}
+                </React.Fragment>
+              )
+          )}
         </div>
-        <Grid item xs={12}>
-          <div className={classes.itemWrapper}>
-            <div className={classes.iceCreamWrapper}>
-              <Typography variant="body1" color="textSecondary">
-                Gelato
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                3.75
-              </Typography>
-              <Typography variant="body1" color="textSecondary">
-                5.75
-              </Typography>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={12}>
-          <div className={classes.itemWrapper}>
-            <div className={classes.iceCreamWrapper}>
-              <Typography variant="body1" color="textSecondary">
-                Bites Thick Shakes
-              </Typography>
-              <Typography variant="body1" color="textSecondary" />
-              <Typography variant="body1" color="textSecondary">
-                5.50
-              </Typography>
-            </div>
-            <div className={classes.itemSub}>
-              <Typography variant="body1" color="textSecondary">
-                (With Whipped Cream and Cheery)
-              </Typography>
-            </div>
-          </div>
-        </Grid>
-        <Grid item xs={12}>
-          <div className={classes.itemWrapper}>
-            <div className={classes.iceCreamWrapper}>
-              <Typography variant="body1" color="textSecondary">
-                Soda Floats
-              </Typography>
-              <Typography variant="body1" color="textSecondary" />
-              <Typography variant="body1" color="textSecondary">
-                4.25
-              </Typography>
-            </div>
-            <div className={classes.itemSub}>
-              <Typography variant="body1" color="textSecondary">
-                (Any Ice Cream and Soda)
-              </Typography>
-            </div>
-          </div>
-        </Grid>
       </Grid>
     </>
   );

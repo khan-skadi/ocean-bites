@@ -9,6 +9,7 @@ import { ALERT_MESSAGES } from "utils/verbiage";
 // Components
 import ModalWrapper from "../ModalWrapper";
 import EditMenuForm from "./EditMenuForm";
+import EditMenuDualPrice from "./EditMenuDualPrice";
 
 const useStyles = makeStyles(() => ({
   formWrapper: {
@@ -93,7 +94,11 @@ const EditMenu: FC<Props> = ({ subCategory, initialState, menuItem }) => {
   return (
     <ModalWrapper header={`Edit ${subCategory.name}`}>
       <div className={classes.formWrapper}>
-        <EditMenuForm subCategory={subCategory} state={initialState} handleSubmitForm={handleSubmitForm} />
+        {subCategory.items[0].subItems && subCategory.items[0].subItems.length ? (
+          <EditMenuDualPrice subCategory={subCategory} state={initialState} handleSubmitForm={handleSubmitForm} />
+        ) : (
+          <EditMenuForm subCategory={subCategory} state={initialState} handleSubmitForm={handleSubmitForm} />
+        )}
       </div>
     </ModalWrapper>
   );
