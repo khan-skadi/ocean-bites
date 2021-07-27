@@ -4,11 +4,11 @@ import { closeModal, setAlertProps } from "store";
 import { db } from "config/firebase";
 import { makeStyles } from "@material-ui/core/styles";
 import { SubCategory, SubCategoryItem, MenuItem } from "models/menu";
+import { ALERT_MESSAGES } from "utils/verbiage";
 
 // Components
 import ModalWrapper from "../ModalWrapper";
 import EditMenuForm from "./EditMenuForm";
-import { ALERT_MESSAGES } from "../../../utils/verbiage";
 
 const useStyles = makeStyles(() => ({
   formWrapper: {
