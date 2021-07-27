@@ -1,41 +1,45 @@
 import React, { FC, forwardRef } from "react";
 import { FieldAttributes } from "formik";
-import { makeStyles, createStyles, Theme, TextField } from "@material-ui/core";
+import { makeStyles, Theme, TextField } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      marginBottom: "24px",
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    marginBottom: "24px",
+  },
+  formControl: {
+    "& label": {
+      fontFamily: "Grotesk",
+      fontSize: "19px",
+      fontWeight: 600,
     },
-    formControl: {
-      "& label": {
-        fontFamily: "Grotesk",
-        fontSize: "19px",
-        fontWeight: 600,
-      },
 
-      "& .MuiFormLabel-filled": {
-        color: theme.palette.secondary.main,
-      },
-
-      "& .MuiInputBase-root": {
-        borderRadius: "2px",
-
-        "& input": {
-          fontSize: "16px",
-          paddingTop: "12px",
-          paddingBottom: "12px",
-          height: "28px",
-        },
+    "& .MuiFormLabel-root.MuiInputLabel-animated": {
+      "&.Mui-focused": {
+        transform: "translate(14px, -6px) scale(0.65)",
       },
     },
-  })
-);
+
+    "& .MuiFormLabel-filled": {
+      color: theme.palette.secondary.main,
+    },
+
+    "& .MuiInputBase-root": {
+      borderRadius: "2px",
+
+      "& input": {
+        fontSize: "16px",
+        paddingTop: "12px",
+        paddingBottom: "12px",
+        height: "28px",
+      },
+    },
+  },
+}));
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Text: FC<FieldAttributes<any>> = forwardRef((props, ref) => {
   const classes = useStyles();
-  const { formikFieldProps, ...restProps } = props;
+  const { formikFieldProps, fullWidth, ...restProps } = props;
   const { field, meta } = formikFieldProps;
 
   return (
@@ -44,7 +48,7 @@ export const Text: FC<FieldAttributes<any>> = forwardRef((props, ref) => {
         classes={{
           root: classes.formControl,
         }}
-        fullWidth
+        fullWidth={fullWidth}
         variant="outlined"
         color="secondary"
         type={restProps.type || "text"}
