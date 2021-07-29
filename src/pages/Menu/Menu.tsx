@@ -10,7 +10,7 @@ import SecondaryNavbar from "components/Navbar/SecondaryNavbar";
 import MenuPage from "components/Menu/MenuPage";
 import Spinner from "components/Spinner";
 import Footer from "components/Footer";
-import { MenuItem } from "models/menu";
+import { MenuItem, CollectionName } from "models/menu";
 
 // Helpers
 import { getActiveMenuItem, getSpacing } from "./helpers";
@@ -24,7 +24,7 @@ const Menu = () => {
   const [loading, setLoading] = useState(false);
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [activeMenuItem, setActiveMenuItem] = useState<MenuItem>(menuListItems[0]);
-  const ref = db.collection("menuItems");
+  const ref = db.collection(CollectionName.menuItems);
 
   const fetchMenuItems = useCallback(() => {
     setLoading(true);

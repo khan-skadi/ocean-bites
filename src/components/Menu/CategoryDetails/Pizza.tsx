@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Grid, makeStyles, Typography } from "@material-ui/core";
-import { SubCategoryItem } from "models/menu";
+import { SubCategory } from "models/menu";
 import PizzaToppings from "./PizzaToppings";
 
 const useStyles = makeStyles(() => ({
@@ -35,16 +35,16 @@ const useStyles = makeStyles(() => ({
 }));
 
 interface Props {
-  items: SubCategoryItem[];
+  subCategory: SubCategory;
   showToppings: boolean;
 }
 
-const Pizza: FC<Props> = ({ items, showToppings }) => {
+const Pizza: FC<Props> = ({ subCategory, showToppings }) => {
   const classes = useStyles();
 
   return (
     <>
-      {items.map((item) => (
+      {subCategory.items.map((item) => (
         <Grid item key={item.id} className={classes.gridItem} xs={12} sm={6}>
           <div className={classes.itemWrapper}>
             <div className={classes.itemHead}>
@@ -68,7 +68,7 @@ const Pizza: FC<Props> = ({ items, showToppings }) => {
           </div>
         </Grid>
       ))}
-      {showToppings && <PizzaToppings />}
+      {showToppings && <PizzaToppings subCategory={subCategory} />}
     </>
   );
 };

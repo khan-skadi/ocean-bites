@@ -84,3 +84,19 @@ export interface MenuItem {
   additional?: MenuItemAdditional;
   subCategories: SubCategory[];
 }
+
+export interface PizzaToppings {
+  title: string;
+  list: string[];
+}
+
+export enum CollectionName {
+  "menuItems" = "menuItems",
+  "extras" = "extras",
+}
+
+export interface Extras {
+  name: string;
+  title: string;
+  list: string[];
+}

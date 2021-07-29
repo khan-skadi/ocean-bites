@@ -1,16 +1,13 @@
 import React, { FC, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { Parallax } from "react-parallax";
-import { Grid, Typography, Button, Hidden } from "@material-ui/core";
-import { useAuthContext } from "context/AuthContext";
-import { MenuItem } from "models/menu";
+import { Grid, Hidden, Typography } from "@material-ui/core";
+import { CollectionName, MenuItem } from "models/menu";
+import EditButton from "components/EditButton";
 import classnames from "classnames";
 import appetizers from "assets/images/menu-items/ChickenWings.jpg";
 
 // Helpers
-import { openModal } from "store";
-import { modalLookup } from "utils/appConstants";
 import { getImage, renderSubcategory } from "./helpers";
 import { useStyles } from "./MenuPage.styles";
 
@@ -20,9 +17,7 @@ interface Props {
 
 const MenuPage: FC<Props> = ({ menuItem }) => {
   const classes = useStyles();
-  const dispatch = useDispatch();
   const location = useLocation();
-  const { isAuthenticated } = useAuthContext();
 
   useEffect(() => {
     window.scrollTo({
@@ -57,42 +52,7 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
       {menuItem.subCategories.map((subCategory) => (
         <div key={subCategory.id} className={classes.subCategoryWrapper}>
           <div className={classes.titleWrapper}>
-            {isAuthenticated && (
-              <Button
-                className={classes.editButton}
-                color="secondary"
-                variant="contained"
-                onClick={() => {
-                  const initialState: { [key: string]: string | string[] } = {};
-
-                  subCategory.items.forEach((item) => {
-                    if (item.subItems && item.subItems.length) {
-                      item.subItems.forEach((subItem) => {
-                        initialState[subItem.name] = subItem.name;
-                        initialState[`${subItem.name} price1`] = subItem.price1;
-                        initialState[`${subItem.name} price2`] = subItem.price2;
-                        initialState[`${subItem.name} ingredients`] = subItem.ingredients || [];
-                        initialState[`${subItem.name} additional`] = subItem.additional || "";
-                      });
-                    } else {
-                      initialState[item.name] = item.name;
-                      initialState[`${item.name} price`] = item.price;
-                      initialState[`${item.name} ingredients`] = item.ingredients || [];
-                      initialState[`${item.name} additional`] = item.additional || "";
-                    }
-                  });
-
-                  dispatch(
-                    openModal({
-                      type: modalLookup.EditMenu,
-                      data: { subCategory, initialState, menuItem },
-                    })
-                  );
-                }}
-              >
-                Edit Section
-              </Button>
-            )}
+            <EditButton menuItem={menuItem} subCategory={subCategory} collectionName={CollectionName.menuItems} />
             <Typography variant="body1" color="textSecondary" className={classes.title}>
               {subCategory.name}
             </Typography>

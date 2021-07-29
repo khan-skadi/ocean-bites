@@ -10,8 +10,25 @@ const useStyles = makeStyles((theme: Theme) =>
         marginLeft: theme.spacing(2),
       },
     },
+    spinnerWrapper: {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginTop: "90px",
+    },
   })
 );
+
+export const WholesomeSpinner = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.spinnerWrapper}>
+      <Spinner />
+    </div>
+  );
+};
 
 export default function Spinner() {
   const classes = useStyles();

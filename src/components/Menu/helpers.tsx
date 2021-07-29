@@ -35,20 +35,10 @@ export const renderSubcategory = (subCategory: SubCategory) => {
   switch (name) {
     case subCategoryName.OceanBitesBaskets:
       return <Baskets items={items} />;
-    case subCategoryName.OceanBitesPizza:
-      return <Pizza items={items} showToppings={true} />;
-    case subCategoryName.PizzaBySlice:
-      return <Pizza items={items} showToppings={false} />;
-    case subCategoryName.OceanBitesFreshSalads:
-      return <FreshSalads items={items} />;
-    case subCategoryName.OceanBitesWraps:
-      return <Wraps items={items} />;
     case subCategoryName.OceanBitesHotSubs:
       return <HotAndColdSubs items={items} />;
     case subCategoryName.OceanBitesColdSubs:
       return <HotAndColdSubs items={items} />;
-    case subCategoryName.OceanBitesSandwiches:
-      return <Sandwiches items={items} />;
     case subCategoryName.OceanBitesIceCreamAndTreats:
       return <IceCream items={items} />;
     case subCategoryName.KidsMenu:
@@ -56,6 +46,16 @@ export const renderSubcategory = (subCategory: SubCategory) => {
     case subCategoryName.Beverages:
     case subCategoryName.FountainSodaPepsiProducts:
       return <KidsMenu items={items} />;
+    case subCategoryName.PizzaBySlice:
+      return <Pizza subCategory={subCategory} showToppings={false} />;
+    case subCategoryName.OceanBitesPizza:
+      return <Pizza subCategory={subCategory} showToppings={true} />;
+    case subCategoryName.OceanBitesFreshSalads:
+      return <FreshSalads items={items} />;
+    case subCategoryName.OceanBitesSandwiches:
+      return <Sandwiches items={items} />;
+    case subCategoryName.OceanBitesWraps:
+      return <Wraps items={items} />;
     default:
       return <NormalList items={items} />;
   }
