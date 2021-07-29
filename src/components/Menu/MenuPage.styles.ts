@@ -11,6 +11,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
       marginTop: "100px",
     },
   },
+  subCategoryImageWrapper: {
+    marginTop: "30px",
+    marginBottom: "-60px",
+  },
   titleWrapper: {
     display: "flex",
     flexDirection: "column",

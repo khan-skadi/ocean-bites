@@ -26,6 +26,26 @@ type SubCategoryName =
   | "Fountain Soda - Pepsi Products"
   | "Ocean Bites Ice Cream and Treats";
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export enum subCategoryName {
+  "Beverages" = "Beverages",
+  "KidsMenu" = "Kids Menu",
+  "PizzaBySlice" = "Pizza by Slice",
+  "BitesAppetizers" = "Bites Appetizers",
+  "OceanBitesPizza" = "Ocean Bites Pizza",
+  "OceanBitesWraps" = "Ocean Bites Wraps",
+  "OceanBitesSnacks" = "Ocean Bites Snacks",
+  "BitesBananaSplit" = "Bites Banana Split",
+  "OceanBitesBaskets" = "Ocean Bites Baskets",
+  "OceanBitesHotSubs" = "Ocean Bites Hot Subs",
+  "OceanBitesColdSubs" = "Ocean Bites Cold Subs",
+  "ToppingsOfYourChoice" = "Topping of Your Choice",
+  "OceanBitesSandwiches" = "Ocean Bites Sandwiches",
+  "OceanBitesFreshSalads" = "Ocean Bites Fresh Salads",
+  "FountainSodaPepsiProducts" = "Fountain Soda - Pepsi Products",
+  "OceanBitesIceCreamAndTreats" = "Ocean Bites Ice Cream and Treats",
+}
+
 export interface SubItem {
   id: number;
   name: string;

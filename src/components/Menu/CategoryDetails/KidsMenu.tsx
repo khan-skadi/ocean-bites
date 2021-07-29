@@ -1,5 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 import { makeStyles, Typography, Grid } from "@material-ui/core";
+import { SubCategoryItem } from "models/menu";
 
 const useStyles = makeStyles(() => ({
   gridItem: {
@@ -31,45 +32,43 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const KidsMenu = () => {
+interface Props {
+  items: SubCategoryItem[];
+}
+
+const KidsMenu: FC<Props> = ({ items }) => {
   const classes = useStyles();
 
   return (
     <>
-      <Grid item className={classes.gridItem} xs={12} sm={8}>
-        <div className={classes.itemWrapper}>
-          <div className={classes.itemHead}>
-            <Typography variant="body1" color="textSecondary">
-              Tenders (2)
-            </Typography>
-            <Typography variant="body1" color="textSecondary">
-              5.75
-            </Typography>
+      {items.map((item) => (
+        <Grid item key={item.id} className={classes.gridItem} xs={12} sm={8}>
+          <div className={classes.itemWrapper}>
+            <div className={classes.itemHead}>
+              <Typography variant="body1" color="textSecondary">
+                {item.name}
+              </Typography>
+              <Typography variant="body1" color="textSecondary">
+                {item.price}
+              </Typography>
+            </div>
+            {item.ingredients && (
+              <div className={classes.itemSub}>
+                <Typography variant="body1" color="textSecondary">
+                  {item.ingredients}
+                </Typography>
+              </div>
+            )}
+            {item.additional && (
+              <div className={classes.itemSub}>
+                <Typography variant="body1" color="textSecondary">
+                  {item.additional}
+                </Typography>
+              </div>
+            )}
           </div>
-          <div className={classes.itemSub}>
-            <Typography variant="body1" color="textSecondary">
-              (with French Fries)
-            </Typography>
-          </div>
-        </div>
-      </Grid>
-      <Grid item className={classes.gridItem} xs={12} sm={8}>
-        <div className={classes.itemWrapper}>
-          <div className={classes.itemHead}>
-            <Typography variant="body1" color="textSecondary">
-              Slice of Cheese Pizza
-            </Typography>
-            <Typography variant="body1" color="textSecondary">
-              5.75
-            </Typography>
-          </div>
-          <div className={classes.itemSub}>
-            <Typography variant="body1" color="textSecondary">
-              (and French Fries)
-            </Typography>
-          </div>
-        </div>
-      </Grid>
+        </Grid>
+      ))}
     </>
   );
 };

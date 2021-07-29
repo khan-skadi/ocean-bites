@@ -1,12 +1,9 @@
-export { default as Baskets } from "./Baskets";
-export { default as NormalList } from "./NormalList";
 export { default as Pizza } from "./Pizza";
-export { default as FreshSalads } from "./FreshSalads";
 export { default as Wraps } from "./Wraps";
-export { default as HotAndColdSubs } from "./HotAndColdSubs";
-export { default as Sandwiches } from "./Sandwiches";
+export { default as Baskets } from "./Baskets";
 export { default as IceCream } from "./IceCream";
 export { default as KidsMenu } from "./KidsMenu";
-export { default as Snacks } from "./Snacks";
-export { default as Beverages } from "./Beverages";
-export { default as FountainSoda } from "./FountainSoda";
+export { default as NormalList } from "./NormalList";
+export { default as Sandwiches } from "./Sandwiches";
+export { default as FreshSalads } from "./FreshSalads";
+export { default as HotAndColdSubs } from "./HotAndColdSubs";

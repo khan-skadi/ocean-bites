@@ -44,12 +44,7 @@ const MenuPage: FC<Props> = ({ menuItem }) => {
         </div>
       </Hidden>
       <Hidden smUp>
-        <div
-          style={{
-            marginTop: "30px",
-            marginBottom: "-60px",
-          }}
-        >
+        <div className={classes.subCategoryImageWrapper}>
           <Parallax
             bgImage={getImage(location.pathname) || appetizers}
             strength={400}
