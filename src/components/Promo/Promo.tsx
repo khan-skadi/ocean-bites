@@ -188,10 +188,13 @@ const Promo = () => {
         <div className={classes.iceCreamDescWrapper}>
           <p className={classes.iceCreamTitle}>Ice Cream</p>
           <p>
-            Ocean Bites is your place on the Ocean City Boardwalk for delicious Gelato, perfect to cool you down on a
-            hot Summer's day.
+            We are eager to make your first visit one that you won't forget. We are proud to say that our ice cream has
+            a creamy and soft texture that melts in your mouth, giving your palate a whole flavor experience.
           </p>
-          <p>It's Italian for Ice Cream, and Native for Delicious!</p>
+          <p>
+            Our scoops are generous and provide you with the exact quantity to enjoy the uniqueness of the aroma and
+            flavors, which will let you appreciate the value of the ingredients.
+          </p>
           <blockquote>Life is like an ice-cream cone, you have to lick it one day at a time.</blockquote>
           <small className={classes.small}>- Ocean Bites</small>
         </div>

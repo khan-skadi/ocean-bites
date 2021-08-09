@@ -107,7 +107,11 @@ const HotAndColdSubs: FC<Props> = ({ items }) => {
             </div>
             <div className={classes.itemSub}>
               <Typography variant="body1" color="textSecondary">
-                {(item.ingredients?.length && `(${item.ingredients.join(", ").toString()})`) || ""}
+                {(item.ingredients &&
+                  Array.isArray(item.ingredients) &&
+                  item.ingredients.length &&
+                  `(${item.ingredients.join(", ").toString()})`) ||
+                  ""}{" "}
               </Typography>
             </div>
           </div>

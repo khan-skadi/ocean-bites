@@ -87,7 +87,10 @@ const Baskets: FC<Props> = ({ items }) => {
                 </Typography>
                 <div className={classes.itemSub}>
                   <Typography variant="body1" color="textSecondary">
-                    {(item.ingredients && item.ingredients.length && `(${item.ingredients.join(", ").toString()})`) ||
+                    {(item.ingredients &&
+                      Array.isArray(item.ingredients) &&
+                      item.ingredients.length &&
+                      `(${item.ingredients.join(", ").toString()})`) ||
                       ""}
                   </Typography>
                   {item.additional && item.additional.length && (
