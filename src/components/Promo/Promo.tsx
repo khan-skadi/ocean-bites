@@ -129,7 +129,6 @@ const useStyles = makeStyles((theme: Theme) => ({
         fontSize: "36px",
 
         "&:nth-of-type(3)": {
-          width: "80%",
           marginLeft: "35px",
           textAlign: "left",
         },
